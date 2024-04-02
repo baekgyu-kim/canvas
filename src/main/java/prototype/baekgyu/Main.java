@@ -1,4 +1,4 @@
-package practice.baekgyu;
+package prototype.baekgyu;
 
 public class Main {
     public static void main(String[] args) {

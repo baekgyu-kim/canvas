@@ -1,6 +1,4 @@
-package practice.baekgyu;
-
-import practice.baekgyu.PracticeButton;
+package prototype.baekgyu;
 
 import javax.swing.*;
 

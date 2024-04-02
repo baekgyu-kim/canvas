@@ -1,4 +1,4 @@
-package practice.baekgyu;
+package prototype.baekgyu;
 
 import javax.swing.JButton;
 import java.awt.event.ActionEvent;
