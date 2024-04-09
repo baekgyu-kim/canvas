@@ -1,6 +1,8 @@
 package canvas.model.observer;
 
+import canvas.model.shape.ShapeState;
+
 // MVC에서 View가 Observer
 public interface Observer {
-    void update(String state); // subject의 상태가 바뀌면 호출됨
+    void update(ShapeState state);
 }
