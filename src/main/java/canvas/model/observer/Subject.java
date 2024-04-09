@@ -1,11 +1,9 @@
 package canvas.model.observer;
 
-import canvas.model.shape.ShapeState;
-
+import canvas.dto.ShapeStateDto;
 import java.util.ArrayList;
 import java.util.List;
 
-// MVC에서 Model이 Subject
 public interface Subject {
     List<Observer> observers = new ArrayList<>();
 
@@ -17,11 +15,10 @@ public interface Subject {
         observers.remove(o);
     }
 
-    default void notifyObservers(ShapeState state) {
+    // 이제 전체 도형의 상태를 Observer들에게 알림
+    default void notifyObservers(List<ShapeStateDto> shapes) {
         for (Observer observer : observers) {
-            observer.update(state);
+            observer.update(new ArrayList<>(shapes)); // 상태 리스트의 복사본을 전달
         }
     }
-
 }
-

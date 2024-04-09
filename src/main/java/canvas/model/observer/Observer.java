@@ -1,8 +1,10 @@
 package canvas.model.observer;
 
-import canvas.model.shape.ShapeState;
+import canvas.dto.ShapeStateDto;
+
+import java.util.List;
 
 // MVC에서 View가 Observer
 public interface Observer {
-    void update(ShapeState state);
+    void update(List<ShapeStateDto> shapes);
 }

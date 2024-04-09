@@ -1,13 +1,13 @@
-package canvas.model.shape;
+package canvas.dto;
 
-public class ShapeState {
+public class ShapeStateDto {
     private final int x;
     private final int y;
     private final int width;
     private final int height;
     private final String color;
 
-    public ShapeState(int x, int y, int width, int height, String color) {
+    public ShapeStateDto(int x, int y, int width, int height, String color) {
         this.x = x;
         this.y = y;
         this.width = width;

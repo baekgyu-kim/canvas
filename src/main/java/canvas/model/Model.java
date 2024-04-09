@@ -1,14 +1,14 @@
 package canvas.model;
+
 import canvas.model.observer.Observer;
 import canvas.model.observer.Subject;
-import canvas.model.shape.ShapeState;
-
+import canvas.dto.ShapeStateDto;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model implements Subject {
     private final List<Observer> observers = new ArrayList<>();
-    private List<ShapeState> shapes = new ArrayList<>();
+    private List<ShapeStateDto> shapes = new ArrayList<>();
 
     @Override
     public void registerObserver(Observer o) {
@@ -23,20 +23,23 @@ public class Model implements Subject {
     }
 
     @Override
-    public void notifyObservers(ShapeState state) {
+    public void notifyObservers(List<ShapeStateDto> shapes) {
         for (Observer observer : observers) {
-            // 마지막에 변경된 도형의 상태를 알림
-            if (!shapes.isEmpty()) {
-                observer.update(shapes.get(shapes.size() - 1));
-            }
+            observer.update(new ArrayList<>(shapes)); // 전체 도형들의 상태를 복사하여 전달
         }
     }
 
-    // 도형의 상태를 추가하는 메소드
-    public void addShape(ShapeState state) {
+    public void addShape(ShapeStateDto state) {
         shapes.add(state);
-        notifyObservers(state);
+        notifyObservers(shapes);
     }
 
-    // 여기에 더 많은 메소드 추가
+    public void modifyShape(int index, ShapeStateDto newState) {
+        if (index >= 0 && index < shapes.size()) {
+            shapes.set(index, newState);
+            notifyObservers(shapes);
+        }
+    }
+
+    // 추가 메소드 구현 ...
 }
