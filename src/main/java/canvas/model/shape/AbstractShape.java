@@ -1,6 +1,6 @@
 package canvas.model.shape;
 
-public abstract class AbstractShape implements Shape{
+public abstract class AbstractShape implements ShapeInterface {
     protected int width;
     protected int height;
     protected String color;

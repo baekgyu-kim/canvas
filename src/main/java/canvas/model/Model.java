@@ -3,12 +3,14 @@ package canvas.model;
 import canvas.model.observer.Observer;
 import canvas.model.observer.Subject;
 import canvas.dto.ShapeStateDto;
+import canvas.model.shape.Shape;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model implements Subject {
     private final List<Observer> observers = new ArrayList<>();
-    private List<ShapeStateDto> shapes = new ArrayList<>();
+    private List<Shape> shapes = new ArrayList<>();
 
     @Override
     public void registerObserver(Observer o) {
@@ -29,17 +31,19 @@ public class Model implements Subject {
         }
     }
 
-    public void addShape(ShapeStateDto state) {
+    public void createShape(ShapeStateDto state) {
         shapes.add(state);
         notifyObservers(shapes);
     }
 
-    public void modifyShape(int index, ShapeStateDto newState) {
+    public void updateShape(int index, ShapeStateDto newState) {
         if (index >= 0 && index < shapes.size()) {
             shapes.set(index, newState);
             notifyObservers(shapes);
         }
     }
 
-    // 추가 메소드 구현 ...
+    // 도형 삭제하는 메소드
+    public void deleteShape(ShapeStateDto shapeStateDto){}
+
 }
