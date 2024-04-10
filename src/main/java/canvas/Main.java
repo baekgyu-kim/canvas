@@ -1,6 +1,8 @@
 package canvas;
 
 import canvas.view.Frame;
+import canvas.view.Panel;
+
 import javax.swing.*;
 
 public class Main {
