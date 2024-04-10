@@ -2,16 +2,22 @@ package canvas.model;
 
 import canvas.model.observer.Observer;
 import canvas.model.observer.Subject;
-import canvas.dto.ShapeStateDto;
+import canvas.dto.ShapeDto;
 import canvas.model.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Model implements Subject {
-    private final List<Observer> observers = new ArrayList<>();
-    private List<Shape> shapes = new ArrayList<>();
+    private static final Logger logger = Logger.getLogger(Model.class.getName());
+    private List<Observer> observers;
+    private List<Shape> shapes;
 
+    public Model() {
+        this.observers = new ArrayList<>();
+        this.shapes = new ArrayList<>();
+    }
     @Override
     public void registerObserver(Observer o) {
         if (!observers.contains(o)) {
@@ -25,25 +31,40 @@ public class Model implements Subject {
     }
 
     @Override
-    public void notifyObservers(List<ShapeStateDto> shapes) {
+    public void notifyObservers() {
         for (Observer observer : observers) {
-            observer.update(new ArrayList<>(shapes)); // 전체 도형들의 상태를 복사하여 전달
+            observer.update(shapes);
         }
     }
 
-    public void createShape(ShapeStateDto state) {
-        shapes.add(state);
-        notifyObservers(shapes);
+    private Shape shapeDtoToClass(ShapeDto dto) {
+        return new Shape(dto.getXPos(), dto.getYPos(), dto.getWidth(), dto.getHeight(), dto.getColor(), dto.getOpacity(), dto.getZOrder(), dto.getShadow(), dto.getFrame());
     }
 
-    public void updateShape(int index, ShapeStateDto newState) {
+    public void createShape(ShapeDto dto) {
+        shapes.add(shapeDtoToClass(dto));
+        notifyObservers();
+    }
+    public void updateShape(int index, ShapeDto dto) {
         if (index >= 0 && index < shapes.size()) {
-            shapes.set(index, newState);
-            notifyObservers(shapes);
+            shapes.set(index, shapeDtoToClass(dto));
+            notifyObservers();
+        } else {
+            // 예외 처리와 로깅
+            String errorMessage = "Attempted to update a shape with invalid index: " + index;
+            logger.warning(errorMessage);
+            throw new IllegalArgumentException(errorMessage);
         }
     }
-
-    // 도형 삭제하는 메소드
-    public void deleteShape(ShapeStateDto shapeStateDto){}
+    public void deleteShape(int index) {
+        if (index >= 0 && index < shapes.size()) {
+            shapes.remove(index);
+            notifyObservers();
+        } else {
+            String errorMessage = "Attempted to delete a shape with invalid index: " + index;
+            logger.warning(errorMessage);
+            throw new IllegalArgumentException(errorMessage);
+        }
+    }
 
 }
