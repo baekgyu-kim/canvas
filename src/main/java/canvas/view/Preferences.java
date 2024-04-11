@@ -3,25 +3,36 @@ package canvas.view;
 import canvas.controller.Controller;
 import canvas.model.observer.Observer;
 import canvas.model.shape.Shape;
-import canvas.view.preferences.color;
-import canvas.view.preferences.height;
-import canvas.view.preferences.width;
+import canvas.view.preferences.*;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.List;
 
 public class Preferences extends JPanel implements Observer {
     Controller controller;
+
+    private Width width;
+    private Height height;
+    private Color color;
+    private BringToFront bringToFront;
+    private SendToBack sendToBack;
     public Preferences(Controller controller) {
         this.controller = controller;
+        this.width = new Width();
+        this.height = new Height();
+        this.color = new Color();
+        this.bringToFront = new BringToFront();
+        this.sendToBack = new SendToBack();
 
-        setBackground(Color.red);
+        setBackground(java.awt.Color.red);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        add(new width());
-        add(new height());
-        add(new color());
+        add(width);
+        add(height);
+        add(color);
+        add(bringToFront);
+        add(sendToBack);
+
 
         setVisible(true);
     }

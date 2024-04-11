@@ -2,6 +2,7 @@ package canvas.view.palette;
 
 import canvas.controller.Controller;
 import canvas.dto.ShapeDto;
+import canvas.enums.ShapeType;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +20,7 @@ public class Rectangle extends JButton{
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShapeDto dto = new ShapeDto(0, 10, 10, 100, 100, Color.black, 50, 0, false, false);
+                ShapeDto dto = new ShapeDto(0, ShapeType.rectangle, 10, 10, 100, 100, Color.black, 50, 0, false, false);
                 controller.createShape(dto);
             }
         });
