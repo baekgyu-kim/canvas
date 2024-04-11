@@ -15,7 +15,7 @@ public class Rectangle extends JButton implements Observer {
     public Rectangle() {
         setText("Rectangle");
 
-        Controller controller = new Controller();
+//        Controller controller = new Controller();
 
         addActionListener(new ActionListener() {
             @Override

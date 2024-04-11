@@ -1,10 +1,12 @@
 package canvas.view;
 
+import canvas.controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame{
-    public Frame() {
+    public Frame(Controller controller) {
         int frame_width = 1300;
         int frame_height = frame_width * 3/5;
 
@@ -15,9 +17,9 @@ public class Frame extends JFrame{
         setLayout(new BorderLayout());
 
         add(new JLabel(" "), BorderLayout.NORTH);
-        add(new Palette(), BorderLayout.WEST);
-        add(new WhiteCanvas(),BorderLayout.CENTER);
-        add(new Preferences(), BorderLayout.EAST);
+        add(new Palette(controller), BorderLayout.WEST);
+        add(new WhiteCanvas(controller),BorderLayout.CENTER);
+        add(new Preferences(controller), BorderLayout.EAST);
         add(new JLabel(" "), BorderLayout.SOUTH);
 
         setVisible(true);

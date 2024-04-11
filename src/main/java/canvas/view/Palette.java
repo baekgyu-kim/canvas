@@ -1,6 +1,7 @@
 package canvas.view;
 
 
+import canvas.controller.Controller;
 import canvas.view.palette.Cursor;
 import canvas.view.palette.Pen;
 import canvas.view.palette.Line;
@@ -12,7 +13,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Palette extends JPanel {
-    public Palette() {
+    Controller controller;
+    public Palette(Controller controller) {
+        this.controller = controller;
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 

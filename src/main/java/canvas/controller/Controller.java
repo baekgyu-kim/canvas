@@ -5,9 +5,10 @@ import canvas.dto.ShapeDto;
 import canvas.model.shape.Shape;
 
 public class Controller {
-    private final Model model = new Model();
+    private final Model model;
 
-    public Controller() {
+    public Controller(Model model) {
+        this.model = model;
     }
 
     public void createShape(ShapeDto shapeDto) {
