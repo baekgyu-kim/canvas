@@ -43,7 +43,7 @@ public class Model implements Subject {
     }
 
     private Shape shapeDtoToClass(ShapeDto dto) {
-        return new Shape(dto.getId(), dto.getXPos(), dto.getYPos(), dto.getWidth(), dto.getHeight(), dto.getColor(), dto.getOpacity(), dto.getZOrder(), dto.getShadow(), dto.getFrame());
+        return new Shape(dto.getId(), dto.getShapeType(), dto.getXPos(), dto.getYPos(), dto.getWidth(), dto.getHeight(), dto.getColor(), dto.getOpacity(), dto.getZOrder(), dto.getShadow(), dto.getFrame());
     }
 
     public void createShape(ShapeDto dto) {

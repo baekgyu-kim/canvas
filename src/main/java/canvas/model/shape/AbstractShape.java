@@ -1,9 +1,14 @@
 package canvas.model.shape;
 
+import canvas.enums.ShapeType;
+
 import java.awt.*;
 
 public abstract class AbstractShape implements ShapeInterface {
     protected int id;
+
+    protected ShapeType shapeType;
+
     protected int xPos;
     protected int yPos;
     protected int width;
@@ -31,6 +36,10 @@ public abstract class AbstractShape implements ShapeInterface {
 
     public int getId() {
         return id;
+    }
+
+    public ShapeType getShapeType(){
+        return shapeType;
     }
 
     public int getxPos() {
