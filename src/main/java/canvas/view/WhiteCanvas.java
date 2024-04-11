@@ -12,6 +12,7 @@ public class WhiteCanvas extends JPanel implements Observer {
     Controller controller;
     public WhiteCanvas(Controller controller) {
         this.controller = controller;
+
         setBackground(Color.white);
         setVisible(true);
     }

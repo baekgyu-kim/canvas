@@ -13,8 +13,11 @@ import java.awt.*;
 
 public class Palette extends JPanel {
     Controller controller;
+    private int seq;
+
     public Palette(Controller controller) {
         this.controller = controller;
+
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         add(new Cursor());
