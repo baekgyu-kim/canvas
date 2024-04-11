@@ -31,8 +31,8 @@ public class Model implements Subject {
     }
 
     @Override
-    public void removeObserver(Observer o) {
-        observers.remove(o);
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
     }
 
     @Override
