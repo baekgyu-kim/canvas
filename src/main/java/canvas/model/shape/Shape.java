@@ -1,7 +1,9 @@
 package canvas.model.shape;
 
+import java.awt.*;
+
 public class Shape extends AbstractShape {
-    public Shape(int id, int xPos, int yPos, int width, int height, String color, int opacity, int zOrder, boolean shadow, boolean frame) {
+    public Shape(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
         this.id = id;
         this.xPos = xPos;
         this.yPos = yPos;

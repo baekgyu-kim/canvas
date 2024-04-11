@@ -1,19 +1,21 @@
 package canvas.dto;
 
+import java.awt.*;
+
 public class ShapeDto {
     private final int id;
     private final int xPos;
     private final int yPos;
     private final int width;
     private final int height;
-    private final String color;
+    private final Color color;
     private final int opacity;
     private final int zOrder;
     private final boolean shadow;
     private final boolean frame;
 
 
-    public ShapeDto(int id, int xPos, int yPos, int width, int height, String color, int opacity, int zOrder, boolean shadow, boolean frame) {
+    public ShapeDto(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
         this.id = id;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -44,7 +46,7 @@ public class ShapeDto {
         return height;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 

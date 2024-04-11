@@ -1,12 +1,14 @@
 package canvas.model.shape;
 
+import java.awt.*;
+
 public abstract class AbstractShape implements ShapeInterface {
     protected int id;
     protected int xPos;
     protected int yPos;
     protected int width;
     protected int height;
-    protected String color;
+    protected Color color;
     protected int opacity;
     protected int zOrder;
 
