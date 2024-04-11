@@ -19,6 +19,6 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void update(List<Shape> shapes) {
         // 여기에 인자로 들어온 shapes 리스트로 White Canvas 화면 그리는 코드 구현
-        System.out.println(shapes.get(0).getId());
+        System.out.println(shapes.get(0).getColor());
     }
 }
