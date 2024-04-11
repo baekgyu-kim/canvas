@@ -1,18 +1,24 @@
 package canvas.view;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame extends JFrame {
+public class Frame extends JFrame{
     public Frame() {
-        int width = 1100;
-        JPanel panel = new Panel();
+        int frame_width = 1300;
+        int frame_height = frame_width * 3/5;
 
-        setPreferredSize(new Dimension(width, width/15*9));
-        setSize(width, width/15*9);
+
+        setSize(frame_width, frame_height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setResizable(false);
-        add(panel);
+        setLayout(new BorderLayout());
+
+        add(new JLabel(" "), BorderLayout.NORTH);
+        add(new Palette(), BorderLayout.WEST);
+        add(new WhiteCanvas(),BorderLayout.CENTER);
+        add(new Preferences(), BorderLayout.EAST);
+        add(new JLabel(" "), BorderLayout.SOUTH);
 
         setVisible(true);
     }
