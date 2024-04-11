@@ -1,4 +1,5 @@
 package canvas.controller;
+import canvas.dto.UpdateDtoInterface;
 import canvas.model.Model;
 import canvas.dto.ShapeDto;
 import canvas.model.shape.Shape;
@@ -16,8 +17,8 @@ public class Controller {
     }
 
     // 도형의 속성을 변경하는 메소드
-    public void updateShape(int index, ShapeDto shapeDto) {
-        model.updateShape(index, shapeDto);
+    public void updateShape(int index, UpdateDtoInterface dto) {
+        model.updateShape(index, dto);
     }
 
     // 도형 삭제하는 메소드

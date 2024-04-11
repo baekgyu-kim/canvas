@@ -1,5 +1,8 @@
 package canvas.model;
 
+import canvas.dto.UpdateDtoInterface;
+import canvas.dto.UpdateMoveDto;
+import canvas.dto.UpdateResizeDto;
 import canvas.model.observer.Observer;
 import canvas.model.observer.Subject;
 import canvas.dto.ShapeDto;
@@ -45,17 +48,21 @@ public class Model implements Subject {
         shapes.add(shapeDtoToClass(dto));
         notifyObservers();
     }
-    public void updateShape(int index, ShapeDto dto) {
-        if (index >= 0 && index < shapes.size()) {
-            shapes.set(index, shapeDtoToClass(dto));
-            notifyObservers();
-        } else {
-            // 예외 처리와 로깅
-            String errorMessage = "Attempted to update a shape with invalid index: " + index;
-            logger.warning(errorMessage);
-            throw new IllegalArgumentException(errorMessage);
+    public void updateShape(int index, UpdateDtoInterface dto) {
+        if (index < 0 || index >= shapes.size()) {
+            throw new IllegalArgumentException("Invalid shape index: " + index);
         }
+        Shape shapeToUpdate = shapes.get(index);
+        if (dto instanceof UpdateMoveDto) {
+            UpdateMoveDto moveDto = (UpdateMoveDto) dto;
+            shapeToUpdate.move(moveDto.getNewXPos(), moveDto.getNewYPos());
+        } else if (dto instanceof UpdateResizeDto) {
+            UpdateResizeDto resizeDto = (UpdateResizeDto) dto;
+            shapeToUpdate.resize(resizeDto.getNewWidth(), resizeDto.getNewHeight());
+        }
+        notifyObservers();
     }
+
     public void deleteShape(int index) {
         if (index >= 0 && index < shapes.size()) {
             shapes.remove(index);
