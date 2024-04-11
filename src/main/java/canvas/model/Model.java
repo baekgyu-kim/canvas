@@ -11,11 +11,8 @@ import canvas.model.shape.ShapeComposite;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class Model implements Subject {
-    private static final Logger logger = Logger.getLogger(Model.class.getName());
     private List<Observer> observers;
     private List<Shape> shapes;
 
