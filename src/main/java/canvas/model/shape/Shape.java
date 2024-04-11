@@ -15,4 +15,5 @@ public class Shape extends AbstractShape {
         this.shadow = shadow;
         this.frame = frame;
     }
+
 }

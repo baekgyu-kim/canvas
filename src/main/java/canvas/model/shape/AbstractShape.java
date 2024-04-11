@@ -29,4 +29,43 @@ public abstract class AbstractShape implements ShapeInterface {
         this.height = newHeight;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public int getOpacity() {
+        return opacity;
+    }
+
+    public int getzOrder() {
+        return zOrder;
+    }
+
+    public boolean isShadow() {
+        return shadow;
+    }
+
+    public boolean isFrame() {
+        return frame;
+    }
 }

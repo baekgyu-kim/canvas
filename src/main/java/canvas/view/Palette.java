@@ -2,6 +2,8 @@ package canvas.view;
 
 
 import canvas.controller.Controller;
+import canvas.model.observer.Observer;
+import canvas.model.shape.Shape;
 import canvas.view.palette.Cursor;
 import canvas.view.palette.Pen;
 import canvas.view.palette.Line;
@@ -11,6 +13,7 @@ import canvas.view.palette.Star;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.List;
 
 public class Palette extends JPanel {
     Controller controller;
@@ -18,14 +21,12 @@ public class Palette extends JPanel {
         this.controller = controller;
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
         add(new Cursor());
         add(new Pen());
         add(new Line());
-        add(new Rectangle());
+        add(new Rectangle(controller));
         add(new Ellipse());
         add(new Star());
-
         setVisible(true);
     }
 }
