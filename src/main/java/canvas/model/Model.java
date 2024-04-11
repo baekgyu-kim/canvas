@@ -24,9 +24,9 @@ public class Model implements Subject {
         this.clickedShapesComposite = new ShapeComposite();
     }
     @Override
-    public void registerObserver(Observer o) {
-        if (!observers.contains(o)) {
-            observers.add(o);
+    public void registerObserver(Observer observer) {
+        if (!observers.contains(observer)) {
+            observers.add(observer);
         }
     }
 
