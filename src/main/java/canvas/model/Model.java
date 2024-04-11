@@ -7,19 +7,24 @@ import canvas.model.observer.Observer;
 import canvas.model.observer.Subject;
 import canvas.dto.ShapeDto;
 import canvas.model.shape.Shape;
+import canvas.model.shape.ShapeComposite;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class Model implements Subject {
     private static final Logger logger = Logger.getLogger(Model.class.getName());
     private List<Observer> observers;
     private List<Shape> shapes;
 
+    private ShapeComposite clickedShapesComposite;
+
     public Model() {
         this.observers = new ArrayList<>();
         this.shapes = new ArrayList<>();
+        this.clickedShapesComposite = new ShapeComposite();
     }
     @Override
     public void registerObserver(Observer o) {
@@ -41,37 +46,38 @@ public class Model implements Subject {
     }
 
     private Shape shapeDtoToClass(ShapeDto dto) {
-        return new Shape(dto.getXPos(), dto.getYPos(), dto.getWidth(), dto.getHeight(), dto.getColor(), dto.getOpacity(), dto.getZOrder(), dto.getShadow(), dto.getFrame());
+        return new Shape(dto.getId(), dto.getXPos(), dto.getYPos(), dto.getWidth(), dto.getHeight(), dto.getColor(), dto.getOpacity(), dto.getZOrder(), dto.getShadow(), dto.getFrame());
     }
 
     public void createShape(ShapeDto dto) {
         shapes.add(shapeDtoToClass(dto));
         notifyObservers();
     }
-    public void updateShape(int index, UpdateDtoInterface dto) {
+
+    public void clickShape(int index){
         if (index < 0 || index >= shapes.size()) {
             throw new IllegalArgumentException("Invalid shape index: " + index);
         }
-        Shape shapeToUpdate = shapes.get(index);
-        if (dto instanceof UpdateMoveDto) {
-            UpdateMoveDto moveDto = (UpdateMoveDto) dto;
-            shapeToUpdate.move(moveDto.getNewXPos(), moveDto.getNewYPos());
-        } else if (dto instanceof UpdateResizeDto) {
-            UpdateResizeDto resizeDto = (UpdateResizeDto) dto;
-            shapeToUpdate.resize(resizeDto.getNewWidth(), resizeDto.getNewHeight());
-        }
+        Shape clickedShape = shapes.get(index);
+        clickedShapesComposite.add(clickedShape);
         notifyObservers();
     }
 
-    public void deleteShape(int index) {
-        if (index >= 0 && index < shapes.size()) {
-            shapes.remove(index);
-            notifyObservers();
-        } else {
-            String errorMessage = "Attempted to delete a shape with invalid index: " + index;
-            logger.warning(errorMessage);
-            throw new IllegalArgumentException(errorMessage);
+    public void clearClicks(){
+        clickedShapesComposite.clear();
+        notifyObservers();
+    }
+
+
+    public void updateShape(UpdateDtoInterface dto) {
+        if (dto instanceof UpdateMoveDto) {
+            UpdateMoveDto moveDto = (UpdateMoveDto) dto;
+            clickedShapesComposite.move(moveDto.getNewXPos(), moveDto.getNewYPos());
+        } else if (dto instanceof UpdateResizeDto) {
+            UpdateResizeDto resizeDto = (UpdateResizeDto) dto;
+            clickedShapesComposite.resize(resizeDto.getNewWidth(), resizeDto.getNewHeight());
         }
+        notifyObservers();
     }
 
 }

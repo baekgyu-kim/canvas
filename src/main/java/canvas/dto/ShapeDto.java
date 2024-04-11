@@ -1,19 +1,20 @@
 package canvas.dto;
 
 public class ShapeDto {
+    private final int id;
     private final int xPos;
     private final int yPos;
     private final int width;
     private final int height;
     private final String color;
-
     private final int opacity;
     private final int zOrder;
     private final boolean shadow;
     private final boolean frame;
 
 
-    public ShapeDto(int xPos, int yPos, int width, int height, String color, int opacity, int zOrder, boolean shadow, boolean frame) {
+    public ShapeDto(int id, int xPos, int yPos, int width, int height, String color, int opacity, int zOrder, boolean shadow, boolean frame) {
+        this.id = id;
         this.xPos = xPos;
         this.yPos = yPos;
         this.width = width;
@@ -24,7 +25,9 @@ public class ShapeDto {
         this.shadow = shadow;
         this.frame = frame;
     }
-
+    public int getId() {
+        return id;
+    }
     public int getXPos() {
         return xPos;
     }

@@ -11,19 +11,18 @@ public class Controller {
         this.model = model;
     }
 
-    // 도형을 추가하는 메소드
     public void createShape(ShapeDto shapeDto) {
         model.createShape(shapeDto);
     }
 
-    // 도형의 속성을 변경하는 메소드
-    public void updateShape(int index, UpdateDtoInterface dto) {
-        model.updateShape(index, dto);
+    public void clickShapes(int index) {
+        model.clickShape(index);
     }
 
-    // 도형 삭제하는 메소드
-    public void deleteShape(int index){
-        model.deleteShape(index);
+    public void clearClicks(){model.clearClicks();}
+
+    public void updateShape(UpdateDtoInterface dto) {
+        model.updateShape(dto);
     }
 
 }

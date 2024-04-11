@@ -1,6 +1,7 @@
 package canvas.model.shape;
 
 public abstract class AbstractShape implements ShapeInterface {
+    protected int id;
     protected int xPos;
     protected int yPos;
     protected int width;
@@ -25,4 +26,5 @@ public abstract class AbstractShape implements ShapeInterface {
         this.width = newWidth;
         this.height = newHeight;
     }
+
 }
