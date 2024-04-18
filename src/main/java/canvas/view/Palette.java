@@ -20,11 +20,13 @@ public class Palette extends JPanel {
 
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        add(new Cursor());
-        add(new Line());
+
+        add(new Cursor(controller));
+        add(new Line(controller));
         add(new Rectangle(controller));
-        add(new Ellipse());
-        add(new Star());
+        add(new Ellipse(controller));
+        add(new Star(controller));
+
         setVisible(true);
     }
 }
