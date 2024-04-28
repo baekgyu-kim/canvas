@@ -28,10 +28,13 @@ public class WhiteCanvas extends JPanel implements Observer {
         // 일단 현재는 z-order를 id 값과 같은 값으로 넣어두고 나중에 구현
         removeAll();
         setLayout(null);
+
         for (Shape shape : shapes) {
             JLabel component = new JLabel();
+
             component.setText(shape.getShapeType().toString());
             component.setBounds(shape.getxPos(), shape.getyPos(), shape.getWidth(), shape.getHeight());
+            component.setOpaque(true);
             component.setBackground(shape.getColor());
 
             add(component);

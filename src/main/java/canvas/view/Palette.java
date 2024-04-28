@@ -17,6 +17,7 @@ public class Palette extends JPanel {
 
     public Palette(Controller controller) {
         this.controller = controller;
+        this.seq = 0;
 
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -28,5 +29,14 @@ public class Palette extends JPanel {
         add(new Star(controller));
 
         setVisible(true);
+    }
+    public int GetSeq() {
+        return this.seq;
+    }
+    public void IncreaseSeq() {
+        this.seq++;
+    }
+    public void DecreaseSeq() {
+        this.seq--;
     }
 }
