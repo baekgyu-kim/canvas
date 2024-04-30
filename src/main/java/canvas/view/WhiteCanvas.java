@@ -1,12 +1,12 @@
 package canvas.view;
 
-import canvas.common.utils.ZorderUtils;
 import canvas.controller.Controller;
 import canvas.model.observer.Observer;
 import canvas.model.shape.Shape;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Comparator;
 import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
@@ -26,6 +26,8 @@ public class WhiteCanvas extends JPanel implements Observer {
         // 일단 현재는 z-order를 id 값과 같은 값으로 넣어두고 나중에 구현
         removeAll();
         setLayout(null);
+
+        shapes.sort(Comparator.comparingInt(Shape::getzOrder).reversed());
 
         for (Shape shape : shapes) {
             JLabel component = new JLabel();
