@@ -1,5 +1,6 @@
 package canvas.view;
 
+import canvas.common.utils.ZorderUtils;
 import canvas.controller.Controller;
 import canvas.model.observer.Observer;
 import canvas.model.shape.Shape;
@@ -10,8 +11,7 @@ import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
     Controller controller;
-    int seq;
-    public WhiteCanvas(Controller controller, int seq) {
+    public WhiteCanvas(Controller controller) {
         this.controller = controller;
 
         setBackground(Color.white);
@@ -26,20 +26,19 @@ public class WhiteCanvas extends JPanel implements Observer {
         // 일단 현재는 z-order를 id 값과 같은 값으로 넣어두고 나중에 구현
         removeAll();
         setLayout(null);
-        this.seq = 0;
 
         for (Shape shape : shapes) {
-            this.seq++;
             JLabel component = new JLabel();
 
             component.setText(shape.getShapeType().toString());
             component.setBounds(shape.getxPos(), shape.getyPos(), shape.getWidth(), shape.getHeight());
             component.setOpaque(true);
             component.setBackground(shape.getColor());
-
+            System.out.println(getComponentZOrder(component));
+//            setComponentZOrder(component, ZorderUtils.convertZorder(shape.getzOrder(), shapes.size()));
             add(component);
 
-            System.out.println(shape.getId());
+//            System.out.println(shape.getId());
         }
         revalidate();
         repaint();

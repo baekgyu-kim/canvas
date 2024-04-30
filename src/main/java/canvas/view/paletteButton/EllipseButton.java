@@ -19,7 +19,7 @@ public class EllipseButton extends JButton implements PaletteButtonInterface{
     @Override
     public void addAction(Controller controller, int seq) {
         addActionListener(e -> {
-            ShapeDto dto = new ShapeDto(seq, ShapeType.ellipse, 30, 10, 100, 100, Color.black, 50, seq, false, false);
+            ShapeDto dto = new ShapeDto(seq, ShapeType.ellipse, 50, 120, 100, 100, Color.green, 50, 2, false, false);
             controller.createShape(dto);
         });
     }

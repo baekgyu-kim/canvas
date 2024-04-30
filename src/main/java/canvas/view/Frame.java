@@ -15,7 +15,7 @@ public class Frame extends JFrame{
         // initiating class
         this.seq = 0;
         this.palette = new Palette(controller, this.seq);
-        this.whiteCanvas = new WhiteCanvas(controller, this.seq);
+        this.whiteCanvas = new WhiteCanvas(controller);
         this.preferences = new Preferences(controller);
 
         controller.registerObserver(palette);
