@@ -10,12 +10,12 @@ public class Frame extends JFrame{
     private Palette palette;
     private WhiteCanvas whiteCanvas;
     private Preferences preferences;
-
-
+    private int seq;
     public Frame(Controller controller) {
         // initiating class
-        this.palette = new Palette(controller);
-        this.whiteCanvas = new WhiteCanvas(controller);
+        this.seq = 0;
+        this.palette = new Palette(controller, this.seq);
+        this.whiteCanvas = new WhiteCanvas(controller, this.seq);
         this.preferences = new Preferences(controller);
 
         // register observer to subject
@@ -39,4 +39,5 @@ public class Frame extends JFrame{
 
         setVisible(true);
     }
+
 }

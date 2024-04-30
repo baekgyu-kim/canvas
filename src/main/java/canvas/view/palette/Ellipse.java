@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Ellipse extends JButton {
-    public Ellipse(Controller controller) {
+    public Ellipse(Controller controller, int seq) {
         setText("Ellipse");
 
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShapeDto dto = new ShapeDto(0, ShapeType.ellipse, 30, 10, 100, 100, Color.black, 50, 0, false, false);
+                ShapeDto dto = new ShapeDto(seq, ShapeType.ellipse, 30, 10, 100, 100, Color.black, 50, seq, false, false);
                 controller.createShape(dto);
             }
         });

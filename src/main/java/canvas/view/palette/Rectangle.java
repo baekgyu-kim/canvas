@@ -14,7 +14,7 @@ public class Rectangle extends JButton {
     Controller controller;
 
 
-    public Rectangle(Controller controller)
+    public Rectangle(Controller controller, int seq)
 
     {
         this.controller = controller;
@@ -23,7 +23,7 @@ public class Rectangle extends JButton {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ShapeDto dto = new ShapeDto(
-                        1,
+                        seq,
                         ShapeType.rectangle,
                         12,
                         20,
@@ -31,7 +31,7 @@ public class Rectangle extends JButton {
                         100,
                         Color.blue,
                         50,
-                        0,
+                        seq,
                         false,
                         false
                 );

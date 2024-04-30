@@ -13,30 +13,20 @@ import java.awt.*;
 
 public class Palette extends JPanel {
     Controller controller;
-    private int seq;
 
-    public Palette(Controller controller) {
+    public Palette(Controller controller, int seq) {
         this.controller = controller;
-        this.seq = 0;
 
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         add(new Cursor(controller));
-        add(new Line(controller));
-        add(new Rectangle(controller));
-        add(new Ellipse(controller));
-        add(new Star(controller));
+        add(new Line(controller, seq));
+        add(new Rectangle(controller, seq));
+        add(new Ellipse(controller, seq));
+        add(new Star(controller, seq));
 
         setVisible(true);
     }
-    public int GetSeq() {
-        return this.seq;
-    }
-    public void IncreaseSeq() {
-        this.seq++;
-    }
-    public void DecreaseSeq() {
-        this.seq--;
-    }
+
 }

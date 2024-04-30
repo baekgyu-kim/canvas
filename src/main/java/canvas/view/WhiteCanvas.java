@@ -10,11 +10,9 @@ import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
     Controller controller;
-    public WhiteCanvas(Controller controller) {
+    int seq;
+    public WhiteCanvas(Controller controller, int seq) {
         this.controller = controller;
-
-//        FlowLayout layout = new FlowLayout(FlowLayout.CENTER);
-//        setLayout(layout);
 
         setBackground(Color.white);
         setVisible(true);
@@ -28,8 +26,10 @@ public class WhiteCanvas extends JPanel implements Observer {
         // 일단 현재는 z-order를 id 값과 같은 값으로 넣어두고 나중에 구현
         removeAll();
         setLayout(null);
+        this.seq = 0;
 
         for (Shape shape : shapes) {
+            this.seq++;
             JLabel component = new JLabel();
 
             component.setText(shape.getShapeType().toString());
@@ -39,8 +39,8 @@ public class WhiteCanvas extends JPanel implements Observer {
 
             add(component);
 
+            System.out.println(shape.getId());
         }
-//        System.out.println(getComponentCount());
         revalidate();
         repaint();
     }

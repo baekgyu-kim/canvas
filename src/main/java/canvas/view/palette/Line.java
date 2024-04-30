@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Line extends JButton {
-    public Line(Controller controller) {
+    public Line(Controller controller, int seq) {
         setText("Line");
 
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ShapeDto dto = new ShapeDto(0, ShapeType.line, 5, 500, 100, 100, Color.black, 50, 0, false, false);
+                ShapeDto dto = new ShapeDto(seq, ShapeType.line, 5, 500, 100, 100, Color.black, 50, seq, false, false);
                 controller.createShape(dto);
             }
         });
