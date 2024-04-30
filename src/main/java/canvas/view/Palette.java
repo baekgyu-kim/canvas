@@ -2,12 +2,11 @@ package canvas.view;
 
 import canvas.controller.Controller;
 import canvas.model.observer.Observer;
-import canvas.model.shape.Shape;
-import canvas.view.palette.Cursor;
-import canvas.view.palette.Line;
-import canvas.view.palette.Rectangle;
-import canvas.view.palette.Ellipse;
-import canvas.view.palette.Star;
+import canvas.view.paletteButton.CursorButton;
+import canvas.view.paletteButton.LineButton;
+import canvas.view.paletteButton.RectangleButton;
+import canvas.view.paletteButton.EllipseButton;
+import canvas.view.paletteButton.StarButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,11 +15,11 @@ import java.util.List;
 public class Palette extends JPanel implements Observer {
     private Controller controller;
     private int seq;
-    private Cursor cursor;
-    private Line line;
-    private Rectangle rectangle;
-    private Ellipse ellipse;
-    private Star star;
+    private CursorButton cursorButton;
+    private LineButton lineButton;
+    private RectangleButton rectangleButton;
+    private EllipseButton ellipseButton;
+    private StarButton starButton;
 
     public Palette(Controller controller, int seq) {
         this.controller = controller;
@@ -33,19 +32,19 @@ public class Palette extends JPanel implements Observer {
     }
 
     private void initComponents() {
-        this.cursor = new Cursor(this.controller);
-        this.line = new Line(this.controller, this.seq);
-        this.rectangle = new Rectangle(this.controller, this.seq);
-        this.ellipse = new Ellipse(this.controller, this.seq);
-        this.star = new Star(this.controller, this.seq);
+        this.cursorButton = new CursorButton(this.controller);
+        this.lineButton = new LineButton(this.controller, this.seq);
+        this.rectangleButton = new RectangleButton(this.controller, this.seq);
+        this.ellipseButton = new EllipseButton(this.controller, this.seq);
+        this.starButton = new StarButton(this.controller, this.seq);
     }
 
     private void addComponents() {
-        add(this.cursor);
-        add(this.line);
-        add(this.rectangle);
-        add(this.ellipse);
-        add(this.star);
+        add(this.cursorButton);
+        add(this.lineButton);
+        add(this.rectangleButton);
+        add(this.ellipseButton);
+        add(this.starButton);
     }
 
     @Override
