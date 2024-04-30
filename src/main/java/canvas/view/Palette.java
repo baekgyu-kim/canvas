@@ -2,6 +2,7 @@ package canvas.view;
 
 import canvas.controller.Controller;
 import canvas.model.observer.Observer;
+import canvas.view.paletteButton.PaletteButtonInterface;
 import canvas.view.paletteButton.CursorButton;
 import canvas.view.paletteButton.LineButton;
 import canvas.view.paletteButton.RectangleButton;
@@ -15,11 +16,11 @@ import java.util.List;
 public class Palette extends JPanel implements Observer {
     private Controller controller;
     private int seq;
-    private CursorButton cursorButton;
-    private LineButton lineButton;
-    private RectangleButton rectangleButton;
-    private EllipseButton ellipseButton;
-    private StarButton starButton;
+    private PaletteButtonInterface cursorButton;
+    private PaletteButtonInterface lineButton;
+    private PaletteButtonInterface rectangleButton;
+    private PaletteButtonInterface ellipseButton;
+    private PaletteButtonInterface starButton;
 
     public Palette(Controller controller, int seq) {
         this.controller = controller;
@@ -40,11 +41,11 @@ public class Palette extends JPanel implements Observer {
     }
 
     private void addComponents() {
-        add(this.cursorButton);
-        add(this.lineButton);
-        add(this.rectangleButton);
-        add(this.ellipseButton);
-        add(this.starButton);
+        add((Component) this.cursorButton);
+        add((Component) this.lineButton);
+        add((Component) this.rectangleButton);
+        add((Component) this.ellipseButton);
+        add((Component) this.starButton);
     }
 
     @Override
