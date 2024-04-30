@@ -1,6 +1,6 @@
 package canvas.common.utils;
 
-public class colorUtils {
+public class ColorUtils {
     public static class Color {
         public int r, g, b;
         public Color(int r, int g, int b) {
