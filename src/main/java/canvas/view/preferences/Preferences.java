@@ -3,7 +3,7 @@ package canvas.view.preferences;
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
 import canvas.observer.Observer;
-import canvas.view.preferences.preferenceButtons.*;
+import canvas.view.preferences.preferenceButton.preferenceButtons.*;
 
 import javax.swing.*;
 import java.util.List;
@@ -11,27 +11,27 @@ import java.util.List;
 public class Preferences extends JPanel implements Observer {
     Controller controller;
 
-    private Width width;
-    private Height height;
-    private Color color;
-    private BringToFront bringToFront;
-    private SendToBack sendToBack;
+    private WidthButton widthButton;
+    private HeightButton heightButton;
+    private ColorButton colorButton;
+    private BringFrontButton bringFrontButton;
+    private SendBackButton sendBackButton;
     public Preferences(Controller controller) {
         this.controller = controller;
-        this.width = new Width();
-        this.height = new Height();
-        this.color = new Color();
-        this.bringToFront = new BringToFront();
-        this.sendToBack = new SendToBack();
+        this.widthButton = new WidthButton();
+        this.heightButton = new HeightButton();
+        this.colorButton = new ColorButton();
+        this.bringFrontButton = new BringFrontButton();
+        this.sendBackButton = new SendBackButton();
 
         setBackground(java.awt.Color.red);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        add(width);
-        add(height);
-        add(color);
-        add(bringToFront);
-        add(sendToBack);
+        add(widthButton);
+        add(heightButton);
+        add(colorButton);
+        add(bringFrontButton);
+        add(sendBackButton);
 
 
         setVisible(true);
