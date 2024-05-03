@@ -18,11 +18,6 @@ public class RectangleButton extends PaletteButton {
     }
 
     @Override
-    public void initializeButton(String text) {
-        setText(text);
-        setVisible(true);
-    }
-    @Override
     public void createShape() {
         addActionListener(e -> {
             int id = seq;int xPos = 50; int yPos = 120; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;int zOrder = seq; boolean shadow = false;boolean frame =false;

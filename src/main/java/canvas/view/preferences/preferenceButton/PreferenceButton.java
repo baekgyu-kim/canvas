@@ -8,6 +8,12 @@ import javax.swing.*;
 import java.util.List;
 
 public abstract class PreferenceButton extends JButton implements Observer {
+    ShapeComposite shapeComposite;
+
+    public PreferenceButton(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
+    }
+
     public void initializeButton(String text){
         setText(text);
         setVisible(true);
@@ -22,6 +28,6 @@ public abstract class PreferenceButton extends JButton implements Observer {
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-
+        this.shapeComposite = shapeComposite;
     }
 }

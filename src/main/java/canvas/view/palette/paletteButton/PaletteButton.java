@@ -18,9 +18,11 @@ public abstract class PaletteButton extends JButton implements ShapeCreatorInter
         this.seq = seq;
     }
 
+    public void initializeButton(String text){
+        setText(text);
+        setVisible(true);
+    };
 
-
-    public abstract void initializeButton(String text);
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         this.seq = shapes.size();

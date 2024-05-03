@@ -5,10 +5,8 @@ import canvas.view.preferences.preferenceButton.PreferenceButton;
 
 
 public class SendBackButton  extends PreferenceButton {
-    private ShapeComposite shapeComposite;
-
     public SendBackButton(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+        super(shapeComposite);
         initializeButton("Send Back");
     }
     @Override

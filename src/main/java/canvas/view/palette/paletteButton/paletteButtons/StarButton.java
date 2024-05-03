@@ -15,12 +15,6 @@ public class StarButton extends PaletteButton {
         initializeButton("Star");
         createShape();
     }
-
-    @Override
-    public void initializeButton(String text) {
-        setText(text);
-        setVisible(true);
-    }
     @Override
     public void createShape() {
         addActionListener(e -> {

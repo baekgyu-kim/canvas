@@ -8,9 +8,8 @@ import javax.swing.*;
 import java.util.List;
 
 public class WidthButton  extends PreferenceButton {
-    private ShapeComposite shapeComposite;
     public WidthButton(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+        super(shapeComposite);
         initializeButton("Width");
     }
 

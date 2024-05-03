@@ -5,9 +5,8 @@ import canvas.view.preferences.preferenceButton.PreferenceButton;
 
 
 public class ColorButton  extends PreferenceButton {
-    private ShapeComposite shapeComposite;
     public ColorButton(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+        super(shapeComposite);
         initializeButton("Color");
     }
 
