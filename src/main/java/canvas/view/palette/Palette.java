@@ -2,6 +2,7 @@ package canvas.view.palette;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.view.palette.paletteButton.*;
 import canvas.view.palette.paletteButton.paletteButtons.*;
@@ -46,12 +47,17 @@ public class Palette extends JPanel implements Observer {
     }
 
     @Override
-    public void update(List<ShapeAbstractClass> shapes) {
+    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         this.seq = shapes.size();
         initComponents();
         removeAll();
         addComponents();
         revalidate();
         repaint();
+    }
+
+    @Override
+    public void updateClickedShapes(ShapeComposite shapeComposite) {
+
     }
 }

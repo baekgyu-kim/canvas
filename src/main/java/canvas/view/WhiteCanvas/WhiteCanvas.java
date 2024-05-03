@@ -2,6 +2,7 @@ package canvas.view.WhiteCanvas;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 import javax.swing.*;
@@ -18,10 +19,15 @@ public class WhiteCanvas extends JPanel implements Observer {
     }
 
     @Override
-    public void update(List<ShapeAbstractClass> shapes) {
+    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         for (ShapeAbstractClass shape : shapes) {
             shape.draw();
         }
+    }
+
+    @Override
+    public void updateClickedShapes(ShapeComposite shapeComposite) {
+
     }
 
 }

@@ -2,6 +2,7 @@ package canvas.view.preferences;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.view.preferences.preferenceButton.preferenceButtons.*;
 
@@ -37,7 +38,12 @@ public class Preferences extends JPanel implements Observer {
         setVisible(true);
     }
     @Override
-    public void update(List<ShapeAbstractClass> shapes) {
+    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         // 여기에 인자로 들어온 shapes 리스트로 Preferences 화면 그리는 코드 구현
+    }
+
+    @Override
+    public void updateClickedShapes(ShapeComposite shapeComposite) {
+
     }
 }

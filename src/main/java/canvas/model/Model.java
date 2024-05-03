@@ -14,13 +14,13 @@ import java.util.List;
 
 public class Model implements Subject {
     private List<Observer> observers;
-    private List<ShapeAbstractClass> shapes;
+    private List<ShapeAbstractClass> allShapes;
 
     private ShapeComposite clickedShapesComposite;
 
     public Model() {
         this.observers = new ArrayList<>();
-        this.shapes = new ArrayList<>();
+        this.allShapes = new ArrayList<>();
         this.clickedShapesComposite = new ShapeComposite();
     }
     @Override
@@ -36,29 +36,36 @@ public class Model implements Subject {
     }
 
     @Override
-    public void notifyObservers() {
+    public void notifyObserversAllShapes() {
         for (Observer observer : observers) {
-            observer.update(shapes);
+            observer.updateAllShapes(allShapes);
+        }
+    }
+
+    @Override
+    public void notifyObserversClickedShapes() {
+        for (Observer observer : observers) {
+            observer.updateClickedShapes(clickedShapesComposite);
         }
     }
 
     public void createShape(ShapeAbstractClass shape) {
-        shapes.add(shape);
-        notifyObservers();
+        allShapes.add(shape);
+        notifyObserversAllShapes();
     }
 
     public void clickShape(int index){
-        if (index < 0 || index >= shapes.size()) {
+        if (index < 0 || index >= allShapes.size()) {
             throw new IllegalArgumentException("Invalid shape index: " + index);
         }
-        ShapeAbstractClass clickedShape = shapes.get(index);
+        ShapeAbstractClass clickedShape = allShapes.get(index);
         clickedShapesComposite.add(clickedShape);
-        notifyObservers();
+        notifyObserversClickedShapes();
     }
 
     public void clearClicks(){
         clickedShapesComposite.clear();
-        notifyObservers();
+        notifyObserversClickedShapes();
     }
 
 
@@ -70,7 +77,7 @@ public class Model implements Subject {
             UpdateResizeDto resizeDto = (UpdateResizeDto) dto;
             clickedShapesComposite.resize(resizeDto.getNewWidth(), resizeDto.getNewHeight());
         }
-        notifyObservers();
+        notifyObserversAllShapes();
     }
 
 }
