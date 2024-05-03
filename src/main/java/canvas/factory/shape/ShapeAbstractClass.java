@@ -14,8 +14,20 @@ public class ShapeAbstractClass implements ShapeInterface {
     protected boolean shadow;
     protected boolean frame;
 
+    public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
+        this.id = id;
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+        this.opacity = opacity;
+        this.zOrder = zOrder;
+        this.shadow = shadow;
+        this.frame = frame;
+    }
     @Override
-    public void draw() { };
+    public void draw(Graphics g) { };
 
     @Override
     public void move(int newX, int newY) {

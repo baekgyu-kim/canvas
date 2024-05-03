@@ -3,6 +3,7 @@ package canvas.factory.shape.composite;
 import canvas.factory.shape.ShapeAbstractClass;
 import canvas.factory.shape.ShapeInterface;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +30,9 @@ public class ShapeComposite implements ShapeInterface {
         }
     }
     @Override
-    public void draw() {
+    public void draw(Graphics g) {
         for (ShapeAbstractClass child : children) {
-            child.draw();
+            child.draw(g);
         }
     }
 }

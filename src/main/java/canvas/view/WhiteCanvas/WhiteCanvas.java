@@ -9,11 +9,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
     Controller controller;
-    List<ShapeAbstractClass> allShapes;
+    List<ShapeAbstractClass> allShapes = new ArrayList<>();
 
     public WhiteCanvas(Controller controller) {
         this.controller = controller;
@@ -30,7 +31,7 @@ public class WhiteCanvas extends JPanel implements Observer {
     }
 
     private void handleMouseClick(int x, int y) {
-        if (allShapes == null || allShapes.isEmpty()) {
+        if (allShapes.isEmpty()) {
             System.out.println("No shapes to interact with.");
             return;
         }
@@ -47,13 +48,10 @@ public class WhiteCanvas extends JPanel implements Observer {
         int selectedIndex = -1;
         int maxZOrder = Integer.MIN_VALUE;
 
-        for (int i = 0; i < allShapes.size(); i++) {
-            ShapeAbstractClass shape = allShapes.get(i);
-            if (isPointInsideShape(x, y, shape)) {
-                if (shape.getzOrder() > maxZOrder) {
-                    maxZOrder = shape.getzOrder();
-                    selectedIndex = i;
-                }
+        for (ShapeAbstractClass shape : allShapes) {
+            if (isPointInsideShape(x, y, shape) && shape.getzOrder() > maxZOrder) {
+                maxZOrder = shape.getzOrder();
+                selectedIndex = allShapes.indexOf(shape);
             }
         }
 
@@ -68,10 +66,6 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         this.allShapes = shapes;
-        for (ShapeAbstractClass shape : shapes) {
-            System.out.printf("id: %s, Z_Order: %s%n", shape.getId(), shape.getzOrder());
-            shape.draw();
-        }
         repaint();  // 도형 목록이 업데이트 될 때마다 캔버스를 다시 그립니다.
     }
 
@@ -85,14 +79,7 @@ public class WhiteCanvas extends JPanel implements Observer {
         super.paintComponent(g);
         if (allShapes != null) {
             for (ShapeAbstractClass shape : allShapes) {
-                Graphics2D g2 = (Graphics2D) g;
-                g2.setColor(shape.getColor());
-                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, shape.getOpacity() / 255.0f));
-                g2.fillRect(shape.getxPos(), shape.getyPos(), shape.getWidth(), shape.getHeight());
-                if (shape.isFrame()) {
-                    g2.setColor(Color.BLACK);
-                    g2.drawRect(shape.getxPos(), shape.getyPos(), shape.getWidth(), shape.getHeight());
-                }
+                shape.draw(g);
             }
         }
     }
