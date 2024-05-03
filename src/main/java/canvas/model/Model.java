@@ -3,18 +3,18 @@ package canvas.model;
 import canvas.dto.UpdateDtoInterface;
 import canvas.dto.UpdateMoveDto;
 import canvas.dto.UpdateResizeDto;
-import canvas.model.observer.Observer;
-import canvas.model.observer.Subject;
-import canvas.dto.ShapeDto;
-import canvas.model.shape.Shape;
-import canvas.model.shape.ShapeComposite;
+import canvas.factory.shape.ShapeAbstractClass;
+import canvas.factory.shape.composite.ShapeComposite;
+import canvas.observer.Observer;
+import canvas.observer.Subject;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model implements Subject {
     private List<Observer> observers;
-    private List<Shape> shapes;
+    private List<ShapeAbstractClass> shapes;
 
     private ShapeComposite clickedShapesComposite;
 
@@ -42,12 +42,8 @@ public class Model implements Subject {
         }
     }
 
-    private Shape shapeDtoToClass(ShapeDto dto) {
-        return new Shape(dto.getId(), dto.getShapeType(), dto.getXPos(), dto.getYPos(), dto.getWidth(), dto.getHeight(), dto.getColor(), dto.getOpacity(), dto.getZOrder(), dto.getShadow(), dto.getFrame());
-    }
-
-    public void createShape(ShapeDto dto) {
-        shapes.add(shapeDtoToClass(dto));
+    public void createShape(ShapeAbstractClass shape) {
+        shapes.add(shape);
         notifyObservers();
     }
 
@@ -55,7 +51,7 @@ public class Model implements Subject {
         if (index < 0 || index >= shapes.size()) {
             throw new IllegalArgumentException("Invalid shape index: " + index);
         }
-        Shape clickedShape = shapes.get(index);
+        ShapeAbstractClass clickedShape = shapes.get(index);
         clickedShapesComposite.add(clickedShape);
         notifyObservers();
     }

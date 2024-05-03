@@ -1,7 +1,4 @@
-package canvas.model.observer;
-
-import java.util.ArrayList;
-import java.util.List;
+package canvas.observer;
 
 public interface Subject {
 

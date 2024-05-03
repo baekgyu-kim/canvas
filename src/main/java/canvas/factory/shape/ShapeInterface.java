@@ -1,6 +1,7 @@
-package canvas.model.shape;
+package canvas.factory.shape;
 
 public interface ShapeInterface {
-    void move(int deltaX, int deltaY);
+    void draw();
+    void move(int newX, int newY);
     void resize(int newWidth, int newHeight);
 }

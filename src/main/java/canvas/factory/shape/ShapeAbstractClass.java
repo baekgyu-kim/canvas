@@ -1,14 +1,9 @@
-package canvas.model.shape;
-
-import canvas.enums.ShapeType;
+package canvas.factory.shape;
 
 import java.awt.*;
 
-public abstract class AbstractShape implements ShapeInterface {
+public class ShapeAbstractClass implements ShapeInterface {
     protected int id;
-
-    protected ShapeType shapeType;
-
     protected int xPos;
     protected int yPos;
     protected int width;
@@ -16,12 +11,12 @@ public abstract class AbstractShape implements ShapeInterface {
     protected Color color;
     protected int opacity;
     protected int zOrder;
-
     protected boolean shadow;
-
     protected boolean frame;
 
-    // ShapeInterface의 메서드 구현
+    @Override
+    public void draw() { };
+
     @Override
     public void move(int newX, int newY) {
         this.xPos = newX;
@@ -33,14 +28,10 @@ public abstract class AbstractShape implements ShapeInterface {
         this.width = newWidth;
         this.height = newHeight;
     }
-
     public int getId() {
         return id;
     }
 
-    public ShapeType getShapeType(){
-        return shapeType;
-    }
 
     public int getxPos() {
         return xPos;

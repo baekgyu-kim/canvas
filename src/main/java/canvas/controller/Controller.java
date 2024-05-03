@@ -1,9 +1,8 @@
 package canvas.controller;
 import canvas.dto.UpdateDtoInterface;
+import canvas.factory.shape.ShapeAbstractClass;
 import canvas.model.Model;
-import canvas.dto.ShapeDto;
-import canvas.model.observer.Observer;
-import canvas.model.shape.Shape;
+import canvas.observer.Observer;
 
 public class Controller {
     private final Model model;
@@ -16,8 +15,8 @@ public class Controller {
 
     public void removeObserver(Observer observer){model.removeObserver(observer);}
 
-    public void createShape(ShapeDto shapeDto) {
-        model.createShape(shapeDto);
+    public void createShape(ShapeAbstractClass shape) {
+        model.createShape(shape);
     }
 
     public void clickShapes(int index) {

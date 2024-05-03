@@ -1,9 +1,9 @@
 package canvas.view;
 
 import canvas.controller.Controller;
-import canvas.model.observer.Observer;
-import canvas.view.paletteButton.PaletteButtonInterface;
-import canvas.view.paletteButton.CursorButton;
+import canvas.factory.shape.ShapeAbstractClass;
+import canvas.observer.Observer;
+import canvas.view.paletteButton.PaletteButton;
 import canvas.view.paletteButton.LineButton;
 import canvas.view.paletteButton.RectangleButton;
 import canvas.view.paletteButton.EllipseButton;
@@ -16,11 +16,10 @@ import java.util.List;
 public class Palette extends JPanel implements Observer {
     private Controller controller;
     private int seq;
-    private PaletteButtonInterface cursorButton;
-    private PaletteButtonInterface lineButton;
-    private PaletteButtonInterface rectangleButton;
-    private PaletteButtonInterface ellipseButton;
-    private PaletteButtonInterface starButton;
+    private PaletteButton lineButton;
+    private PaletteButton rectangleButton;
+    private PaletteButton ellipseButton;
+    private PaletteButton starButton;
 
     public Palette(Controller controller, int seq) {
         this.controller = controller;
@@ -33,7 +32,6 @@ public class Palette extends JPanel implements Observer {
     }
 
     private void initComponents() {
-        this.cursorButton = new CursorButton(this.controller);
         this.lineButton = new LineButton(this.controller, this.seq);
         this.rectangleButton = new RectangleButton(this.controller, this.seq);
         this.ellipseButton = new EllipseButton(this.controller, this.seq);
@@ -41,7 +39,6 @@ public class Palette extends JPanel implements Observer {
     }
 
     private void addComponents() {
-        add((Component) this.cursorButton);
         add((Component) this.lineButton);
         add((Component) this.rectangleButton);
         add((Component) this.ellipseButton);
@@ -49,7 +46,7 @@ public class Palette extends JPanel implements Observer {
     }
 
     @Override
-    public void update(List<canvas.model.shape.Shape> shapes) {
+    public void update(List<ShapeAbstractClass> shapes) {
         this.seq = shapes.size();
         initComponents();
         removeAll();
