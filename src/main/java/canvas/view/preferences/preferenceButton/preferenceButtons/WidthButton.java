@@ -1,11 +1,14 @@
 package canvas.view.preferences.preferenceButton.preferenceButtons;
 
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.view.preferences.preferenceButton.PreferenceButton;
 
 import javax.swing.*;
 
 public class WidthButton  extends PreferenceButton {
-    public WidthButton() {
+    private ShapeComposite shapeComposite;
+    public WidthButton(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
         initializeButton("Width");
     }
 

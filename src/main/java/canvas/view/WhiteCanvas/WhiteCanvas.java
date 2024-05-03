@@ -27,7 +27,6 @@ public class WhiteCanvas extends JPanel implements Observer {
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-
     }
 
 }

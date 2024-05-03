@@ -1,11 +1,13 @@
 package canvas.view.preferences.preferenceButton.preferenceButtons;
 
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.view.preferences.preferenceButton.PreferenceButton;
 
-import javax.swing.*;
 
 public class ColorButton  extends PreferenceButton {
-    public ColorButton() {
+    private ShapeComposite shapeComposite;
+    public ColorButton(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
         initializeButton("Color");
     }
 

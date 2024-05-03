@@ -58,6 +58,6 @@ public class Palette extends JPanel implements Observer {
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-
+        // 여기서는 아무것도 하지 않음.
     }
 }

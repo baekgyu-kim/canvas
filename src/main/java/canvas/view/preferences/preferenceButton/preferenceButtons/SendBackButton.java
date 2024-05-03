@@ -1,11 +1,14 @@
 package canvas.view.preferences.preferenceButton.preferenceButtons;
 
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.view.preferences.preferenceButton.PreferenceButton;
 
-import javax.swing.*;
 
 public class SendBackButton  extends PreferenceButton {
-    public SendBackButton() {
+    private ShapeComposite shapeComposite;
+
+    public SendBackButton(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
         initializeButton("Send Back");
     }
     @Override

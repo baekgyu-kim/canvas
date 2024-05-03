@@ -1,11 +1,13 @@
 package canvas.view.preferences.preferenceButton.preferenceButtons;
 
+import canvas.factory.shape.composite.ShapeComposite;
 import canvas.view.preferences.preferenceButton.PreferenceButton;
 
-import javax.swing.*;
 
 public class HeightButton  extends PreferenceButton {
-    public HeightButton() {
+    private ShapeComposite shapeComposite;
+    public HeightButton(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
         initializeButton("Height");
     }
 
