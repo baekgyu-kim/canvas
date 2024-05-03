@@ -3,11 +3,7 @@ package canvas.view.palette;
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
 import canvas.observer.Observer;
-import canvas.view.palette.paletteButton.PaletteButton;
-import canvas.view.palette.paletteButton.LineButton;
-import canvas.view.palette.paletteButton.RectangleButton;
-import canvas.view.palette.paletteButton.EllipseButton;
-import canvas.view.palette.paletteButton.StarButton;
+import canvas.view.palette.paletteButton.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +14,7 @@ public class Palette extends JPanel implements Observer {
     private int seq;
     private PaletteButton lineButton;
     private PaletteButton rectangleButton;
+    private PaletteButton circleButton;
     private PaletteButton ellipseButton;
     private PaletteButton starButton;
 
@@ -34,6 +31,7 @@ public class Palette extends JPanel implements Observer {
     private void initComponents() {
         this.lineButton = new LineButton(this.controller, this.seq);
         this.rectangleButton = new RectangleButton(this.controller, this.seq);
+        this.circleButton = new CircleButton(this.controller, this.seq);
         this.ellipseButton = new EllipseButton(this.controller, this.seq);
         this.starButton = new StarButton(this.controller, this.seq);
     }
@@ -41,6 +39,7 @@ public class Palette extends JPanel implements Observer {
     private void addComponents() {
         add((Component) this.lineButton);
         add((Component) this.rectangleButton);
+        add((Component) this.circleButton);
         add((Component) this.ellipseButton);
         add((Component) this.starButton);
     }
