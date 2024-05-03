@@ -4,6 +4,7 @@ import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
 import canvas.observer.Observer;
 import canvas.view.palette.paletteButton.*;
+import canvas.view.palette.paletteButton.paletteButtons.*;
 
 import javax.swing.*;
 import java.awt.*;

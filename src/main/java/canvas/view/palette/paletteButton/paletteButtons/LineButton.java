@@ -1,7 +1,8 @@
-package canvas.view.palette.paletteButton;
+package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.LineShape;
+import canvas.view.palette.paletteButton.PaletteButton;
 
 
 import java.awt.*;
