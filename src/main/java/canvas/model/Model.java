@@ -14,13 +14,13 @@ import java.util.List;
 
 public class Model implements Subject {
     private List<Observer> observers;
-    private List<ShapeAbstractClass> shapes;
+    private List<ShapeAbstractClass> allShapes;
 
     private ShapeComposite clickedShapesComposite;
 
     public Model() {
         this.observers = new ArrayList<>();
-        this.shapes = new ArrayList<>();
+        this.allShapes = new ArrayList<>();
         this.clickedShapesComposite = new ShapeComposite();
     }
     @Override
@@ -38,7 +38,7 @@ public class Model implements Subject {
     @Override
     public void notifyObserversAllShapes() {
         for (Observer observer : observers) {
-            observer.updateAllShapes(shapes);
+            observer.updateAllShapes(allShapes);
         }
     }
 
@@ -50,15 +50,15 @@ public class Model implements Subject {
     }
 
     public void createShape(ShapeAbstractClass shape) {
-        shapes.add(shape);
+        allShapes.add(shape);
         notifyObserversAllShapes();
     }
 
     public void clickShape(int index){
-        if (index < 0 || index >= shapes.size()) {
+        if (index < 0 || index >= allShapes.size()) {
             throw new IllegalArgumentException("Invalid shape index: " + index);
         }
-        ShapeAbstractClass clickedShape = shapes.get(index);
+        ShapeAbstractClass clickedShape = allShapes.get(index);
         clickedShapesComposite.add(clickedShape);
         notifyObserversClickedShapes();
     }
