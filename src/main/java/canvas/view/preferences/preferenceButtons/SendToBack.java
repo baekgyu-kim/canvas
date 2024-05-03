@@ -1,4 +1,4 @@
-package canvas.view.preferences;
+package canvas.view.preferences.preferenceButtons;
 
 import javax.swing.*;
 

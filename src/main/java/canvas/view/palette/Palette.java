@@ -1,13 +1,13 @@
-package canvas.view;
+package canvas.view.palette;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
 import canvas.observer.Observer;
-import canvas.view.paletteButton.PaletteButton;
-import canvas.view.paletteButton.LineButton;
-import canvas.view.paletteButton.RectangleButton;
-import canvas.view.paletteButton.EllipseButton;
-import canvas.view.paletteButton.StarButton;
+import canvas.view.palette.paletteButton.PaletteButton;
+import canvas.view.palette.paletteButton.LineButton;
+import canvas.view.palette.paletteButton.RectangleButton;
+import canvas.view.palette.paletteButton.EllipseButton;
+import canvas.view.palette.paletteButton.StarButton;
 
 import javax.swing.*;
 import java.awt.*;

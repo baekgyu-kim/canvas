@@ -1,4 +1,4 @@
-package canvas.view;
+package canvas.view.WhiteCanvas;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;

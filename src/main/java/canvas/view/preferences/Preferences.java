@@ -1,9 +1,9 @@
-package canvas.view;
+package canvas.view.preferences;
 
 import canvas.controller.Controller;
 import canvas.factory.shape.ShapeAbstractClass;
 import canvas.observer.Observer;
-import canvas.view.preferences.*;
+import canvas.view.preferences.preferenceButtons.*;
 
 import javax.swing.*;
 import java.util.List;

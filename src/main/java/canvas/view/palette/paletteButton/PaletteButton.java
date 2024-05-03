@@ -1,6 +1,5 @@
-package canvas.view.paletteButton;
+package canvas.view.palette.paletteButton;
 
-import canvas.controller.Controller;
 import canvas.factory.ShapeCreatorInterface;
 
 import javax.swing.*;
