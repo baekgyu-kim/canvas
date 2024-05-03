@@ -11,7 +11,7 @@ import canvas.view.preferences.preferenceButton.preferenceButtons.*;
 import javax.swing.*;
 import java.util.List;
 
-public class Preferences extends JPanel implements Observer {
+public class Preferences extends JPanel  {
     Controller controller;
 
     private PreferenceButton widthButton;
@@ -26,6 +26,7 @@ public class Preferences extends JPanel implements Observer {
     public Preferences(Controller controller) {
         this.controller = controller;
         initComponents();
+        registerButtonsAsObserver();
         setBackground(java.awt.Color.red);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         addComponents();
@@ -38,25 +39,18 @@ public class Preferences extends JPanel implements Observer {
         this.bringFrontButton = new BringFrontButton(this.shapeComposite);
         this.sendBackButton = new SendBackButton(this.shapeComposite);
     }
+    private void registerButtonsAsObserver(){
+        controller.registerObserver(this.widthButton);
+        controller.registerObserver(this.heightButton);
+        controller.registerObserver(this.colorButton);
+        controller.registerObserver(this.bringFrontButton);
+        controller.registerObserver(this.sendBackButton);
+    }
     private void addComponents() {
         add(this.widthButton);
         add(this.heightButton);
         add(this.colorButton);
         add(this.bringFrontButton);
         add(this.sendBackButton);
-    }
-    @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        // 여기서는 아무것도 하지 않음.
-    }
-
-    @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
-        initComponents();
-        removeAll();
-        addComponents();
-        revalidate();
-        repaint();
     }
 }

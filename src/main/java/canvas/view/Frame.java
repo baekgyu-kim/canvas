@@ -22,7 +22,6 @@ public class Frame extends JFrame{
         this.preferences = new Preferences(controller);
 
         controller.registerObserver(whiteCanvas);
-        controller.registerObserver(preferences);
 
         // setting frame preferences
         int frame_width = 1300;
