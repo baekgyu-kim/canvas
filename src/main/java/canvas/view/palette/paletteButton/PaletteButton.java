@@ -6,5 +6,6 @@ import javax.swing.*;
 
 
 public abstract class PaletteButton extends JButton implements ShapeCreatorInterface {
-    void initializeButton(String text){};
+
+    public abstract void initializeButton(String text);
 }
