@@ -8,9 +8,8 @@ import canvas.view.palette.paletteButton.PaletteButton;
 import java.awt.*;
 
 public class LineButton extends PaletteButton {
-    Controller controller;
-    int seq;
     public LineButton(Controller controller, int seq) {
+        super(controller, seq);
         this.controller = controller;
         this.seq = seq;
         initializeButton("Line");

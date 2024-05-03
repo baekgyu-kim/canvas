@@ -8,9 +8,8 @@ import canvas.view.palette.paletteButton.PaletteButton;
 import java.awt.*;
 
 public class StarButton extends PaletteButton {
-    Controller controller;
-    int seq;
     public StarButton(Controller controller, int seq) {
+        super(controller, seq);
         this.controller = controller;
         this.seq = seq;
         initializeButton("Star");

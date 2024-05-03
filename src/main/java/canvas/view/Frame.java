@@ -21,7 +21,6 @@ public class Frame extends JFrame{
         this.whiteCanvas = new WhiteCanvas(controller);
         this.preferences = new Preferences(controller);
 
-        controller.registerObserver(palette);
         controller.registerObserver(whiteCanvas);
         controller.registerObserver(preferences);
 

@@ -21,6 +21,8 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         for (ShapeAbstractClass shape : shapes) {
+            System.out.println(shape.getId());
+            System.out.println(shape.getzOrder());
             shape.draw();
         }
     }

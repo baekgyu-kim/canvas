@@ -11,7 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class Palette extends JPanel implements Observer {
+public class Palette extends JPanel {
     private Controller controller;
     private int seq;
     private PaletteButton lineButton;
@@ -24,6 +24,7 @@ public class Palette extends JPanel implements Observer {
         this.controller = controller;
         this.seq = seq;
         initComponents();
+        registerButtonsAsObserver();
         setBackground(Color.blue);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         addComponents();
@@ -38,26 +39,19 @@ public class Palette extends JPanel implements Observer {
         this.starButton = new StarButton(this.controller, this.seq);
     }
 
+    private void registerButtonsAsObserver(){
+        controller.registerObserver(this.lineButton);
+        controller.registerObserver(this.rectangleButton);
+        controller.registerObserver(this.circleButton);
+        controller.registerObserver(this.ellipseButton);
+        controller.registerObserver(this.starButton);
+    }
+
     private void addComponents() {
         add((Component) this.lineButton);
         add((Component) this.rectangleButton);
         add((Component) this.circleButton);
         add((Component) this.ellipseButton);
         add((Component) this.starButton);
-    }
-
-    @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        this.seq = shapes.size();
-        initComponents();
-        removeAll();
-        addComponents();
-        revalidate();
-        repaint();
-    }
-
-    @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        // 여기서는 아무것도 하지 않음.
     }
 }
