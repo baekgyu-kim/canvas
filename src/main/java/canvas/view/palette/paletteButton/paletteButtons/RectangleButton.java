@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.shape.RectangleShape;
+import canvas.shape.shapes.RectangleShape;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 

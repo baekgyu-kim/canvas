@@ -1,4 +1,6 @@
-package canvas.shape;
+package canvas.shape.shapes;
+
+import canvas.shape.ShapeAbstractClass;
 
 import java.awt.*;
 
