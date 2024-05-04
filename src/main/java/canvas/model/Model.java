@@ -1,8 +1,6 @@
 package canvas.model;
 
 import canvas.dto.UpdateDtoInterface;
-import canvas.dto.UpdateMoveDto;
-import canvas.dto.UpdateResizeDto;
 import canvas.shape.ShapeAbstractClass;
 import canvas.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -70,13 +68,7 @@ public class Model implements Subject {
 
 
     public void updateShape(UpdateDtoInterface dto) {
-        if (dto instanceof UpdateMoveDto) {
-            UpdateMoveDto moveDto = (UpdateMoveDto) dto;
-            clickedShapesComposite.move(moveDto.getNewXPos(), moveDto.getNewYPos());
-        } else if (dto instanceof UpdateResizeDto) {
-            UpdateResizeDto resizeDto = (UpdateResizeDto) dto;
-            clickedShapesComposite.resize(resizeDto.getNewWidth(), resizeDto.getNewHeight());
-        }
+        // update logic 구현
         notifyObserversAllShapes();
     }
 
