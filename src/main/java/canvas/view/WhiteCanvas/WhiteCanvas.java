@@ -1,8 +1,8 @@
 package canvas.view.WhiteCanvas;
 
 import canvas.controller.Controller;
-import canvas.shape.ShapeAbstractClass;
-import canvas.shape.composite.ShapeComposite;
+import canvas.model.shape.ShapeAbstractClass;
+import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 import javax.swing.*;

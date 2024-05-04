@@ -1,8 +1,8 @@
 package canvas.view.preferences.preferenceButton;
 
 import canvas.factory.UpdateDtoCreatorInterface;
-import canvas.shape.ShapeAbstractClass;
-import canvas.shape.composite.ShapeComposite;
+import canvas.model.shape.ShapeAbstractClass;
+import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 import javax.swing.*;

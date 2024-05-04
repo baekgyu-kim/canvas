@@ -2,8 +2,8 @@ package canvas.model;
 
 
 import canvas.dto.updateDto.UpdateDtoAbstractClass;
-import canvas.shape.ShapeAbstractClass;
-import canvas.shape.composite.ShapeComposite;
+import canvas.model.shape.ShapeAbstractClass;
+import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.observer.Subject;
 

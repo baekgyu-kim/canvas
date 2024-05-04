@@ -1,6 +1,6 @@
 package canvas.controller;
 import canvas.dto.updateDto.UpdateDtoAbstractClass;
-import canvas.shape.ShapeAbstractClass;
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.observer.Observer;
 

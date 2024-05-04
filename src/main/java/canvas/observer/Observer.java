@@ -1,7 +1,7 @@
 package canvas.observer;
 
-import canvas.shape.ShapeAbstractClass;
-import canvas.shape.composite.ShapeComposite;
+import canvas.model.shape.ShapeAbstractClass;
+import canvas.model.shape.composite.ShapeComposite;
 
 import java.util.List;
 

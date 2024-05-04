@@ -1,7 +1,7 @@
-package canvas.shape.composite;
+package canvas.model.shape.composite;
 
-import canvas.shape.ShapeAbstractClass;
-import canvas.shape.ShapeInterface;
+import canvas.model.shape.ShapeAbstractClass;
+import canvas.model.shape.ShapeInterface;
 
 import java.awt.*;
 import java.util.ArrayList;
