@@ -1,5 +1,6 @@
 package canvas.view.preferences.preferenceButton;
 
+import canvas.factory.UpdateDtoCreatorInterface;
 import canvas.shape.ShapeAbstractClass;
 import canvas.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -7,7 +8,7 @@ import canvas.observer.Observer;
 import javax.swing.*;
 import java.util.List;
 
-public abstract class PreferenceButton extends JButton implements Observer {
+public abstract class PreferenceButton extends JButton implements Observer, UpdateDtoCreatorInterface {
     ShapeComposite shapeComposite;
 
     public PreferenceButton(ShapeComposite shapeComposite) {
@@ -30,4 +31,5 @@ public abstract class PreferenceButton extends JButton implements Observer {
     public void updateClickedShapes(ShapeComposite shapeComposite) {
         this.shapeComposite = shapeComposite;
     }
+
 }

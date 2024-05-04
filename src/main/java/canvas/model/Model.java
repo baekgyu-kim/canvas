@@ -1,6 +1,7 @@
 package canvas.model;
 
-import canvas.dto.UpdateDtoInterface;
+
+import canvas.dto.updateDto.UpdateDtoAbstractClass;
 import canvas.shape.ShapeAbstractClass;
 import canvas.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -67,7 +68,7 @@ public class Model implements Subject {
     }
 
 
-    public void updateShape(UpdateDtoInterface dto) {
+    public void updateShape(UpdateDtoAbstractClass dto) {
         // update logic 구현
         notifyObserversAllShapes();
     }

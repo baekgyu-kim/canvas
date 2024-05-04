@@ -14,4 +14,8 @@ public class ColorButton  extends PreferenceButton {
     public void changePreference() {
 
     }
+    @Override
+    public void createUpdateDto() {
+        // update dto create 로직 구현
+    }
 }

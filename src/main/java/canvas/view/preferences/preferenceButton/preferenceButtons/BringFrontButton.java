@@ -13,4 +13,9 @@ public class BringFrontButton extends PreferenceButton {
     public void changePreference() {
 
     }
+    @Override
+    public void createUpdateDto() {
+        // updateDto create 로직
+        // 만들어진 updateDto를 controller를 통해서 model로 보냄
+    }
 }

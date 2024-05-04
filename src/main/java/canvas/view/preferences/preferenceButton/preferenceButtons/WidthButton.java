@@ -14,4 +14,8 @@ public class WidthButton  extends PreferenceButton {
 
     }
 
+    @Override
+    public void createUpdateDto() {
+        // update dto create 로직 구현
+    }
 }
