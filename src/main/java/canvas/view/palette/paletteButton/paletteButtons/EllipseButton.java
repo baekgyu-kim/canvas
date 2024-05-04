@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.factory.shape.EllipseShape;
+import canvas.shape.EllipseShape;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 

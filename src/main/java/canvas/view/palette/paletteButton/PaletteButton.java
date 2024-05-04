@@ -2,8 +2,8 @@ package canvas.view.palette.paletteButton;
 
 import canvas.controller.Controller;
 import canvas.factory.ShapeCreatorInterface;
-import canvas.factory.shape.ShapeAbstractClass;
-import canvas.factory.shape.composite.ShapeComposite;
+import canvas.shape.ShapeAbstractClass;
+import canvas.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 import javax.swing.*;

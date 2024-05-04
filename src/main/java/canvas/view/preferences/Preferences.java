@@ -1,15 +1,11 @@
 package canvas.view.preferences;
 
 import canvas.controller.Controller;
-import canvas.factory.shape.ShapeAbstractClass;
-import canvas.factory.shape.composite.ShapeComposite;
-import canvas.observer.Observer;
-import canvas.view.palette.paletteButton.paletteButtons.*;
+import canvas.shape.composite.ShapeComposite;
 import canvas.view.preferences.preferenceButton.PreferenceButton;
 import canvas.view.preferences.preferenceButton.preferenceButtons.*;
 
 import javax.swing.*;
-import java.util.List;
 
 public class Preferences extends JPanel  {
     Controller controller;

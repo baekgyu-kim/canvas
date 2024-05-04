@@ -1,6 +1,6 @@
 package canvas.view.preferences.preferenceButton.preferenceButtons;
 
-import canvas.factory.shape.composite.ShapeComposite;
+import canvas.shape.composite.ShapeComposite;
 import canvas.view.preferences.preferenceButton.PreferenceButton;
 
 

@@ -1,6 +1,6 @@
 package canvas.controller;
 import canvas.dto.UpdateDtoInterface;
-import canvas.factory.shape.ShapeAbstractClass;
+import canvas.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.observer.Observer;
 

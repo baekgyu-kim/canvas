@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.factory.shape.StarShape;
+import canvas.shape.StarShape;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 

@@ -1,4 +1,4 @@
-package canvas.factory.shape;
+package canvas.shape;
 
 import java.awt.*;
 

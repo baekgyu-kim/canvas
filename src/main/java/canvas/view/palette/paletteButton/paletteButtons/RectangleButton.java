@@ -1,14 +1,11 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.factory.shape.RectangleShape;
-import canvas.factory.shape.ShapeAbstractClass;
-import canvas.factory.shape.composite.ShapeComposite;
+import canvas.shape.RectangleShape;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 
 import java.awt.*;
-import java.util.List;
 
 public class RectangleButton extends PaletteButton {
     public RectangleButton(Controller controller, int seq) {

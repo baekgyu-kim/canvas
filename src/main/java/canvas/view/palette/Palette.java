@@ -1,15 +1,11 @@
 package canvas.view.palette;
 
 import canvas.controller.Controller;
-import canvas.factory.shape.ShapeAbstractClass;
-import canvas.factory.shape.composite.ShapeComposite;
-import canvas.observer.Observer;
 import canvas.view.palette.paletteButton.*;
 import canvas.view.palette.paletteButton.paletteButtons.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.List;
 
 public class Palette extends JPanel {
     private Controller controller;

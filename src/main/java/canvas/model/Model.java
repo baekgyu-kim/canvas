@@ -3,8 +3,8 @@ package canvas.model;
 import canvas.dto.UpdateDtoInterface;
 import canvas.dto.UpdateMoveDto;
 import canvas.dto.UpdateResizeDto;
-import canvas.factory.shape.ShapeAbstractClass;
-import canvas.factory.shape.composite.ShapeComposite;
+import canvas.shape.ShapeAbstractClass;
+import canvas.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.observer.Subject;
 
