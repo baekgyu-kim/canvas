@@ -8,37 +8,40 @@ import canvas.view.preferences.Preferences;
 import javax.swing.*;
 import java.awt.*;
 
-public class Frame extends JFrame{
+public class Frame extends JFrame {
+    private static final int FRAME_WIDTH = 1300;
+    private static final int FRAME_HEIGHT = FRAME_WIDTH * 3 / 5;
 
     private Palette palette;
     private WhiteCanvas whiteCanvas;
     private Preferences preferences;
-    private int seq;
+
     public Frame(Controller controller) {
-        // initiating class
-        this.seq = 0;
-        this.palette = new Palette(controller, this.seq);
-        this.whiteCanvas = new WhiteCanvas(controller);
-        this.preferences = new Preferences(controller);
-
-        controller.registerObserver(whiteCanvas);
-
-        // setting frame preferences
-        int frame_width = 1300;
-        int frame_height = frame_width * 3/5;
-
-        setSize(frame_width, frame_height);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
-
-        // adding component
-        add(new JLabel(" "), BorderLayout.NORTH);
-        add(palette, BorderLayout.WEST);
-        add(whiteCanvas,BorderLayout.CENTER);
-        add(preferences, BorderLayout.EAST);
-        add(new JLabel(" "), BorderLayout.SOUTH);
-
-        setVisible(true);
+        super("Canvas Application");
+        initializeComponents(controller);
+        setupFrame();
+        addComponents();
     }
 
+    private void initializeComponents(Controller controller) {
+        palette = new Palette(controller, 0);
+        whiteCanvas = new WhiteCanvas(controller);
+        preferences = new Preferences(controller);
+        controller.registerObserver(whiteCanvas);
+    }
+
+    private void setupFrame() {
+        setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+    }
+
+    private void addComponents() {
+        add(new JLabel(" "), BorderLayout.NORTH);
+        add(palette, BorderLayout.WEST);
+        add(whiteCanvas, BorderLayout.CENTER);
+        add(preferences, BorderLayout.EAST);
+        add(new JLabel(" "), BorderLayout.SOUTH);
+        setVisible(true);
+    }
 }
