@@ -1,6 +1,5 @@
 package canvas.controller;
 import canvas.dto.updateDto.UpdateDtoAbstractClass;
-import canvas.dto.updateDto.UpdateDtoInterface;
 import canvas.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.observer.Observer;
@@ -26,8 +25,6 @@ public class Controller {
 
     public void clearClicks(){model.clearClicks();}
 
-    public void updateShape(UpdateDtoAbstractClass dto) {
-        model.updateShape(dto);
-    }
+    public void updateShape(UpdateDtoAbstractClass dto) {model.updateShape(dto);}
 
 }
