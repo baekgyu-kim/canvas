@@ -42,6 +42,9 @@ public class WhiteCanvas extends JPanel implements Observer {
         } else {
             System.out.println("Clicked on empty space.");
         }
+
+        // 여기에 controller 메소드 호출해서 모델의 clickedShapes 수정하는 로직 처리
+        // clickedShapes에 해당 도형 없으면 추가하고, 이미 있으면 삭제하고
     }
 
     private int findShapeByPoint(int x, int y) {
@@ -66,12 +69,13 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {
         this.allShapes = shapes;
-        repaint();  // 도형 목록이 업데이트 될 때마다 캔버스를 다시 그립니다.
+        repaint();
     }
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-        // 특정 도형이 클릭되었을 때 업데이트하는 로직을 여기에 추가할 수 있습니다.
+        // Model의 clickedShapes가 수정된 경우 수정된 clickedShapes가 인자로 들어오는 메소드
+        // 수정된 clickedShapes 사용해서 처리해야 하는 로직 있으면 여기에다 구현
     }
 
     @Override
