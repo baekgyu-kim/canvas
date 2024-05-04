@@ -1,6 +1,6 @@
 package canvas.dto.updateDto.updateDtos;
 
-import canvas.dto.updateDto.UpdateDtoInterface;
+import canvas.dto.updateDto.UpdateDtoAbstractClass;
 
-public class WidthUpdateDto implements UpdateDtoInterface {
+public class WidthUpdateDto extends UpdateDtoAbstractClass {
 }
