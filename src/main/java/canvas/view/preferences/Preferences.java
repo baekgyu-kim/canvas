@@ -10,6 +10,7 @@ import javax.swing.*;
 public class Preferences extends JPanel  {
     Controller controller;
 
+    private PreferenceButton moveButton;
     private PreferenceButton widthButton;
     private PreferenceButton heightButton;
     private PreferenceButton colorButton;
@@ -29,6 +30,7 @@ public class Preferences extends JPanel  {
         setVisible(true);
     }
     private void initComponents() {
+        this.moveButton = new MoveButton(this.shapeComposite);
         this.widthButton = new WidthButton(this.shapeComposite);
         this.heightButton = new HeightButton(this.shapeComposite);
         this.colorButton = new ColorButton(this.shapeComposite);
@@ -36,6 +38,7 @@ public class Preferences extends JPanel  {
         this.sendBackButton = new SendBackButton(this.shapeComposite);
     }
     private void registerButtonsAsObserver(){
+        controller.registerObserver(this.moveButton);
         controller.registerObserver(this.widthButton);
         controller.registerObserver(this.heightButton);
         controller.registerObserver(this.colorButton);
@@ -43,6 +46,7 @@ public class Preferences extends JPanel  {
         controller.registerObserver(this.sendBackButton);
     }
     private void addComponents() {
+        add(this.moveButton);
         add(this.widthButton);
         add(this.heightButton);
         add(this.colorButton);
