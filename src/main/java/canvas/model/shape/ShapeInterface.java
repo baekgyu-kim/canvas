@@ -1,9 +1,10 @@
 package canvas.model.shape;
 
+import canvas.dto.updateDto.UpdateDtoAbstractClass;
+
 import java.awt.*;
 
 public interface ShapeInterface {
     void draw(Graphics g);
-    void move(int newX, int newY);
-    void resize(int newWidth, int newHeight);
+    void update(UpdateDtoAbstractClass updateDtoAbstractClass);
 }

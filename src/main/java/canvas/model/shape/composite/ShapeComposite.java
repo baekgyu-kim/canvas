@@ -1,5 +1,6 @@
 package canvas.model.shape.composite;
 
+import canvas.dto.updateDto.UpdateDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.ShapeInterface;
 
@@ -16,23 +17,19 @@ public class ShapeComposite implements ShapeInterface {
     public void clear() {
         children.clear();
     }
-    @Override
-    public void move(int deltaX, int deltaY) {
-        for (ShapeAbstractClass child : children) {
-            child.move(deltaX, deltaY);
-        }
-    }
 
-    @Override
-    public void resize(int newWidth, int newHeight) {
-        for (ShapeAbstractClass child : children) {
-            child.resize(newWidth, newHeight);
-        }
-    }
+
     @Override
     public void draw(Graphics g) {
         for (ShapeAbstractClass child : children) {
             child.draw(g);
+        }
+    }
+
+    @Override
+    public void update(UpdateDtoAbstractClass dto) {
+        for (ShapeAbstractClass child : children) {
+            child.update(dto);
         }
     }
 }

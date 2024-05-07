@@ -1,5 +1,7 @@
 package canvas.model.shape;
 
+import canvas.dto.updateDto.UpdateDtoAbstractClass;
+
 import java.awt.*;
 
 public class ShapeAbstractClass implements ShapeInterface {
@@ -27,19 +29,22 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.frame = frame;
     }
     @Override
-    public void draw(Graphics g) { };
-
-    @Override
-    public void move(int newX, int newY) {
-        this.xPos = newX;
-        this.yPos = newY;
+    public void draw(Graphics g) {
     }
 
     @Override
-    public void resize(int newWidth, int newHeight) {
-        this.width = newWidth;
-        this.height = newHeight;
+    public void update(UpdateDtoAbstractClass updateDtoAbstractClass) {
+        this.xPos = updateDtoAbstractClass.getXPos();
+        this.yPos = updateDtoAbstractClass.getYPos();
+        this.width = updateDtoAbstractClass.getWidth();
+        this.height = updateDtoAbstractClass.getHeight();
+        this.color = updateDtoAbstractClass.getColor();
+        this.opacity = updateDtoAbstractClass.getOpacity();
+        this.zOrder = updateDtoAbstractClass.getZOrder();
+        this.shadow = updateDtoAbstractClass.getShadow();
+        this.frame = updateDtoAbstractClass.getFrame();
     }
+
     public int getId() {
         return id;
     }
