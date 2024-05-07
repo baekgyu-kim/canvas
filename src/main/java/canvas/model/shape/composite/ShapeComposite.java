@@ -13,6 +13,7 @@ public class ShapeComposite implements ShapeInterface {
     public void add(ShapeAbstractClass component) {
         children.add(component);
     }
+    public void remove(ShapeAbstractClass component) { children.remove(component);}
     public void clear() {
         children.clear();
     }
