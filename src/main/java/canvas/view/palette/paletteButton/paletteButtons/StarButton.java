@@ -18,7 +18,7 @@ public class StarButton extends PaletteButton {
     @Override
     public void createShape() {
         addActionListener(e -> {
-            int id = seq;int xPos = 350; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;int zOrder = seq; boolean shadow = false;boolean frame =false;
+            int id = seq;int xPos = 500; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;int zOrder = seq; boolean shadow = false;boolean frame =false;
             StarShape starShape = new StarShape(id, xPos, yPos, width, height, color, opacity, zOrder, shadow, frame);
             controller.createShape(starShape);
         });

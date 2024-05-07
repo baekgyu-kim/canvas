@@ -53,12 +53,12 @@ public class Model implements Subject {
         notifyObserversAllShapes();
     }
 
-    public void clickShape(int index){
-        if (index < 0 || index >= allShapes.size()) {
-            throw new IllegalArgumentException("Invalid shape index: " + index);
+    public void clickShape(int id){
+        if (clickedShapesComposite.is_shape_in_chidren(id)) {
+            // 클릭 해제 로직
+        } else{
+            // 클릭 로직
         }
-        ShapeAbstractClass clickedShape = allShapes.get(index);
-        clickedShapesComposite.add(clickedShape);
         notifyObserversClickedShapes();
     }
 

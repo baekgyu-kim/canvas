@@ -15,9 +15,7 @@ public class Controller {
 
     public void createShape(ShapeAbstractClass shape){model.createShape(shape);}
 
-    public void clickShapes(int index){model.clickShape(index);}
-
-    public void unClickShapes(int index){model.unClickShape(index);}
+    public void toggleShapeClick(int id){model.clickShape(id);}
 
     public void clearClicks(){model.clearClicks();}
 

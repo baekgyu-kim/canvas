@@ -19,6 +19,14 @@ public class ShapeComposite implements ShapeInterface {
         children.clear();
     }
 
+    public boolean is_shape_in_chidren(int id) {
+        for (ShapeAbstractClass child : children) {
+            if (child.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void draw(Graphics g) {

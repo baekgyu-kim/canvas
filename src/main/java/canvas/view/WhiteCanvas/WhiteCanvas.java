@@ -39,16 +39,11 @@ public class WhiteCanvas extends JPanel implements Observer {
         // 클릭한 커서의 위치에 도형이 존재한다면
         if (clickedShapeIndex != -1) {
             ShapeAbstractClass clickedShape = allShapes.get(clickedShapeIndex);
-//            clickedShape안에 지금 클릭한 도형이 있다면
-//            if ()
-//              controller.unClickShapes(clickedShape.getId());
-//            } else {
-//              controller.clickShapes(clickedShape.getId());
-//            }
-            System.out.println("Clicked on Shape with ID: " + clickedShape.getId() + " at Z-Order: " + clickedShape.getzOrder());
+            controller.toggleShapeClick(clickedShape.getId());
+//            System.out.println("Clicked on Shape with ID: " + clickedShape.getId() + " at Z-Order: " + clickedShape.getzOrder());
         } else { // 아니라면
             controller.clearClicks();
-            System.out.println("Clicked on empty space.");
+//            System.out.println("Clicked on empty space.");
         }
 
         // 여기에 controller 메소드 호출해서 모델의 clickedShapes 수정하는 로직 처리
