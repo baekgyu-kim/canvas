@@ -11,21 +11,22 @@ import java.util.List;
 public class ShapeComposite implements ShapeInterface {
     private List<ShapeAbstractClass> children = new ArrayList<>();
 
-    public void add(ShapeAbstractClass component) {
-        children.add(component);
-    }
-    public void remove(ShapeAbstractClass component) { children.remove(component);}
-    public void clear() {
-        children.clear();
-    }
+    public void add(ShapeAbstractClass shape) {children.add(shape);}
+    public void remove(ShapeAbstractClass shape) { children.remove(shape);}
+    public void clear() {children.clear();}
 
-    public boolean is_shape_in_chidren(int id) {
+    public boolean is_shape_in_composite(int id) {
         for (ShapeAbstractClass child : children) {
             if (child.getId() == id) {
                 return true;
+
             }
         }
         return false;
+    }
+
+    public List<ShapeAbstractClass> getChildren(){
+        return this.children;
     }
 
     @Override

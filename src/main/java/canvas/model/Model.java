@@ -8,8 +8,10 @@ import canvas.observer.Observer;
 import canvas.observer.Subject;
 
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Model implements Subject {
     private List<Observer> observers;
@@ -54,17 +56,13 @@ public class Model implements Subject {
     }
 
     public void clickShape(int id){
-        if (clickedShapesComposite.is_shape_in_chidren(id)) {
-            // 클릭 해제 로직
+        ShapeAbstractClass shape = findShapeById(id);
+        if (clickedShapesComposite.is_shape_in_composite(id)) {
+            clickedShapesComposite.remove(shape);
         } else{
-            // 클릭 로직
+            clickedShapesComposite.add(shape);
         }
         notifyObserversClickedShapes();
-    }
-
-    public void unClickShape(int index){
-        ShapeAbstractClass clickedShape = allShapes.get(index);
-        clickedShapesComposite.remove(clickedShape);
     }
 
     public void clearClicks(){
@@ -77,5 +75,15 @@ public class Model implements Subject {
         // update logic 구현
         notifyObserversAllShapes();
     }
+
+    private ShapeAbstractClass findShapeById(int id) throws NoSuchElementException {
+        for (ShapeAbstractClass shape : allShapes) {
+            if (shape.getId() == id) {
+                return shape;
+            }
+        }
+        throw new NoSuchElementException("No shape found with ID: " + id);
+    }
+
 
 }

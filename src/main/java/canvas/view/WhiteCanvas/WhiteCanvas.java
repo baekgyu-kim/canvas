@@ -77,9 +77,13 @@ public class WhiteCanvas extends JPanel implements Observer {
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-        // Model의 clickedShapes가 수정된 경우 수정된 clickedShapes가 인자로 들어오는 메소드
-        // 수정된 clickedShapes 사용해서 처리해야 하는 로직 있으면 여기에다 구현
+//        List<ShapeAbstractClass> children = shapeComposite.getChildren();
+//        System.out.println("Clicked shapes IDs:");
+//        for (ShapeAbstractClass shape : children) {
+//            System.out.println("Shape ID: " + shape.getId());
+//        }
     }
+
 
     @Override
     protected void paintComponent(Graphics g) {
