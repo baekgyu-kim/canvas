@@ -62,6 +62,11 @@ public class Model implements Subject {
         notifyObserversClickedShapes();
     }
 
+    public void unClickShape(int index){
+        ShapeAbstractClass clickedShape = allShapes.get(index);
+        clickedShapesComposite.remove(clickedShape);
+    }
+
     public void clearClicks(){
         clickedShapesComposite.clear();
         notifyObserversClickedShapes();
