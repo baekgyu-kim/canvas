@@ -21,6 +21,7 @@ public abstract class PropertyDtoAbstractClass implements DtoInterface {
         this.color = null;
         this.zOrder = null;
     }
+
     public Integer getXPos() {return this.xPos;}
     public Integer getYPos() {return this.yPos;}
     public Integer getWidth() {return this.width;}

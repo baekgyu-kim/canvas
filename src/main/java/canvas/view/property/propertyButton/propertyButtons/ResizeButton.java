@@ -36,7 +36,7 @@ public class ResizeButton extends PropertyButton {
                         int newWidth = Integer.parseInt(widthField.getText());
                         int newHeight = Integer.parseInt(heightField.getText());
                         if (isValidSize(newWidth, newHeight)) {
-                            createPropertyDtos(newWidth, newHeight);
+                            createPropertyDto(newWidth, newHeight);
                         } else {
                             JOptionPane.showMessageDialog(null, "New size exceeds canvas bounds.");
                         }
@@ -52,7 +52,7 @@ public class ResizeButton extends PropertyButton {
         return width > 0 && width <= canvasWidth && height > 0 && height <= canvasHeight;
     }
 
-    public void createPropertyDtos(int newWidth, int newHeight) {
+    public void createPropertyDto(int newWidth, int newHeight) {
         PropertyDtoAbstractClass resizeDto = new ResizePropertyDto(newWidth, newHeight);
         controller.updateShape(shapeComposite, resizeDto);
     }

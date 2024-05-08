@@ -36,7 +36,7 @@ public class MoveButton extends PropertyButton {
                         int newX = Integer.parseInt(xField.getText());
                         int newY = Integer.parseInt(yField.getText());
                         if (isValidCoordinate(newX, newY)) {
-                            createPropertyDtos(newX, newY);
+                            createPropertyDto(newX, newY);
                         } else {
                             JOptionPane.showMessageDialog(null, "Coordinates are out of canvas bounds.");
                         }
@@ -52,7 +52,7 @@ public class MoveButton extends PropertyButton {
         return x >= 0 && x <= canvasWidth && y >= 0 && y <= canvasHeight;
     }
 
-    public void createPropertyDtos(int newX, int newY) {
+    public void createPropertyDto(int newX, int newY) {
         PropertyDtoAbstractClass moveDto = new MovePropertyDto(newX, newY);
         controller.updateShape(shapeComposite, moveDto);
     }

@@ -14,7 +14,5 @@ public class BringFrontButton extends PropertyButton {
         if (shapeComposite.shapesCount() != 1) {
             throw new IllegalStateException("Bring to Front 버튼은 반드시 하나의 도형에 대해서만 동작할 수 있습니다.");
         }
-        // updateDto create 로직
-        // 만들어진 updateDto를 controller를 통해서 model로 보냄
     }
 }
