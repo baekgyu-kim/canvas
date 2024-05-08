@@ -52,6 +52,9 @@ public class ShapeAbstractClass implements ShapeInterface {
         if (propertyDtoAbstractClass.getColor() != null) {
             this.color = propertyDtoAbstractClass.getColor();
         }
+        if (propertyDtoAbstractClass.getOpacity() != null) {
+            this.opacity = propertyDtoAbstractClass.getOpacity();
+        }
         if (propertyDtoAbstractClass.getZOrder() != null) {
             this.zOrder = propertyDtoAbstractClass.getZOrder();
         }

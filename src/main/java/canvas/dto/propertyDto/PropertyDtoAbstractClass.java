@@ -12,6 +12,7 @@ public abstract class PropertyDtoAbstractClass implements DtoInterface {
     protected Integer width;
     protected Integer height;
     protected Color color;
+    protected Integer opacity;
     protected Integer zOrder;
     public PropertyDtoAbstractClass() {
         this.xPos = null;
@@ -19,6 +20,7 @@ public abstract class PropertyDtoAbstractClass implements DtoInterface {
         this.width = null;
         this.height = null;
         this.color = null;
+        this.opacity = null;
         this.zOrder = null;
     }
 
@@ -27,5 +29,6 @@ public abstract class PropertyDtoAbstractClass implements DtoInterface {
     public Integer getWidth() {return this.width;}
     public Integer getHeight() {return this.height;}
     public Color getColor() {return this.color;}
+    public Integer getOpacity() {return this.opacity;}
     public Integer getZOrder() {return this.zOrder;}
 }

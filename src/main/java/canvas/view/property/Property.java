@@ -13,6 +13,7 @@ public class Property extends JPanel  {
     private PropertyButton moveButton;
     private PropertyButton resizeButton;
     private PropertyButton colorButton;
+    private PropertyButton opacityButton;
     private PropertyButton bringFrontButton;
     private PropertyButton sendBackButton;
 
@@ -30,6 +31,7 @@ public class Property extends JPanel  {
         this.moveButton = new MoveButton(this.shapeComposite, this.controller);
         this.resizeButton = new ResizeButton(this.shapeComposite, this.controller);
         this.colorButton = new ColorButton(this.shapeComposite, this.controller);
+        this.opacityButton = new OpacityButton(this.shapeComposite, this.controller);
         this.bringFrontButton = new BringFrontButton(this.shapeComposite, this.controller);
         this.sendBackButton = new SendBackButton(this.shapeComposite, this.controller);
 
@@ -39,6 +41,7 @@ public class Property extends JPanel  {
         controller.registerObserver(this.moveButton);
         controller.registerObserver(this.resizeButton);
         controller.registerObserver(this.colorButton);
+        controller.registerObserver(this.opacityButton);
         controller.registerObserver(this.bringFrontButton);
         controller.registerObserver(this.sendBackButton);
     }
@@ -49,6 +52,8 @@ public class Property extends JPanel  {
         add(this.resizeButton);
         add(new JLabel("도형 색 바꾸기 버튼"));
         add(this.colorButton);
+        add(new JLabel("도형 투명도 바꾸기 버튼"));
+        add(this.opacityButton);
         add(new JLabel("맨 앞으로 가져오기 버튼 "));
         add(this.bringFrontButton);
         add(new JLabel("맨 뒤로 보내기 버튼 "));
