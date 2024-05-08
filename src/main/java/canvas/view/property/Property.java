@@ -1,26 +1,26 @@
-package canvas.view.preferences;
+package canvas.view.property;
 
 import canvas.controller.Controller;
 import canvas.model.shape.composite.ShapeComposite;
-import canvas.view.preferences.preferenceButton.PreferenceButton;
-import canvas.view.preferences.preferenceButton.preferenceButtons.*;
+import canvas.view.property.propertyButton.PropertyButton;
+import canvas.view.property.propertyButton.propertyButtons.*;
 
 import javax.swing.*;
 
-public class Preferences extends JPanel  {
+public class Property extends JPanel  {
     Controller controller;
 
-    private PreferenceButton moveButton;
-    private PreferenceButton widthButton;
-    private PreferenceButton heightButton;
-    private PreferenceButton colorButton;
-    private PreferenceButton bringFrontButton;
-    private PreferenceButton sendBackButton;
+    private PropertyButton moveButton;
+    private PropertyButton widthButton;
+    private PropertyButton heightButton;
+    private PropertyButton colorButton;
+    private PropertyButton bringFrontButton;
+    private PropertyButton sendBackButton;
 
     private ShapeComposite shapeComposite;
 
 
-    public Preferences(Controller controller) {
+    public Property(Controller controller) {
         this.controller = controller;
         initComponents();
         registerButtonsAsObserver();

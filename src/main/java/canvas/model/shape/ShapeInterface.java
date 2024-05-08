@@ -1,10 +1,10 @@
 package canvas.model.shape;
 
-import canvas.dto.updateDto.UpdateDtoAbstractClass;
+import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 
 import java.awt.*;
 
 public interface ShapeInterface {
     void draw(Graphics g);
-    void update(UpdateDtoAbstractClass updateDtoAbstractClass);
+    void update(PropertyDtoAbstractClass propertyDtoAbstractClass);
 }

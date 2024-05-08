@@ -1,6 +1,6 @@
 package canvas.model.shape.composite;
 
-import canvas.dto.updateDto.UpdateDtoAbstractClass;
+import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.ShapeInterface;
 
@@ -37,7 +37,7 @@ public class ShapeComposite implements ShapeInterface {
     }
 
     @Override
-    public void update(UpdateDtoAbstractClass dto) {
+    public void update(PropertyDtoAbstractClass dto) {
         for (ShapeAbstractClass child : children) {
             child.update(dto);
         }

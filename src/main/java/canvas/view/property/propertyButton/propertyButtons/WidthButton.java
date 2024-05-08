@@ -1,18 +1,18 @@
-package canvas.view.preferences.preferenceButton.preferenceButtons;
+package canvas.view.property.propertyButton.propertyButtons;
 
 import canvas.model.shape.composite.ShapeComposite;
-import canvas.view.preferences.preferenceButton.PreferenceButton;
+import canvas.view.property.propertyButton.PropertyButton;
 
-public class WidthButton  extends PreferenceButton {
+public class WidthButton  extends PropertyButton {
     public WidthButton(ShapeComposite shapeComposite) {
         super(shapeComposite);
         initializeButton("Width");
     }
 
     @Override
-    public void changePreference() {
+    public void changeProperty() {
 
-    }
+    }Ï
 
     @Override
     public void createUpdateDto() {

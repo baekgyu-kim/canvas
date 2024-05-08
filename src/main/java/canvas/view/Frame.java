@@ -3,7 +3,7 @@ package canvas.view;
 import canvas.controller.Controller;
 import canvas.view.WhiteCanvas.WhiteCanvas;
 import canvas.view.palette.Palette;
-import canvas.view.preferences.Preferences;
+import canvas.view.property.Property;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 
     private Palette palette;
     private WhiteCanvas whiteCanvas;
-    private Preferences preferences;
+    private Property property;
 
     public Frame(Controller controller) {
         super("Canvas Application");
@@ -26,7 +26,7 @@ public class Frame extends JFrame {
     private void initializeComponents(Controller controller) {
         palette = new Palette(controller, 0);
         whiteCanvas = new WhiteCanvas(controller);
-        preferences = new Preferences(controller);
+        property = new Property(controller);
         controller.registerObserver(whiteCanvas);
     }
 
@@ -40,7 +40,7 @@ public class Frame extends JFrame {
         add(new JLabel(" "), BorderLayout.NORTH);
         add(palette, BorderLayout.WEST);
         add(whiteCanvas, BorderLayout.CENTER);
-        add(preferences, BorderLayout.EAST);
+        add(property, BorderLayout.EAST);
         add(new JLabel(" "), BorderLayout.SOUTH);
         setVisible(true);
     }

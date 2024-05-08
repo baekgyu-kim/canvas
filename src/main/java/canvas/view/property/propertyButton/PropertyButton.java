@@ -1,4 +1,4 @@
-package canvas.view.preferences.preferenceButton;
+package canvas.view.property.propertyButton;
 
 import canvas.factory.UpdateDtoCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
@@ -8,10 +8,10 @@ import canvas.observer.Observer;
 import javax.swing.*;
 import java.util.List;
 
-public abstract class PreferenceButton extends JButton implements Observer, UpdateDtoCreatorInterface {
+public abstract class PropertyButton extends JButton implements Observer, UpdateDtoCreatorInterface {
     ShapeComposite shapeComposite;
 
-    public PreferenceButton(ShapeComposite shapeComposite) {
+    public PropertyButton(ShapeComposite shapeComposite) {
         this.shapeComposite = shapeComposite;
     }
 
@@ -20,12 +20,10 @@ public abstract class PreferenceButton extends JButton implements Observer, Upda
         setVisible(true);
     };
 
-    public abstract void changePreference();
+    public abstract void changeProperty();
 
     @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        // 여기서는 아무것도 하지 않음.
-    }
+    public void updateAllShapes(List<ShapeAbstractClass> shapes) {}
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {

@@ -1,14 +1,13 @@
 package canvas.model;
 
 
-import canvas.dto.updateDto.UpdateDtoAbstractClass;
+import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.observer.Subject;
 
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -71,7 +70,7 @@ public class Model implements Subject {
     }
 
 
-    public void updateShape(UpdateDtoAbstractClass dto) {
+    public void updateShape(PropertyDtoAbstractClass dto) {
         // update logic 구현
         notifyObserversAllShapes();
     }

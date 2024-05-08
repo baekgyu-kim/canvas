@@ -1,17 +1,17 @@
-package canvas.view.preferences.preferenceButton.preferenceButtons;
+package canvas.view.property.propertyButton.propertyButtons;
 
 import canvas.model.shape.composite.ShapeComposite;
-import canvas.view.preferences.preferenceButton.PreferenceButton;
+import canvas.view.property.propertyButton.PropertyButton;
 
 
-public class ColorButton  extends PreferenceButton {
+public class ColorButton  extends PropertyButton {
     public ColorButton(ShapeComposite shapeComposite) {
         super(shapeComposite);
         initializeButton("Color");
     }
 
     @Override
-    public void changePreference() {
+    public void changeProperty() {
 
     }
     @Override

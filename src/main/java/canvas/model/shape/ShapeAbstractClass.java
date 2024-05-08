@@ -1,6 +1,6 @@
 package canvas.model.shape;
 
-import canvas.dto.updateDto.UpdateDtoAbstractClass;
+import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 
 import java.awt.*;
 
@@ -33,16 +33,16 @@ public class ShapeAbstractClass implements ShapeInterface {
     }
 
     @Override
-    public void update(UpdateDtoAbstractClass updateDtoAbstractClass) {
-        this.xPos = updateDtoAbstractClass.getXPos();
-        this.yPos = updateDtoAbstractClass.getYPos();
-        this.width = updateDtoAbstractClass.getWidth();
-        this.height = updateDtoAbstractClass.getHeight();
-        this.color = updateDtoAbstractClass.getColor();
-        this.opacity = updateDtoAbstractClass.getOpacity();
-        this.zOrder = updateDtoAbstractClass.getZOrder();
-        this.shadow = updateDtoAbstractClass.getShadow();
-        this.frame = updateDtoAbstractClass.getFrame();
+    public void update(PropertyDtoAbstractClass propertyDtoAbstractClass) {
+        this.xPos = propertyDtoAbstractClass.getXPos();
+        this.yPos = propertyDtoAbstractClass.getYPos();
+        this.width = propertyDtoAbstractClass.getWidth();
+        this.height = propertyDtoAbstractClass.getHeight();
+        this.color = propertyDtoAbstractClass.getColor();
+        this.opacity = propertyDtoAbstractClass.getOpacity();
+        this.zOrder = propertyDtoAbstractClass.getZOrder();
+        this.shadow = propertyDtoAbstractClass.getShadow();
+        this.frame = propertyDtoAbstractClass.getFrame();
     }
 
     public int getId() {

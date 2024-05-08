@@ -1,10 +1,10 @@
-package canvas.dto.updateDto;
+package canvas.dto.propertyDto;
 
 import canvas.dto.DtoInterface;
 
 import java.awt.*;
 
-public abstract class UpdateDtoAbstractClass implements DtoInterface {
+public abstract class PropertyDtoAbstractClass implements DtoInterface {
     protected int xPos;
     protected int yPos;
     protected int width;
@@ -15,7 +15,7 @@ public abstract class UpdateDtoAbstractClass implements DtoInterface {
     protected boolean shadow;
     protected boolean frame;
 
-    public UpdateDtoAbstractClass(int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
+    public PropertyDtoAbstractClass(int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
         this.xPos = xPos;
         this.yPos = yPos;
         this.width = width;
