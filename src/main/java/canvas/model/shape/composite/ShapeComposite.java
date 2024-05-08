@@ -42,4 +42,8 @@ public class ShapeComposite implements ShapeInterface {
             child.update(dto);
         }
     }
+
+    public Integer shapesCount(){
+        return this.children.size();
+    }
 }
