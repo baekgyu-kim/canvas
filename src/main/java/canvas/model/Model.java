@@ -70,8 +70,8 @@ public class Model implements Subject {
     }
 
 
-    public void updateShape(PropertyDtoAbstractClass dto) {
-        // update logic 구현
+    public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto) {
+        shapeComposite.update(propertyDto);
         notifyObserversAllShapes();
     }
 

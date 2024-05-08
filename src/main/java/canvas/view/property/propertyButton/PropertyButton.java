@@ -1,5 +1,6 @@
 package canvas.view.property.propertyButton;
 
+import canvas.controller.Controller;
 import canvas.factory.PropertyDtoCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
@@ -9,10 +10,12 @@ import javax.swing.*;
 import java.util.List;
 
 public abstract class PropertyButton extends JButton implements Observer, PropertyDtoCreatorInterface {
-    ShapeComposite shapeComposite;
+    protected ShapeComposite shapeComposite;
+    protected Controller controller;
 
-    public PropertyButton(ShapeComposite shapeComposite) {
+    public PropertyButton(ShapeComposite shapeComposite, Controller controller) {
         this.shapeComposite = shapeComposite;
+        this.controller = controller;
     }
 
     public void initializeButton(String text){
@@ -20,7 +23,6 @@ public abstract class PropertyButton extends JButton implements Observer, Proper
         setVisible(true);
     };
 
-    public abstract void changeProperty();
 
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {}

@@ -39,22 +39,18 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.width = propertyDtoAbstractClass.getWidth();
         this.height = propertyDtoAbstractClass.getHeight();
         this.color = propertyDtoAbstractClass.getColor();
-        this.opacity = propertyDtoAbstractClass.getOpacity();
         this.zOrder = propertyDtoAbstractClass.getZOrder();
-        this.shadow = propertyDtoAbstractClass.getShadow();
-        this.frame = propertyDtoAbstractClass.getFrame();
     }
 
     public int getId() {
         return id;
     }
 
-
-    public int getxPos() {
+    public int getXPos() {
         return xPos;
     }
 
-    public int getyPos() {
+    public int getYPos() {
         return yPos;
     }
 
@@ -74,15 +70,11 @@ public class ShapeAbstractClass implements ShapeInterface {
         return opacity;
     }
 
-    public int getzOrder() {
-        return zOrder;
-    }
+    public int getZOrder() {return zOrder;}
 
-    public boolean isShadow() {
-        return shadow;
-    }
+    public boolean getShadow() {return shadow;}
 
-    public boolean isFrame() {
+    public boolean getFrame() {
         return frame;
     }
 }

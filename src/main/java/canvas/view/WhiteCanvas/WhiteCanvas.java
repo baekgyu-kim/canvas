@@ -55,8 +55,8 @@ public class WhiteCanvas extends JPanel implements Observer {
         int maxZOrder = Integer.MIN_VALUE;
 
         for (ShapeAbstractClass shape : allShapes) {
-            if (isPointInsideShape(x, y, shape) && shape.getzOrder() > maxZOrder) {
-                maxZOrder = shape.getzOrder();
+            if (isPointInsideShape(x, y, shape) && shape.getZOrder() > maxZOrder) {
+                maxZOrder = shape.getZOrder();
                 selectedIndex = allShapes.indexOf(shape);
             }
         }
@@ -65,8 +65,8 @@ public class WhiteCanvas extends JPanel implements Observer {
     }
 
     private boolean isPointInsideShape(int x, int y, ShapeAbstractClass shape) {
-        return x >= shape.getxPos() && x <= (shape.getxPos() + shape.getWidth()) &&
-                y >= shape.getyPos() && y <= (shape.getyPos() + shape.getHeight());
+        return x >= shape.getXPos() && x <= (shape.getXPos() + shape.getWidth()) &&
+                y >= shape.getYPos() && y <= (shape.getYPos() + shape.getHeight());
     }
 
     @Override

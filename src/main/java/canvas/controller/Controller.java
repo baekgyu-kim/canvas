@@ -2,6 +2,7 @@ package canvas.controller;
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
+import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 public class Controller {
@@ -19,6 +20,6 @@ public class Controller {
 
     public void clearClicks(){model.clearClicks();}
 
-    public void updateShape(PropertyDtoAbstractClass dto){model.updateShape(dto);}
+    public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto){model.updateShape(shapeComposite, propertyDto);}
 
 }

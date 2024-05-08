@@ -1,8 +1,10 @@
 package canvas.dto.propertyDto;
 
 import canvas.dto.DtoInterface;
+import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.*;
+
 
 public abstract class PropertyDtoAbstractClass implements DtoInterface {
     protected int xPos;
@@ -10,57 +12,19 @@ public abstract class PropertyDtoAbstractClass implements DtoInterface {
     protected int width;
     protected int height;
     protected Color color;
-    protected int opacity;
     protected int zOrder;
-    protected boolean shadow;
-    protected boolean frame;
-
-    public PropertyDtoAbstractClass(int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
-        this.xPos = xPos;
-        this.yPos = yPos;
-        this.width = width;
-        this.height = height;
-        this.color = color;
-        this.opacity = opacity;
-        this.zOrder = zOrder;
-        this.shadow = shadow;
-        this.frame = frame;
+    public PropertyDtoAbstractClass(ShapeAbstractClass shapeAbstractClass) {
+        this.xPos = shapeAbstractClass.getXPos();
+        this.yPos = shapeAbstractClass.getYPos();
+        this.width = shapeAbstractClass.getWidth();
+        this.height = shapeAbstractClass.getHeight();
+        this.color = shapeAbstractClass.getColor();
+        this.zOrder = shapeAbstractClass.getZOrder();
     }
-
-
-    public int getXPos() {
-        return xPos;
-    }
-
-    public int getYPos() {
-        return yPos;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public int getOpacity() {
-        return opacity;
-    }
-
-    public int getZOrder() {
-        return zOrder;
-    }
-
-    public boolean getShadow() {
-        return frame;
-    }
-
-    public boolean getFrame() {
-        return shadow;
-    }
+    public int getXPos() {return this.xPos;}
+    public int getYPos() {return this.yPos;}
+    public int getWidth() {return this.width;}
+    public int getHeight() {return this.height;}
+    public Color getColor() {return this.color;}
+    public int getZOrder() {return this.zOrder;}
 }

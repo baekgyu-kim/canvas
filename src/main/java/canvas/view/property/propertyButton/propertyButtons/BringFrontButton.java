@@ -1,18 +1,15 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
+import canvas.controller.Controller;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
 
 public class BringFrontButton extends PropertyButton {
-    public BringFrontButton(ShapeComposite shapeComposite) {
-        super(shapeComposite);
+    public BringFrontButton(ShapeComposite shapeComposite, Controller controller) {
+        super(shapeComposite, controller);
         initializeButton("Bring To Front");
     }
 
-    @Override
-    public void changeProperty() {
-
-    }
     @Override
     public void createPropertyDto() {
         // updateDto create 로직

@@ -1,5 +1,5 @@
 package canvas.factory;
 
 public interface PropertyDtoCreatorInterface {
-    public void createPropertyDto();
+//    public void createPropertyDto();
 }
