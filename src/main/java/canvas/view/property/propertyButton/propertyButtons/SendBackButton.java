@@ -14,7 +14,7 @@ public class SendBackButton  extends PropertyButton {
 
     }
     @Override
-    public void createUpdateDto() {
+    public void createPropertyDto() {
         // update dto create 로직 구현
     }
 }

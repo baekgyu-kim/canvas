@@ -14,7 +14,7 @@ public class BringFrontButton extends PropertyButton {
 
     }
     @Override
-    public void createUpdateDto() {
+    public void createPropertyDto() {
         // updateDto create 로직
         // 만들어진 updateDto를 controller를 통해서 model로 보냄
     }
