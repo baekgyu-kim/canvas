@@ -53,6 +53,10 @@ public class MoveButton extends PropertyButton {
     }
 
     public void createPropertyDto(int newX, int newY) {
+        if (shapeComposite == null) {
+            JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
+            return;
+        }
         PropertyDtoAbstractClass moveDto = new MovePropertyDto(newX, newY);
         controller.updateShape(shapeComposite, moveDto);
     }

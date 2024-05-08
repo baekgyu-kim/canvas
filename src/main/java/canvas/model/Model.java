@@ -8,7 +8,6 @@ import canvas.observer.Observer;
 import canvas.observer.Subject;
 
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -72,21 +71,9 @@ public class Model implements Subject {
 
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto) {
-        if (shapeComposite == null) {
-            String errorMessage = "Error: 속성을 바꿀 도형을 먼저 선택해주세요";
-
-            // Print error message to the terminal
-            System.err.println(errorMessage);
-
-            // Display error message in the user interface
-            JOptionPane.showMessageDialog(null, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
         shapeComposite.update(propertyDto);
         notifyObserversAllShapes();
     }
-
 
     private ShapeAbstractClass findShapeById(int id) throws NoSuchElementException {
         for (ShapeAbstractClass shape : allShapes) {

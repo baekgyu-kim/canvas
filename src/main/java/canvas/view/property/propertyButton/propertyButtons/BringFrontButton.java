@@ -4,6 +4,8 @@ import canvas.controller.Controller;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
 
+import javax.swing.*;
+
 public class BringFrontButton extends PropertyButton {
     public BringFrontButton(ShapeComposite shapeComposite, Controller controller) {
         super(shapeComposite, controller);
@@ -11,8 +13,12 @@ public class BringFrontButton extends PropertyButton {
     }
 
     public void createPropertyDto() {
-        if (shapeComposite.shapesCount() != 1) {
-            throw new IllegalStateException("Bring to Front 버튼은 반드시 하나의 도형에 대해서만 동작할 수 있습니다.");
+        if (shapeComposite == null) {
+            JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
+            return;
+        } else if (shapeComposite.shapesCount() != 1) {
+            JOptionPane.showMessageDialog(null, "Bring Front 동작은 1개의 도형에 대해서만 동작할 수 있습니다.");
+            return;
         }
     }
 }

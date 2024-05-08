@@ -46,6 +46,10 @@ public class OpacityButton extends PropertyButton {
     }
 
     public void createPropertyDto(int newOpacity) {
+        if (shapeComposite == null) {
+            JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
+            return;
+        }
         PropertyDtoAbstractClass opacityDto = new OpacityPropertyDto(newOpacity);
         controller.updateShape(shapeComposite, opacityDto);
     }

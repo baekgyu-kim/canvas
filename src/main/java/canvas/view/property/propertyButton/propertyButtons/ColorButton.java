@@ -19,15 +19,21 @@ public class ColorButton extends PropertyButton {
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Color newColor = JColorChooser.showDialog(null, "Choose a color", Color.white);
-                if (newColor != null) {
-                    createPropertyDto(newColor);
-                }
+
+                    Color newColor = JColorChooser.showDialog(null, "Choose a color", Color.white);
+                    if (newColor != null) {
+                        createPropertyDto(newColor);
+                    }
+
             }
         });
     }
 
     public void createPropertyDto(Color newColor) {
+        if (shapeComposite == null) {
+            JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
+            return;
+        }
         PropertyDtoAbstractClass colorDto = new ColorPropertyDto(newColor);
         controller.updateShape(shapeComposite, colorDto);
     }
