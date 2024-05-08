@@ -43,13 +43,15 @@ public class Property extends JPanel  {
         controller.registerObserver(this.sendBackButton);
     }
     private void addComponents() {
-        add(new JLabel("Move Button"));
+        add(new JLabel("도형 이동 버튼"));
         add(this.moveButton);
-        add(new JLabel("Resize Button"));
+        add(new JLabel("도형 resize 버튼"));
         add(this.resizeButton);
-        add(new JLabel("Color Button"));
+        add(new JLabel("도형 색 바꾸기 버튼"));
         add(this.colorButton);
+        add(new JLabel("맨 앞으로 가져오기 버튼 "));
         add(this.bringFrontButton);
+        add(new JLabel("맨 뒤로 보내기 버튼 "));
         add(this.sendBackButton);
     }
 }
