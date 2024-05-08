@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ResizeButton extends PropertyButton {
+    private final int canvasWidth = 800;
+    private final int canvasHeight= 600;
+
     public ResizeButton(ShapeComposite shapeComposite, Controller controller) {
         super(shapeComposite, controller);
         initializeButton("Resize Shape");
@@ -32,13 +35,21 @@ public class ResizeButton extends PropertyButton {
                     try {
                         int newWidth = Integer.parseInt(widthField.getText());
                         int newHeight = Integer.parseInt(heightField.getText());
-                        createPropertyDtos(newWidth, newHeight);
+                        if (isValidSize(newWidth, newHeight)) {
+                            createPropertyDtos(newWidth, newHeight);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "New size exceeds canvas bounds.");
+                        }
                     } catch (NumberFormatException ex) {
                         JOptionPane.showMessageDialog(null, "Please enter valid numbers for both width and height.");
                     }
                 }
             }
         });
+    }
+
+    private boolean isValidSize(int width, int height) {
+        return width > 0 && width <= canvasWidth && height > 0 && height <= canvasHeight;
     }
 
     public void createPropertyDtos(int newWidth, int newHeight) {

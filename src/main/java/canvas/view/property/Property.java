@@ -27,6 +27,7 @@ public class Property extends JPanel  {
         setVisible(true);
     }
     private void initComponents() {
+        this.moveButton = new MoveButton(this.shapeComposite, this.controller);
         this.resizeButton = new ResizeButton(this.shapeComposite, this.controller);
         this.colorButton = new ColorButton(this.shapeComposite, this.controller);
         this.bringFrontButton = new BringFrontButton(this.shapeComposite, this.controller);
@@ -35,14 +36,18 @@ public class Property extends JPanel  {
 
     }
     private void registerButtonsAsObserver(){
+        controller.registerObserver(this.moveButton);
         controller.registerObserver(this.resizeButton);
         controller.registerObserver(this.colorButton);
         controller.registerObserver(this.bringFrontButton);
         controller.registerObserver(this.sendBackButton);
     }
     private void addComponents() {
+        add(new JLabel("Move Button"));
+        add(this.moveButton);
         add(new JLabel("Resize Button"));
         add(this.resizeButton);
+        add(new JLabel("Color Button"));
         add(this.colorButton);
         add(this.bringFrontButton);
         add(this.sendBackButton);
