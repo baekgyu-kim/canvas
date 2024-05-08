@@ -12,7 +12,7 @@ public class WidthButton  extends PropertyButton {
     @Override
     public void changeProperty() {
 
-    }Ï
+    }
 
     @Override
     public void createUpdateDto() {
