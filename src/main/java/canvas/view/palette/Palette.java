@@ -14,6 +14,7 @@ public class Palette extends JPanel {
     private PaletteButton rectangleButton;
     private PaletteButton ellipseButton;
     private PaletteButton starButton;
+    private PaletteButton textButton;
 
     public Palette(Controller controller, int seq) {
         this.controller = controller;
@@ -31,6 +32,7 @@ public class Palette extends JPanel {
         this.rectangleButton = new RectangleButton(this.controller, this.seq);
         this.ellipseButton = new EllipseButton(this.controller, this.seq);
         this.starButton = new StarButton(this.controller, this.seq);
+        this.textButton = new TextButton(this.controller, this.seq);
     }
 
     private void registerButtonsAsObserver(){
@@ -38,6 +40,7 @@ public class Palette extends JPanel {
         controller.registerObserver(this.rectangleButton);
         controller.registerObserver(this.ellipseButton);
         controller.registerObserver(this.starButton);
+        controller.registerObserver(this.textButton);
     }
 
     private void addComponents() {
@@ -45,5 +48,6 @@ public class Palette extends JPanel {
         add((Component) this.rectangleButton);
         add((Component) this.ellipseButton);
         add((Component) this.starButton);
+        add((Component) this.textButton);
     }
 }

@@ -15,6 +15,7 @@ public class ShapeAbstractClass implements ShapeInterface {
     protected int zOrder;
     protected boolean shadow;
     protected boolean frame;
+    protected String text;
 
     public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
         this.id = id;
@@ -27,6 +28,19 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.zOrder = zOrder;
         this.shadow = shadow;
         this.frame = frame;
+    }
+    public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame, String text) {
+        this.id = id;
+        this.xPos = xPos;
+        this.yPos = yPos;
+        this.width = width;
+        this.height = height;
+        this.color = color;
+        this.opacity = opacity;
+        this.zOrder = zOrder;
+        this.shadow = shadow;
+        this.frame = frame;
+        this.text = text;
     }
     @Override
     public void draw(Graphics g) {
