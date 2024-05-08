@@ -7,7 +7,6 @@ import java.awt.*;
 
 public class ColorPropertyDto extends PropertyDtoAbstractClass {
     public ColorPropertyDto(Color color) {
-        super(shapeAbstractClass);
         this.color = color;
     }
 }

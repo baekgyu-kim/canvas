@@ -10,7 +10,6 @@ public class BringFrontButton extends PropertyButton {
         initializeButton("Bring To Front");
     }
 
-    @Override
     public void createPropertyDto() {
         // updateDto create 로직
         // 만들어진 updateDto를 controller를 통해서 model로 보냄

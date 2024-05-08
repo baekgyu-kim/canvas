@@ -34,12 +34,27 @@ public class ShapeAbstractClass implements ShapeInterface {
 
     @Override
     public void update(PropertyDtoAbstractClass propertyDtoAbstractClass) {
-        this.xPos = propertyDtoAbstractClass.getXPos();
-        this.yPos = propertyDtoAbstractClass.getYPos();
-        this.width = propertyDtoAbstractClass.getWidth();
-        this.height = propertyDtoAbstractClass.getHeight();
-        this.color = propertyDtoAbstractClass.getColor();
-        this.zOrder = propertyDtoAbstractClass.getZOrder();
+        if (propertyDtoAbstractClass == null) {
+            throw new IllegalArgumentException("PropertyDtoAbstractClass cannot be null");
+        }
+        if (propertyDtoAbstractClass.getXPos() != null) {
+            this.xPos = propertyDtoAbstractClass.getXPos();
+        }
+        if (propertyDtoAbstractClass.getYPos() != null) {
+            this.yPos = propertyDtoAbstractClass.getYPos();
+        }
+        if (propertyDtoAbstractClass.getWidth() != null) {
+            this.width = propertyDtoAbstractClass.getWidth();
+        }
+        if (propertyDtoAbstractClass.getHeight() != null) {
+            this.height = propertyDtoAbstractClass.getHeight();
+        }
+        if (propertyDtoAbstractClass.getColor() != null) {
+            this.color = propertyDtoAbstractClass.getColor();
+        }
+        if (propertyDtoAbstractClass.getZOrder() != null) {
+            this.zOrder = propertyDtoAbstractClass.getZOrder();
+        }
     }
 
     public int getId() {

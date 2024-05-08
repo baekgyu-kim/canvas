@@ -10,7 +10,6 @@ public class SendBackButton  extends PropertyButton {
         super(shapeComposite, controller);
         initializeButton("Send Back");
     }
-    @Override
     public void createPropertyDto() {
         // update dto create 로직 구현
     }
