@@ -69,11 +69,11 @@ public class Model implements Subject {
         clickedShapesComposite.clear();
         notifyObserversClickedShapes();
     }
-    
+
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto) {
         if (shapeComposite == null) {
-            String errorMessage = "Error: ShapeComposite is null.";
+            String errorMessage = "Error: 속성을 바꿀 도형을 먼저 선택해주세요";
 
             // Print error message to the terminal
             System.err.println(errorMessage);
