@@ -17,7 +17,7 @@ public class RectangleButton extends PaletteButton {
     @Override
     public void createShape() {
         addActionListener(e -> {
-            int id = seq;int xPos = 200; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;boolean shadow = false;boolean frame =false;
+            int id = seq;int xPos = 200; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 100;boolean shadow = false;boolean frame =false;
             RectangleShape rectangleShape = new RectangleShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
             controller.createShape(rectangleShape);
         });

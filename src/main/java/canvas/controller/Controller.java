@@ -1,5 +1,7 @@
 package canvas.controller;
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.SendBackPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.model.shape.composite.ShapeComposite;
@@ -21,5 +23,12 @@ public class Controller {
     public void clearClicks(){model.clearClicks();}
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto){model.updateShape(shapeComposite, propertyDto);}
+
+    public void bringFront(BringFrontPropertyDto propertyDto) {
+        model.bringFront(propertyDto);
+    }
+    public void sendBack(SendBackPropertyDto propertyDto) {
+        model.sendBack(propertyDto);
+    }
 
 }

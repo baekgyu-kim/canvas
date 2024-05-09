@@ -8,7 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShapeComposite implements ShapeInterface {
+public class ShapeComposite  {
     private List<ShapeAbstractClass> children = new ArrayList<>();
 
     public void add(ShapeAbstractClass shape) {children.add(shape);}
@@ -29,49 +29,11 @@ public class ShapeComposite implements ShapeInterface {
         return this.children;
     }
 
-    @Override
     public void draw(Graphics g) {
         for (ShapeAbstractClass child : children) {
             child.draw(g);
         }
     }
-
-    public void updateShapesInComposite(PropertyDtoAbstractClass dto){
-        for (ShapeAbstractClass child : children) {
-            dto.applyPropertyUpdate(child);
-        }
-    }
-
-    @Override
-    public void changeColor(Color color) {
-
-    }
-
-    @Override
-    public void changeMove(int newX, int newY) {
-
-    }
-
-    @Override
-    public void changeSize(int newWidth, int newHeight) {
-
-    }
-
-    @Override
-    public void changeOpacity(int opacity) {
-
-    }
-
-    @Override
-    public void bringFront() {
-
-    }
-
-    @Override
-    public void sendBack() {
-
-    }
-
 
     public Integer shapesCount(){
         return this.children.size();

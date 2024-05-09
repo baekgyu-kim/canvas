@@ -68,16 +68,6 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.opacity = opacity;
     }
 
-    @Override
-    public void bringFront() {
-
-    }
-
-    @Override
-    public void sendBack() {
-
-    }
-
 
     public int getId() {
         return id;

@@ -2,6 +2,8 @@ package canvas.model;
 
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.SendBackPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -71,7 +73,10 @@ public class Model implements Subject {
 
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto) {
-        shapeComposite.updateShapesInComposite(propertyDto);
+        List<ShapeAbstractClass> children = shapeComposite.getChildren();
+        for (ShapeAbstractClass child : children) {
+            propertyDto.applyPropertyUpdate(child);
+        }
         notifyObserversAllShapes();
     }
 
@@ -82,6 +87,21 @@ public class Model implements Subject {
             }
         }
         throw new NoSuchElementException("No shape found with ID: " + id);
+    }
+    public void bringFront(BringFrontPropertyDto dto) {
+        ShapeAbstractClass shape = dto.getShape();
+        if (allShapes.remove(shape)) {
+            allShapes.add(shape);
+            notifyObserversAllShapes();
+        }
+    }
+
+    public void sendBack(SendBackPropertyDto dto) {
+        ShapeAbstractClass shape = dto.getShape();
+        if (allShapes.remove(shape)) {
+            allShapes.add(0, shape);
+            notifyObserversAllShapes();
+        }
     }
 
 
