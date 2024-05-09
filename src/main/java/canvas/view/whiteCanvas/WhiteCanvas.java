@@ -15,6 +15,8 @@ import java.util.List;
 public class WhiteCanvas extends JPanel implements Observer {
     Controller controller;
     List<ShapeAbstractClass> allShapes = new ArrayList<>();
+    List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
+
 
     public WhiteCanvas(Controller controller) {
         this.controller = controller;
@@ -67,9 +69,9 @@ public class WhiteCanvas extends JPanel implements Observer {
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-        List<ShapeAbstractClass> children = shapeComposite.getChildren();
+        this.clickedShapes = shapeComposite.getChildren();
         System.out.println("Clicked shapes IDs:");
-        for (ShapeAbstractClass shape : children) {
+        for (ShapeAbstractClass shape : this.clickedShapes) {
             System.out.println("Shape ID: " + shape.getId());
         }
     }
