@@ -1,7 +1,7 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
 import canvas.controller.Controller;
-import canvas.dto.propertyDto.propertyDtos.SendBackPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
@@ -33,7 +33,7 @@ public class SendBackButton extends PropertyButton {
             return;
         }
 
-        SendBackPropertyDto dto = new SendBackPropertyDto(shapeComposite);
+        ZOrderPropertyDto dto = new ZOrderPropertyDto(shapeComposite);
         controller.sendBack(dto);
     }
     @Override

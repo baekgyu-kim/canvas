@@ -2,8 +2,7 @@ package canvas.model;
 
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
-import canvas.dto.propertyDto.propertyDtos.SendBackPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -88,7 +87,7 @@ public class Model implements Subject {
         }
         throw new NoSuchElementException("No shape found with ID: " + id);
     }
-    public void bringFront(BringFrontPropertyDto dto) {
+    public void bringFront(ZOrderPropertyDto dto) {
         ShapeAbstractClass shape = dto.getShape();
         if (allShapes.remove(shape)) {
             allShapes.add(shape);
@@ -96,7 +95,7 @@ public class Model implements Subject {
         }
     }
 
-    public void sendBack(SendBackPropertyDto dto) {
+    public void sendBack(ZOrderPropertyDto dto) {
         ShapeAbstractClass shape = dto.getShape();
         if (allShapes.remove(shape)) {
             allShapes.add(0, shape);

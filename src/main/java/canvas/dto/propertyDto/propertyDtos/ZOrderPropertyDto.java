@@ -1,15 +1,12 @@
 package canvas.dto.propertyDto.propertyDtos;
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.model.Model;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 
-import java.awt.*;
-
-public class SendBackPropertyDto extends PropertyDtoAbstractClass {
+public class ZOrderPropertyDto extends PropertyDtoAbstractClass {
     ShapeAbstractClass shape;
-    public SendBackPropertyDto(ShapeComposite shapeComposite) {
+    public ZOrderPropertyDto(ShapeComposite shapeComposite) {
         super(shapeComposite);
         if(shapeComposite.shapesCount() == 1){
             this.shape = shapeComposite.getChildren().get(0);

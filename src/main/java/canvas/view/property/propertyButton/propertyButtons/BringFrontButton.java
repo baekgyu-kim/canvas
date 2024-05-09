@@ -1,7 +1,7 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
 import canvas.controller.Controller;
-import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
@@ -33,7 +33,7 @@ public class BringFrontButton extends PropertyButton {
             return;
         }
 
-        BringFrontPropertyDto dto = new BringFrontPropertyDto(shapeComposite);
+        ZOrderPropertyDto dto = new ZOrderPropertyDto(shapeComposite);
         controller.bringFront(dto);
     }
 

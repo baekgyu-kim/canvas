@@ -1,7 +1,6 @@
 package canvas.controller;
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
-import canvas.dto.propertyDto.propertyDtos.SendBackPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.model.shape.composite.ShapeComposite;
@@ -24,10 +23,10 @@ public class Controller {
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto){model.updateShape(shapeComposite, propertyDto);}
 
-    public void bringFront(BringFrontPropertyDto propertyDto) {
+    public void bringFront(ZOrderPropertyDto propertyDto) {
         model.bringFront(propertyDto);
     }
-    public void sendBack(SendBackPropertyDto propertyDto) {
+    public void sendBack(ZOrderPropertyDto propertyDto) {
         model.sendBack(propertyDto);
     }
 
