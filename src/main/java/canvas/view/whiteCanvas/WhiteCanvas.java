@@ -73,6 +73,7 @@ public class WhiteCanvas extends JPanel implements Observer {
         System.out.println("Clicked shapes IDs:");
         for (ShapeAbstractClass shape : this.clickedShapes) {
             System.out.println("Shape ID: " + shape.getId());
+            //주석
         }
     }
 
