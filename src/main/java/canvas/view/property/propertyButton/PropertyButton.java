@@ -30,7 +30,7 @@ public abstract class PropertyButton extends JButton implements Observer, Proper
 
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+
     }
 
 

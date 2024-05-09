@@ -11,8 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class ColorButton extends PropertyButton {
+    private Color currentColor = Color.BLACK;
     public ColorButton(ShapeComposite shapeComposite, Controller controller) {
         super(shapeComposite, controller);
         initializeButton("Change Color");
@@ -20,7 +22,7 @@ public class ColorButton extends PropertyButton {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                    Color newColor = JColorChooser.showDialog(null, "Choose a color", Color.white);
+                    Color newColor = JColorChooser.showDialog(null, "Choose a color", currentColor);
                     if (newColor != null) {
                         createPropertyDto(newColor);
                     }
@@ -37,5 +39,22 @@ public class ColorButton extends PropertyButton {
         PropertyDtoAbstractClass colorDto = new ColorPropertyDto(newColor);
         controller.updateShape(shapeComposite, colorDto);
     }
+    @Override
+    public void updateClickedShapes(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
+        if(shapeComposite == null){
+            throw new NullPointerException("shapeComposite is null");
+        }
+        if(shapeComposite.shapesCount() == 1){
+            this.currentColor = shapeComposite.getChildren().get(0).getColor();
+        }
+    }
 
+    @Override
+    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
+        if(shapeComposite != null && shapeComposite.shapesCount() == 1){
+            this.currentColor = shapeComposite.getChildren().get(0).getColor();
+
+        }
+    }
 }

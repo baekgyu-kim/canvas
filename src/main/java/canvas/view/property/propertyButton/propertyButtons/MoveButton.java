@@ -3,6 +3,7 @@ package canvas.view.property.propertyButton.propertyButtons;
 import canvas.controller.Controller;
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.dto.propertyDto.propertyDtos.MovePropertyDto;
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
 
@@ -10,10 +11,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.util.List;
 
 public class MoveButton extends PropertyButton {
     private final int canvasWidth = 800;
     private final int canvasHeight = 600;
+    private Integer currentXPos = 0;
+    private Integer currentYPos = 0;
 
     public MoveButton(ShapeComposite shapeComposite, Controller controller) {
         super(shapeComposite, controller);
@@ -21,13 +27,20 @@ public class MoveButton extends PropertyButton {
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String xPlaceholder = currentXPos.toString();
+                String yPlaceholder = currentYPos.toString();
+
                 JPanel panel = new JPanel(new GridLayout(2, 2));
                 panel.add(new JLabel("Enter new x coordinate:"));
-                JTextField xField = new JTextField(5);
+                JTextField xField = new JTextField(xPlaceholder, 5);
                 panel.add(xField);
                 panel.add(new JLabel("Enter new y coordinate:"));
-                JTextField yField = new JTextField(5);
+                JTextField yField = new JTextField(yPlaceholder, 5);
                 panel.add(yField);
+
+                // Add focus listeners to clear placeholders on focus
+                addPlaceholderFocusListener(xField, xPlaceholder);
+                addPlaceholderFocusListener(yField, yPlaceholder);
 
                 int result = JOptionPane.showConfirmDialog(null, panel,
                         "Move Shape", JOptionPane.OK_CANCEL_OPTION);
@@ -59,5 +72,43 @@ public class MoveButton extends PropertyButton {
         }
         PropertyDtoAbstractClass moveDto = new MovePropertyDto(newX, newY);
         controller.updateShape(shapeComposite, moveDto);
+    }
+
+    @Override
+    public void updateClickedShapes(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
+        if(shapeComposite == null){
+            throw new NullPointerException("shapeComposite is null");
+        }
+        if(shapeComposite.shapesCount() == 1){
+            this.currentXPos = shapeComposite.getChildren().get(0).getXPos();
+            this.currentYPos = shapeComposite.getChildren().get(0).getYPos();
+        }
+    }
+
+    @Override
+    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
+        if(shapeComposite != null && shapeComposite.shapesCount() == 1){
+                this.currentXPos = shapeComposite.getChildren().get(0).getXPos();
+                this.currentYPos = shapeComposite.getChildren().get(0).getYPos();
+
+        }
+    }
+    private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
+        textField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (textField.getText().equals(placeholder)) {
+                    textField.setText("");
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (textField.getText().isEmpty()) {
+                    textField.setText(placeholder);
+                }
+            }
+        });
     }
 }
