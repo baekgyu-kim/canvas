@@ -10,7 +10,5 @@ public interface ShapeInterface {
     void changeMove(int newX, int newY);
     void changeSize(int newWidth, int newHeight);
     void changeOpacity(int opacity);
-    void bringFront();
-    void sendBack();
 
 }
