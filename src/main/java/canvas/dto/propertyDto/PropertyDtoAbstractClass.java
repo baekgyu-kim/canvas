@@ -1,5 +1,6 @@
 package canvas.dto.propertyDto;
 
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 
 import java.awt.*;
@@ -28,19 +29,19 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite, Color color) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Color color) {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite, Integer int1) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer int1) {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite, Integer int1, Integer int2) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer int1, Integer int2) {
     }
 
 }

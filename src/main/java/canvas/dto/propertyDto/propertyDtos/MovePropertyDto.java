@@ -1,6 +1,7 @@
 package canvas.dto.propertyDto.propertyDtos;
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 
 public class MovePropertyDto extends PropertyDtoAbstractClass {
@@ -9,7 +10,7 @@ public class MovePropertyDto extends PropertyDtoAbstractClass {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite, Integer newX, Integer newY) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer newX, Integer newY) {
 
     }
 }

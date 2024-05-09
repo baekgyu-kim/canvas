@@ -1,9 +1,8 @@
 package canvas.dto.propertyDto.propertyDtos;
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
-
-import java.awt.*;
 
 public class ResizePropertyDto extends PropertyDtoAbstractClass {
     public ResizePropertyDto(ShapeComposite shapeComposite, Integer newWidth, Integer newHeight) {
@@ -11,7 +10,7 @@ public class ResizePropertyDto extends PropertyDtoAbstractClass {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite, Integer newWidth, Integer newHeight) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer newWidth, Integer newHeight) {
 
     }
 }

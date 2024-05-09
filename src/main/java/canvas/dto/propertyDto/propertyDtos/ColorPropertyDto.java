@@ -12,7 +12,7 @@ public class ColorPropertyDto extends PropertyDtoAbstractClass {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeComposite shapeComposite, Color color) {
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Color color) {
 
     }
 }
