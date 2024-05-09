@@ -1,34 +1,46 @@
 package canvas.dto.propertyDto;
 
-import canvas.dto.DtoInterface;
-import canvas.model.shape.ShapeAbstractClass;
+import canvas.model.shape.composite.ShapeComposite;
 
 import java.awt.*;
 
 
-public abstract class PropertyDtoAbstractClass implements DtoInterface {
-    protected Integer xPos;
-    protected Integer yPos;
-    protected Integer width;
-    protected Integer height;
-    protected Color color;
-    protected Integer opacity;
-    protected Integer zOrder;
-    public PropertyDtoAbstractClass() {
-        this.xPos = null;
-        this.yPos = null;
-        this.width = null;
-        this.height = null;
-        this.color = null;
-        this.opacity = null;
-        this.zOrder = null;
+public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
+    ShapeComposite shapeComposite;
+    Color color;
+    Integer int1;
+    Integer int2;
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite) {
+        this.shapeComposite = shapeComposite;
+    }
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Color color) {
+        this.shapeComposite = shapeComposite;
+        this.color = color;
+    }
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer int1) {
+        this.shapeComposite = shapeComposite;
+        this.int1 = int1;
+    }
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer int1, Integer int2) {
+        this.shapeComposite = shapeComposite;
+        this.int1 = int1;
+        this.int2 = int2;
     }
 
-    public Integer getXPos() {return this.xPos;}
-    public Integer getYPos() {return this.yPos;}
-    public Integer getWidth() {return this.width;}
-    public Integer getHeight() {return this.height;}
-    public Color getColor() {return this.color;}
-    public Integer getOpacity() {return this.opacity;}
-    public Integer getZOrder() {return this.zOrder;}
+    @Override
+    public void applyPropertyUpdate(ShapeComposite shapeComposite) {
+    }
+
+    @Override
+    public void applyPropertyUpdate(ShapeComposite shapeComposite, Color color) {
+    }
+
+    @Override
+    public void applyPropertyUpdate(ShapeComposite shapeComposite, Integer int1) {
+    }
+
+    @Override
+    public void applyPropertyUpdate(ShapeComposite shapeComposite, Integer int1, Integer int2) {
+    }
+
 }

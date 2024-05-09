@@ -36,7 +36,7 @@ public class ColorButton extends PropertyButton {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass colorDto = new ColorPropertyDto(newColor);
+        PropertyDtoAbstractClass colorDto = new ColorPropertyDto(shapeComposite, newColor);
         controller.updateShape(shapeComposite, colorDto);
     }
     @Override

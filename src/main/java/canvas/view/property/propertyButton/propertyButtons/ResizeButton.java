@@ -70,7 +70,7 @@ public class ResizeButton extends PropertyButton {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass resizeDto = new ResizePropertyDto(newWidth, newHeight);
+        PropertyDtoAbstractClass resizeDto = new ResizePropertyDto(shapeComposite,newWidth, newHeight);
         controller.updateShape(shapeComposite, resizeDto);
     }
 
