@@ -19,8 +19,8 @@ public class EllipseButton extends PaletteButton {
     @Override
     public void createShape() {
         addActionListener(e -> {
-            int id = seq;int xPos = 400; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;int zOrder = seq; boolean shadow = false;boolean frame =false;
-            EllipseShape ellipseShape = new EllipseShape(id, xPos, yPos, width, height, color, opacity, zOrder, shadow, frame);
+            int id = seq;int xPos = 400; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;boolean shadow = false;boolean frame =false;
+            EllipseShape ellipseShape = new EllipseShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
             controller.createShape(ellipseShape);
         });
 

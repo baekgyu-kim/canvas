@@ -36,32 +36,22 @@ public class WhiteCanvas extends JPanel implements Observer {
             return;
         }
         int clickedShapeIndex = findShapeByPoint(x, y);
-        // 클릭한 커서의 위치에 도형이 존재한다면
         if (clickedShapeIndex != -1) {
             ShapeAbstractClass clickedShape = allShapes.get(clickedShapeIndex);
             controller.toggleShapeClick(clickedShape.getId());
-//            System.out.println("Clicked on Shape with ID: " + clickedShape.getId() + " at Z-Order: " + clickedShape.getzOrder());
-        } else { // 아니라면
+        } else {
             controller.clearClicks();
-//            System.out.println("Clicked on empty space.");
         }
-
-        // 여기에 controller 메소드 호출해서 모델의 clickedShapes 수정하는 로직 처리
-        // clickedShapes에 해당 도형 없으면 추가하고, 이미 있으면 삭제하고
     }
 
     private int findShapeByPoint(int x, int y) {
-        int selectedIndex = -1;
-        int maxZOrder = Integer.MIN_VALUE;
-
-        for (ShapeAbstractClass shape : allShapes) {
-            if (isPointInsideShape(x, y, shape) && shape.getZOrder() > maxZOrder) {
-                maxZOrder = shape.getZOrder();
-                selectedIndex = allShapes.indexOf(shape);
+        for (int i = allShapes.size() - 1; i >= 0; i--) {
+            ShapeAbstractClass shape = allShapes.get(i);
+            if (isPointInsideShape(x, y, shape)) {
+                return i;
             }
         }
-
-        return selectedIndex;
+        return -1;
     }
 
     private boolean isPointInsideShape(int x, int y, ShapeAbstractClass shape) {
@@ -83,7 +73,6 @@ public class WhiteCanvas extends JPanel implements Observer {
             System.out.println("Shape ID: " + shape.getId());
         }
     }
-
 
     @Override
     protected void paintComponent(Graphics g) {

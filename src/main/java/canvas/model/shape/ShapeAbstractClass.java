@@ -12,12 +12,11 @@ public class ShapeAbstractClass implements ShapeInterface {
     protected int height;
     protected Color color;
     protected int opacity;
-    protected int zOrder;
     protected boolean shadow;
     protected boolean frame;
     protected String text;
 
-    public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
+    public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, boolean shadow, boolean frame) {
         this.id = id;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -25,11 +24,10 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.height = height;
         this.color = color;
         this.opacity = opacity;
-        this.zOrder = zOrder;
         this.shadow = shadow;
         this.frame = frame;
     }
-    public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame, String text) {
+    public ShapeAbstractClass(int id, int xPos, int yPos, int width, int height, Color color, int opacity, boolean shadow, boolean frame, String text) {
         this.id = id;
         this.xPos = xPos;
         this.yPos = yPos;
@@ -37,7 +35,6 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.height = height;
         this.color = color;
         this.opacity = opacity;
-        this.zOrder = zOrder;
         this.shadow = shadow;
         this.frame = frame;
         this.text = text;
@@ -109,8 +106,6 @@ public class ShapeAbstractClass implements ShapeInterface {
     public int getOpacity() {
         return opacity;
     }
-
-    public int getZOrder() {return zOrder;}
 
     public boolean getShadow() {return shadow;}
 

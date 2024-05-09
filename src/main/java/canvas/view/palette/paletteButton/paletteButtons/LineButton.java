@@ -19,8 +19,8 @@ public class LineButton extends PaletteButton {
     @Override
     public void createShape() {
         addActionListener(e -> {
-            int id = seq;int xPos = 100; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;int zOrder = seq; boolean shadow = false;boolean frame =false;
-            LineShape lineShape = new LineShape(id, xPos, yPos, width, height, color, opacity, zOrder, shadow, frame);
+            int id = seq;int xPos = 100; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 50;boolean shadow = false;boolean frame =false;
+            LineShape lineShape = new LineShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
             controller.createShape(lineShape);
         });
 

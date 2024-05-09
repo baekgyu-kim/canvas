@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class LineShape extends ShapeAbstractClass {
 
-    public LineShape(int id, int xPos, int yPos, int width, int height, Color color, int opacity, int zOrder, boolean shadow, boolean frame) {
-        super(id, xPos, yPos, width, height, color, opacity, zOrder, shadow, frame);
+    public LineShape(int id, int xPos, int yPos, int width, int height, Color color, int opacity, boolean shadow, boolean frame) {
+        super(id, xPos, yPos, width, height, color, opacity, shadow, frame);
     }
 
     @Override

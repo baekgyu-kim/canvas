@@ -31,10 +31,9 @@ public class TextButton extends PaletteButton {
                 int height = 50;
                 Color color = Color.black;
                 int opacity = 100;
-                int zOrder = seq;
                 boolean shadow = false;
                 boolean frame = false;
-                TextShape textShape = new TextShape(id, xPos, yPos, width, height, color, opacity, zOrder, shadow, frame, text);
+                TextShape textShape = new TextShape(id, xPos, yPos, width, height, color, opacity, shadow, frame, text);
                 controller.createShape(textShape);
             }
         });
