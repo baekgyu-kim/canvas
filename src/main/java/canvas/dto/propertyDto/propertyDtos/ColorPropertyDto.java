@@ -12,7 +12,7 @@ public class ColorPropertyDto extends PropertyDtoAbstractClass {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Color color) {
-
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
+        shapeAbstractClass.changeColor(this.color);
     }
 }

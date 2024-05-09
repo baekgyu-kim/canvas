@@ -10,7 +10,7 @@ public class ResizePropertyDto extends PropertyDtoAbstractClass {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer newWidth, Integer newHeight) {
-
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
+        shapeAbstractClass.changeSize(this.value1, this.value2);
     }
 }

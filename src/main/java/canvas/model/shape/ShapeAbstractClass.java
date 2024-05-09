@@ -47,12 +47,40 @@ public class ShapeAbstractClass implements ShapeInterface {
     }
 
     @Override
-    public void update(PropertyDtoAbstractClass propertyDtoAbstractClass) {
-        if (propertyDtoAbstractClass == null) {
-            throw new IllegalArgumentException("PropertyDtoAbstractClass cannot be null");
-        }
+    public void changeColor(Color color) {
+        this.color = color;
 
     }
+
+    @Override
+    public void changeMove(int newX, int newY) {
+        this.xPos = newX;
+        this.yPos = newY;
+
+    }
+
+    @Override
+    public void changeSize(int newWidth, int newHeight) {
+        this.width = newWidth;
+        this.height = newHeight;
+
+    }
+
+    @Override
+    public void changeOpacity(int opacity) {
+        this.opacity = opacity;
+    }
+
+    @Override
+    public void bringFront() {
+
+    }
+
+    @Override
+    public void sendBack() {
+
+    }
+
 
     public int getId() {
         return id;

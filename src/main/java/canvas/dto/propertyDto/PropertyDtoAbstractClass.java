@@ -7,10 +7,10 @@ import java.awt.*;
 
 
 public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
-    ShapeComposite shapeComposite;
-    Color color;
-    Integer int1;
-    Integer int2;
+    protected ShapeComposite shapeComposite;
+    protected Color color;
+    protected Integer value1;
+    protected Integer value2;
     public PropertyDtoAbstractClass(ShapeComposite shapeComposite) {
         this.shapeComposite = shapeComposite;
     }
@@ -18,30 +18,19 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
         this.shapeComposite = shapeComposite;
         this.color = color;
     }
-    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer int1) {
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer value1) {
         this.shapeComposite = shapeComposite;
-        this.int1 = int1;
+        this.value2 = value1;
     }
-    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer int1, Integer int2) {
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer value1, Integer value2) {
         this.shapeComposite = shapeComposite;
-        this.int1 = int1;
-        this.int2 = int2;
+        this.value1 = value1;
+        this.value2 = value2;
     }
 
     @Override
     public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
     }
 
-    @Override
-    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Color color) {
-    }
-
-    @Override
-    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer int1) {
-    }
-
-    @Override
-    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass, Integer int1, Integer int2) {
-    }
 
 }

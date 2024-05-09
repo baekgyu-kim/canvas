@@ -71,7 +71,7 @@ public class Model implements Subject {
 
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto) {
-        shapeComposite.update(propertyDto);
+        shapeComposite.updateShapesInComposite(propertyDto);
         notifyObserversAllShapes();
     }
 

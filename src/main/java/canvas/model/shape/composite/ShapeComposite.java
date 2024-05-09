@@ -36,12 +36,42 @@ public class ShapeComposite implements ShapeInterface {
         }
     }
 
-    @Override
-    public void update(PropertyDtoAbstractClass dto) {
+    public void updateShapesInComposite(PropertyDtoAbstractClass dto){
         for (ShapeAbstractClass child : children) {
-            child.update(dto);
+            dto.applyPropertyUpdate(child);
         }
     }
+
+    @Override
+    public void changeColor(Color color) {
+
+    }
+
+    @Override
+    public void changeMove(int newX, int newY) {
+
+    }
+
+    @Override
+    public void changeSize(int newWidth, int newHeight) {
+
+    }
+
+    @Override
+    public void changeOpacity(int opacity) {
+
+    }
+
+    @Override
+    public void bringFront() {
+
+    }
+
+    @Override
+    public void sendBack() {
+
+    }
+
 
     public Integer shapesCount(){
         return this.children.size();
