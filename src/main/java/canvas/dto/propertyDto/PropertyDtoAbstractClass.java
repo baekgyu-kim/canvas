@@ -21,7 +21,7 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     }
     public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer value1) {
         this.shapeComposite = shapeComposite;
-        this.value2 = value1;
+        this.value1 = value1;
     }
     public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Integer value1, Integer value2) {
         this.shapeComposite = shapeComposite;
