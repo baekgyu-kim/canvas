@@ -1,0 +1,27 @@
+package canvas.decorator;
+import canvas.model.shape.ShapeAbstractClass;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class ClickedShapeDecorator extends JPanel {
+
+    public ClickedShapeDecorator(ShapeAbstractClass shape) {
+//        setOpaque(false); // 배경을 투명하게 설정
+        setLocation(shape.getXPos()-3, shape.getYPos()-3);
+        setSize(shape.getWidth()+6, shape.getHeight()+6);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // 클릭된 도형의 그리기 로직 호출
+//        this.shape.draw(g);
+//        System.out.println("된건가");
+        // 검은색 테두리 그리기
+//        Graphics2D g2d = (Graphics2D) g;
+//        g2d.setColor(Color.BLACK);
+//        g2d.setStroke(new BasicStroke(2)); // 테두리 두께 설정
+//        g2d.drawRect(0, 0, getWidth(), getHeight()); // 테두리 그리기
+    }
+}

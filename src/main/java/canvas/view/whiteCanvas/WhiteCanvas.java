@@ -1,6 +1,7 @@
 package canvas.view.whiteCanvas;
 
 import canvas.controller.Controller;
+import canvas.decorator.ClickedShapeDecorator;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -73,16 +74,32 @@ public class WhiteCanvas extends JPanel implements Observer {
         System.out.println("Clicked shapes IDs:");
         for (ShapeAbstractClass shape : this.clickedShapes) {
             System.out.println("Shape ID: " + shape.getId());
-            //주석
         }
+        repaint();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        List<Integer> clickedShapeIds = new ArrayList<>();
+        for (ShapeAbstractClass shape : this.clickedShapes) {
+            clickedShapeIds.add(shape.getId());
+        }
+
         if (allShapes != null) {
             for (ShapeAbstractClass shape : allShapes) {
-                shape.draw(g);
+                if(clickedShapeIds.contains(shape.getId())){
+//                    // 테두리가 검은색인 JPanel로 g를 감싼뒤 그려내는 코드
+                    ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
+                    System.out.println("테두리 그려");
+                    add(decorator);
+                    System.out.println("도형을 그려");
+                    shape.draw(g);
+                } else {
+                    shape.draw(g);
+                }
+//                shape.draw(g);
             }
         }
     }
