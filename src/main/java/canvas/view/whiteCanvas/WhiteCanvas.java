@@ -88,18 +88,14 @@ public class WhiteCanvas extends JPanel implements Observer {
         }
 
         if (allShapes != null) {
+            removeAll();
             for (ShapeAbstractClass shape : allShapes) {
                 if(clickedShapeIds.contains(shape.getId())){
-//                    // 테두리가 검은색인 JPanel로 g를 감싼뒤 그려내는 코드
+                    // 테두리가 검은색인 JPanel로 g를 감싼뒤 그려내는 코드
                     ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
-                    System.out.println("테두리 그려");
                     add(decorator);
-                    System.out.println("도형을 그려");
-                    shape.draw(g);
-                } else {
-                    shape.draw(g);
                 }
-//                shape.draw(g);
+                shape.draw(g);
             }
         }
     }
