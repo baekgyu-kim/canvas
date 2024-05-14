@@ -17,8 +17,8 @@ public class ClickedShapeDecorator implements ShapeInterface {
         decoratedShape.draw(g);
         // 테두리만 있는 직사각형 그리기
         Graphics2D g2d = (Graphics2D) g.create();
-        g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(5));
+        g2d.setColor(Color.RED);
+        g2d.setStroke(new BasicStroke(3));
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
         g2d.drawRect(decoratedShape.getXPos() - 2, decoratedShape.getYPos() - 2,
                 decoratedShape.getWidth() + 4, decoratedShape.getHeight() + 4);
@@ -42,6 +42,16 @@ public class ClickedShapeDecorator implements ShapeInterface {
 
     @Override
     public void changeOpacity(int opacity) {
+        throw new UnsupportedOperationException("This operation is not supported by the decorator.");
+    }
+
+    @Override
+    public void changeShade(boolean hasShade) {
+        throw new UnsupportedOperationException("This operation is not supported by the decorator.");
+    }
+
+    @Override
+    public void changeFrame(boolean hasFrame) {
         throw new UnsupportedOperationException("This operation is not supported by the decorator.");
     }
 
