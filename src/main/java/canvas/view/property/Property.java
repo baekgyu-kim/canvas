@@ -6,7 +6,6 @@ import canvas.view.property.propertyButton.PropertyButton;
 import canvas.view.property.propertyButton.propertyButtons.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class Property extends JPanel {
@@ -25,7 +24,7 @@ public class Property extends JPanel {
         this.controller = controller;
         initComponents();
         registerButtonsAsObserver();
-        setBackground(new Color(60, 63, 65)); // 배경색 변경
+        setBackground(new Color(45, 45, 48));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         addComponents();
         setVisible(true);
@@ -46,16 +45,16 @@ public class Property extends JPanel {
         JButton btn = (JButton) button;
         btn.setBackground(new Color(75, 110, 175));
         btn.setForeground(Color.WHITE);
-        btn.setFont(new Font("Arial", Font.BOLD, 14));
+        btn.setFont(new Font("SansSerif", Font.BOLD, 14));
         btn.setFocusPainted(false);
         btn.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btn.setPreferredSize(new Dimension(150, 40)); // 버튼 크기 조정
-        btn.setMaximumSize(new Dimension(150, 40)); // 최대 크기 설정
+        btn.setPreferredSize(new Dimension(150, 40));
+        btn.setMaximumSize(new Dimension(150, 40));
         return button;
     }
 
-    private void registerButtonsAsObserver(){
+    private void registerButtonsAsObserver() {
         controller.registerObserver(this.moveButton);
         controller.registerObserver(this.resizeButton);
         controller.registerObserver(this.colorButton);
@@ -67,22 +66,46 @@ public class Property extends JPanel {
     }
 
     private void addComponents() {
-        add(Box.createVerticalStrut(10)); // 위쪽 간격 추가
-        add(this.moveButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.resizeButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.colorButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.opacityButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.shadowButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.frameButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.bringFrontButton);
-        add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.sendBackButton);
-        add(Box.createVerticalStrut(10)); // 아래쪽 간격 추가
+        add(createCategoryPanel("Shape Modification", this.moveButton, this.resizeButton, this.colorButton, this.opacityButton));
+        add(Box.createVerticalStrut(10));
+        add(createCategoryPanel("Effects", this.shadowButton, this.frameButton));
+        add(Box.createVerticalStrut(10));
+        add(createCategoryPanel("Z-Order", this.bringFrontButton, this.sendBackButton));
+        add(Box.createVerticalStrut(10));
+    }
+
+    private JPanel createCategoryPanel(String title, PropertyButton... buttons) {
+        JPanel panel = getPanel();
+        JLabel label = new JLabel(title);
+        label.setForeground(Color.WHITE);
+        label.setFont(new Font("SansSerif", Font.BOLD, 16));
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        panel.add(label);
+        panel.add(Box.createVerticalStrut(10));
+
+        for (PropertyButton button : buttons) {
+            panel.add(button);
+            panel.add(Box.createVerticalStrut(10));
+        }
+
+        return panel;
+    }
+
+    private JPanel getPanel() {
+        JPanel panel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g.create();
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
+                g2d.setColor(new Color(60, 63, 65));
+                g2d.fillRect(0, 0, getWidth(), getHeight());
+                g2d.dispose();
+            }
+        };
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        return panel;
     }
 }
