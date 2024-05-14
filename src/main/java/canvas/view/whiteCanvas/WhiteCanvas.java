@@ -71,7 +71,7 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
         this.clickedShapes = shapeComposite.getChildren();
-        System.out.println("Clicked shapes IDs:");
+        System.out.println("========clicked shapes=======");
         for (ShapeAbstractClass shape : this.clickedShapes) {
             System.out.println("Shape ID: " + shape.getId());
         }
@@ -81,20 +81,11 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        List<Integer> clickedShapeIds = new ArrayList<>();
-        for (ShapeAbstractClass shape : this.clickedShapes) {
-            clickedShapeIds.add(shape.getId());
-        }
-
-        if (allShapes != null) {
-            removeAll();
-            for (ShapeAbstractClass shape : allShapes) {
-                if(clickedShapeIds.contains(shape.getId())){
-                    // 테두리가 검은색인 JPanel로 g를 감싼뒤 그려내는 코드
-                    ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
-                    add(decorator);
-                }
+        for (ShapeAbstractClass shape : this.allShapes) {
+            if (this.clickedShapes.contains(shape)) {
+                ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
+                decorator.draw(g);
+            } else {
                 shape.draw(g);
             }
         }

@@ -37,6 +37,20 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.frame = frame;
         this.text = text;
     }
+
+    public ShapeAbstractClass(ShapeAbstractClass shapeAbstractClass) {
+        this.id = shapeAbstractClass.getId();
+        this.xPos = shapeAbstractClass.getXPos();
+        this.yPos = shapeAbstractClass.getYPos();
+        this.width = shapeAbstractClass.getWidth();
+        this.height = shapeAbstractClass.getHeight();
+        this.color = shapeAbstractClass.getColor();
+        this.opacity = shapeAbstractClass.getOpacity();
+        this.shadow = shapeAbstractClass.getShadow();
+        this.frame = shapeAbstractClass.getFrame();
+        this.text = shapeAbstractClass.getText();
+    }
+
     @Override
     public void draw(Graphics g) {
     }
@@ -99,5 +113,9 @@ public class ShapeAbstractClass implements ShapeInterface {
 
     public boolean getFrame() {
         return frame;
+    }
+
+    public String getText() {
+        return text;
     }
 }
