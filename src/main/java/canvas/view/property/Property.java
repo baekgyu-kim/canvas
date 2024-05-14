@@ -16,7 +16,7 @@ public class Property extends JPanel {
     private PropertyButton resizeButton;
     private PropertyButton colorButton;
     private PropertyButton opacityButton;
-    private PropertyButton shadeButton;
+    private PropertyButton shadowButton;
     private PropertyButton frameButton;
     private PropertyButton bringFrontButton;
     private PropertyButton sendBackButton;
@@ -36,7 +36,7 @@ public class Property extends JPanel {
         this.resizeButton = createStyledButton(new ResizeButton(this.shapeComposite, this.controller));
         this.colorButton = createStyledButton(new ColorButton(this.shapeComposite, this.controller));
         this.opacityButton = createStyledButton(new OpacityButton(this.shapeComposite, this.controller));
-        this.shadeButton = createStyledButton(new ShadowButton(this.shapeComposite, this.controller));
+        this.shadowButton = createStyledButton(new ShadowButton(this.shapeComposite, this.controller));
         this.frameButton = createStyledButton(new FrameButton(this.shapeComposite, this.controller));
         this.bringFrontButton = createStyledButton(new BringFrontButton(this.shapeComposite, this.controller));
         this.sendBackButton = createStyledButton(new SendBackButton(this.shapeComposite, this.controller));
@@ -60,7 +60,7 @@ public class Property extends JPanel {
         controller.registerObserver(this.resizeButton);
         controller.registerObserver(this.colorButton);
         controller.registerObserver(this.opacityButton);
-        controller.registerObserver(this.shadeButton);
+        controller.registerObserver(this.shadowButton);
         controller.registerObserver(this.frameButton);
         controller.registerObserver(this.bringFrontButton);
         controller.registerObserver(this.sendBackButton);
@@ -76,7 +76,7 @@ public class Property extends JPanel {
         add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
         add(this.opacityButton);
         add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
-        add(this.shadeButton);
+        add(this.shadowButton);
         add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
         add(this.frameButton);
         add(Box.createVerticalStrut(10)); // 버튼 간 간격 추가
