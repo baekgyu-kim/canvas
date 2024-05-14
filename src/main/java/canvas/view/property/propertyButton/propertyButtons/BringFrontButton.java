@@ -14,7 +14,7 @@ import java.util.List;
 public class BringFrontButton extends PropertyButton {
     public BringFrontButton(ShapeComposite shapeComposite, Controller controller) {
         super(shapeComposite, controller);
-        initializeButton("Bring To Front");
+        initializeButton("Bring Front");
 
         addActionListener(new ActionListener() {
             @Override
