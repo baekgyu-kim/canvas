@@ -7,12 +7,14 @@ import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.state.DefaultState;
 import canvas.state.StateInterface;
+import canvas.view.palette.paletteButton.PaletteButton;
 
 import java.awt.event.MouseEvent;
 
 public class Controller {
     private final Model model;
     private StateInterface currentState;
+    private PaletteButton activeButton;
 
     public Controller(Model model){
         this.model=model;
@@ -56,5 +58,24 @@ public class Controller {
 
     public void handleMouseRelease(MouseEvent e) {
         currentState.handleMouseRelease(e);
+    }
+
+    public void setActiveButton(PaletteButton button) {
+        if (this.activeButton != null) {
+            this.activeButton.deactivate();
+        }
+        this.activeButton = button;
+        this.activeButton.activate();
+    }
+    public void setDefaultState() {
+        if (this.activeButton != null) {
+            this.activeButton.deactivate();
+        }
+        this.activeButton = null;
+        setState(new DefaultState(this));
+    }
+
+    public PaletteButton getActiveButton() {
+        return this.activeButton;
     }
 }

@@ -28,8 +28,11 @@ public abstract class PaletteButton extends JButton implements Observer {
     }
 
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        // 여기서는 아무것도 하지 않음.
-    }
+    public void updateClickedShapes(ShapeComposite shapeComposite) {}
+
     protected abstract void setState();
+
+    public abstract void activate();
+
+    public abstract void deactivate();
 }

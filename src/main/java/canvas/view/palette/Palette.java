@@ -5,7 +5,6 @@ import canvas.view.palette.paletteButton.*;
 import canvas.view.palette.paletteButton.paletteButtons.*;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class Palette extends JPanel {
@@ -16,14 +15,16 @@ public class Palette extends JPanel {
     private PaletteButton ellipseButton;
     private PaletteButton starButton;
     private PaletteButton textButton;
+    private PaletteButton activeButton;
 
     public Palette(Controller controller, int seq) {
         this.controller = controller;
         this.seq = seq;
+        this.activeButton = null;
         initComponents();
         registerButtonsAsObserver();
         setBackground(new Color(60, 63, 65));
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // BoxLayout 사용
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         addComponents();
         setVisible(true);
     }
@@ -40,16 +41,16 @@ public class Palette extends JPanel {
         JButton btn = (JButton) button;
         btn.setBackground(new Color(75, 110, 175));
         btn.setForeground(Color.WHITE);
-        btn.setFont(new Font("Arial", Font.BOLD, 14)); // 폰트 크기 약간 줄임
+        btn.setFont(new Font("Arial", Font.BOLD, 14));
         btn.setFocusPainted(false);
         btn.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
         btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btn.setPreferredSize(new Dimension(150, 40)); // 버튼 크기 조정
-        btn.setMaximumSize(new Dimension(150, 40)); // 최대 크기 설정
+        btn.setPreferredSize(new Dimension(150, 40));
+        btn.setMaximumSize(new Dimension(150, 40));
         return button;
     }
 
-    private void registerButtonsAsObserver(){
+    private void registerButtonsAsObserver() {
         controller.registerObserver(this.lineButton);
         controller.registerObserver(this.rectangleButton);
         controller.registerObserver(this.ellipseButton);
@@ -58,16 +59,28 @@ public class Palette extends JPanel {
     }
 
     private void addComponents() {
-        add(Box.createVerticalStrut(10)); // 위쪽 간격 추가
+        add(Box.createVerticalStrut(10));
         add((Component) this.lineButton);
-        add(Box.createVerticalStrut(5)); // 버튼 간 간격 추가
+        add(Box.createVerticalStrut(5));
         add((Component) this.rectangleButton);
-        add(Box.createVerticalStrut(5)); // 버튼 간 간격 추가
+        add(Box.createVerticalStrut(5));
         add((Component) this.ellipseButton);
-        add(Box.createVerticalStrut(5)); // 버튼 간 간격 추가
+        add(Box.createVerticalStrut(5));
         add((Component) this.starButton);
-        add(Box.createVerticalStrut(5)); // 버튼 간 간격 추가
+        add(Box.createVerticalStrut(5));
         add((Component) this.textButton);
-        add(Box.createVerticalStrut(10)); // 아래쪽 간격 추가
+        add(Box.createVerticalStrut(10));
+    }
+
+    public void setActiveButton(PaletteButton button) {
+        if (this.activeButton != null) {
+            this.activeButton.deactivate();
+        }
+        this.activeButton = button;
+        this.activeButton.activate();
+    }
+
+    public PaletteButton getActiveButton() {
+        return this.activeButton;
     }
 }
