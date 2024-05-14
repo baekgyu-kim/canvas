@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
-    Controller controller;
-    List<ShapeAbstractClass> allShapes = new ArrayList<>();
-    List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
+    private Controller controller;
+    private List<ShapeAbstractClass> allShapes = new ArrayList<>();
+    private List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
     private Point hoverPoint = null;
 
     public WhiteCanvas(Controller controller) {
@@ -29,7 +29,13 @@ public class WhiteCanvas extends JPanel implements Observer {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                handleMouseClick(e.getX(), e.getY());
+                controller.handleMouseClick(e);
+                repaint();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                controller.handleMouseRelease(e);
                 repaint();
             }
         });
@@ -41,35 +47,6 @@ public class WhiteCanvas extends JPanel implements Observer {
                 repaint();
             }
         });
-    }
-
-    private void handleMouseClick(int x, int y) {
-        if (allShapes.isEmpty()) {
-            System.out.println("No shapes to interact with.");
-            return;
-        }
-        int clickedShapeIndex = findShapeByPoint(x, y);
-        if (clickedShapeIndex != -1) {
-            ShapeAbstractClass clickedShape = allShapes.get(clickedShapeIndex);
-            controller.toggleShapeClick(clickedShape.getId());
-        } else {
-            controller.clearClicks();
-        }
-    }
-
-    private int findShapeByPoint(int x, int y) {
-        for (int i = allShapes.size() - 1; i >= 0; i--) {
-            ShapeAbstractClass shape = allShapes.get(i);
-            if (isPointInsideShape(x, y, shape)) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    private boolean isPointInsideShape(int x, int y, ShapeAbstractClass shape) {
-        return x >= shape.getXPos() && x <= (shape.getXPos() + shape.getWidth()) &&
-                y >= shape.getYPos() && y <= (shape.getYPos() + shape.getHeight());
     }
 
     @Override

@@ -2,6 +2,7 @@ package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
 import canvas.model.shape.shapes.LineShape;
+import canvas.state.shapeCreateStates.LineState;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 
@@ -10,19 +11,12 @@ import java.awt.*;
 public class LineButton extends PaletteButton {
     public LineButton(Controller controller, int seq) {
         super(controller, seq);
-        this.controller = controller;
-        this.seq = seq;
         initializeButton("Line");
-        createShape();
+        setState();
     }
 
     @Override
-    public void createShape() {
-        addActionListener(e -> {
-            int id = seq;int xPos = 100; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 100;boolean shadow = false;boolean frame =false;
-            LineShape lineShape = new LineShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
-            controller.createShape(lineShape);
-        });
-
+    protected void setState() {
+        addActionListener(e -> controller.setState(new LineState(controller, seq)));
     }
 }

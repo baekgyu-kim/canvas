@@ -1,28 +1,19 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.model.shape.shapes.EllipseShape;
+import canvas.state.shapeCreateStates.EllipseState;
 import canvas.view.palette.paletteButton.PaletteButton;
 
-
-import java.awt.*;
-
 public class EllipseButton extends PaletteButton {
+
     public EllipseButton(Controller controller, int seq) {
         super(controller, seq);
-        this.controller = controller;
-        this.seq = seq;
         initializeButton("Ellipse");
-        createShape();
+        setState();
     }
 
     @Override
-    public void createShape() {
-        addActionListener(e -> {
-            int id = seq;int xPos = 400; int yPos = 250; int width = 100; int height = 100; Color color = Color.green; int opacity = 100;boolean shadow = false;boolean frame =false;
-            EllipseShape ellipseShape = new EllipseShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
-            controller.createShape(ellipseShape);
-        });
-
+    protected void setState() {
+        addActionListener(e -> controller.setState(new EllipseState(controller, seq)));
     }
 }

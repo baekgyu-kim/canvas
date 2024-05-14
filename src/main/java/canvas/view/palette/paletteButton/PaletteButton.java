@@ -1,7 +1,6 @@
 package canvas.view.palette.paletteButton;
 
 import canvas.controller.Controller;
-import canvas.factory.ShapeCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -10,7 +9,7 @@ import javax.swing.*;
 import java.util.List;
 
 
-public abstract class PaletteButton extends JButton implements ShapeCreatorInterface, Observer {
+public abstract class PaletteButton extends JButton implements Observer {
     protected Controller controller;
     protected int seq;
     public PaletteButton(Controller controller, int seq) {
@@ -32,4 +31,5 @@ public abstract class PaletteButton extends JButton implements ShapeCreatorInter
     public void updateClickedShapes(ShapeComposite shapeComposite) {
         // 여기서는 아무것도 하지 않음.
     }
+    protected abstract void setState();
 }
