@@ -10,8 +10,8 @@ import java.awt.event.MouseEvent;
 
 public class TextState extends StateAbstractClass {
 
-    public TextState(Controller controller) {
-        super(controller);
+    public TextState(Controller controller, int seq) {
+        super(controller, seq);
     }
 
     @Override

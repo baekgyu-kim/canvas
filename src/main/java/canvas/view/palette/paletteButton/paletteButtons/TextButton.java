@@ -2,6 +2,7 @@ package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
 import canvas.state.shapeCreateStates.LineState;
+import canvas.state.shapeCreateStates.TextState;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 
@@ -15,6 +16,6 @@ public class TextButton extends PaletteButton{
 
     @Override
     protected void setState() {
-        addActionListener(e -> controller.setState(new LineState(controller, seq)));
+        addActionListener(e -> controller.setState(new TextState(controller, seq)));
     }
 }
