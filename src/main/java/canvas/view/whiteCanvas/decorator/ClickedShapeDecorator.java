@@ -1,4 +1,4 @@
-package canvas.decorator;
+package canvas.view.whiteCanvas.decorator;
 import canvas.model.shape.ShapeAbstractClass;
 
 import javax.swing.*;
