@@ -19,6 +19,7 @@ public class ClickedShapeDecorator implements ShapeInterface {
         Graphics2D g2d = (Graphics2D) g.create();
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(5));
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
         g2d.drawRect(decoratedShape.getXPos() - 2, decoratedShape.getYPos() - 2,
                 decoratedShape.getWidth() + 4, decoratedShape.getHeight() + 4);
         g2d.dispose();
