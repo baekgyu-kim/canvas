@@ -1,7 +1,5 @@
 package canvas.model.shape;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-
 import java.awt.*;
 
 public interface ShapeInterface {

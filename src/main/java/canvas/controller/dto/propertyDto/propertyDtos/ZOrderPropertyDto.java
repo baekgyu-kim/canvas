@@ -1,6 +1,6 @@
-package canvas.dto.propertyDto.propertyDtos;
+package canvas.controller.dto.propertyDto.propertyDtos;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.controller.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 

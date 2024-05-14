@@ -1,9 +1,7 @@
-package canvas.dto.propertyDto;
+package canvas.controller.dto.propertyDto;
 
 import canvas.model.Model;
 import canvas.model.shape.ShapeAbstractClass;
-
-import java.awt.*;
 
 public interface PropertyDtoInterface {
     public  void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass);

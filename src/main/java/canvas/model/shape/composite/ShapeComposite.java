@@ -1,8 +1,6 @@
 package canvas.model.shape.composite;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.ShapeInterface;
 
 import java.awt.*;
 import java.util.ArrayList;
