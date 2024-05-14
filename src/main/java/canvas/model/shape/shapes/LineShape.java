@@ -40,7 +40,7 @@ public class LineShape extends ShapeAbstractClass {
         if (frame) {
             g2.setColor(Color.BLACK);
             g2.setStroke(new BasicStroke(2));
-            g2.drawOval(xPos, yPos, width, height);
+            g2.drawRect(xPos, yPos, width, height);
         }
     }
 
