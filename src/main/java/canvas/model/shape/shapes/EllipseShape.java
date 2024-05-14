@@ -18,7 +18,7 @@ public class EllipseShape extends ShapeAbstractClass {
         g2.setColor(color);
 
         // 투명도 설정
-        float alpha = opacity / 255.0f;
+        float alpha = opacity / 100.0f;
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 
         // 타원 그리기

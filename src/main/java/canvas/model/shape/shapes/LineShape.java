@@ -21,7 +21,7 @@ public class LineShape extends ShapeAbstractClass {
         g2.setStroke(new BasicStroke(5));
 
         // 투명도 설정
-        float alpha = opacity / 255.0f;
+        float alpha = opacity / 100.0f;
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 
         // 선 그리기

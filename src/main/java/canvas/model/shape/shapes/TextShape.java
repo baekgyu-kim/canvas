@@ -30,7 +30,7 @@ public class TextShape extends ShapeAbstractClass {
             g2.drawRect(xPos, yPos, width, height);
         }
 
-        float alpha = opacity / 255.0f;
+        float alpha = opacity / 100.0f;
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
         g2.setColor(color);
         g2.drawString(text, x, y);
