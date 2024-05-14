@@ -15,7 +15,7 @@ public class EllipseShape extends ShapeAbstractClass {
         Graphics2D g2 = (Graphics2D) g;
         // 그림자 설정
         if (shadow) {
-            int shadowOffset = 6;
+            int shadowOffset = 5;
             g2.setColor(new Color(0, 0, 0, 100)); // 반투명한 검정색으로 그림자 설정
             float shadowAlpha = 0.9f; // 그림자 투명도 설정
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, shadowAlpha));
