@@ -34,10 +34,6 @@ public class WhiteCanvas extends JPanel implements Observer {
     }
 
     private void handleMouseClick(int x, int y) {
-        if (allShapes.isEmpty()) {
-            System.out.println("No shapes to interact with.");
-            return;
-        }
         int clickedShapeIndex = findShapeByPoint(x, y);
         if (clickedShapeIndex != -1) {
             ShapeAbstractClass clickedShape = allShapes.get(clickedShapeIndex);
