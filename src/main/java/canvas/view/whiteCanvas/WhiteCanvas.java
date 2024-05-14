@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class WhiteCanvas extends JPanel implements Observer {
     Controller controller;
     List<ShapeAbstractClass> allShapes = new ArrayList<>();
     List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
-    private Point lastClick = null;
+    private Point hoverPoint = null;
 
     public WhiteCanvas(Controller controller) {
         this.controller = controller;
@@ -29,7 +30,14 @@ public class WhiteCanvas extends JPanel implements Observer {
             @Override
             public void mouseClicked(MouseEvent e) {
                 handleMouseClick(e.getX(), e.getY());
-                lastClick = e.getPoint();
+                repaint();
+            }
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                hoverPoint = e.getPoint();
                 repaint();
             }
         });
@@ -88,7 +96,7 @@ public class WhiteCanvas extends JPanel implements Observer {
                 shape.draw(g);
             }
         }
-        drawClickFeedback(g);
+        drawHoverFeedback(g);
     }
 
     private void drawGrid(Graphics g) {
@@ -107,11 +115,12 @@ public class WhiteCanvas extends JPanel implements Observer {
         }
     }
 
-    private void drawClickFeedback(Graphics g) {
-        if (lastClick != null) {
+    private void drawHoverFeedback(Graphics g) {
+        if (hoverPoint != null) {
             Graphics2D g2d = (Graphics2D) g;
-            g2d.setColor(new Color(0, 150, 136));
-            g2d.fillOval(lastClick.x - 5, lastClick.y - 5, 10, 10);
+            g2d.setColor(new Color(0, 0, 255));
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
+            g2d.fillOval(hoverPoint.x - 5, hoverPoint.y - 5, 15, 15);
         }
     }
 }
