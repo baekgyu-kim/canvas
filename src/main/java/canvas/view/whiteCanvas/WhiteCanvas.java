@@ -71,10 +71,10 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
         this.clickedShapes = shapeComposite.getChildren();
-        System.out.println("========clicked shapes=======");
-        for (ShapeAbstractClass shape : this.clickedShapes) {
-            System.out.println("Shape ID: " + shape.getId());
-        }
+//        System.out.println("========clicked shapes=======");
+//        for (ShapeAbstractClass shape : this.clickedShapes) {
+//            System.out.println("Shape ID: " + shape.getId());
+//        }
         repaint();
     }
 
