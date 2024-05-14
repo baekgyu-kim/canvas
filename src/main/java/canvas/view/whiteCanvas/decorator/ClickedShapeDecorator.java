@@ -6,9 +6,9 @@ import canvas.model.shape.ShapeInterface;
 import java.awt.*;
 
 public class ClickedShapeDecorator implements ShapeInterface {
-    private ShapeAbstractClass decoratedShape;
+    private ShapeInterface decoratedShape;
 
-    public ClickedShapeDecorator(ShapeAbstractClass decoratedShape) {
+    public ClickedShapeDecorator(ShapeInterface decoratedShape) {
         this.decoratedShape = decoratedShape;
     }
 
