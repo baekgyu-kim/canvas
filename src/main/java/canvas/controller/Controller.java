@@ -1,6 +1,6 @@
 package canvas.controller;
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
+import canvas.controller.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.controller.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.model.shape.composite.ShapeComposite;

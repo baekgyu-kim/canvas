@@ -1,8 +1,8 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
 import canvas.controller.Controller;
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.OpacityPropertyDto;
+import canvas.controller.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.controller.dto.propertyDto.propertyDtos.OpacityPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
