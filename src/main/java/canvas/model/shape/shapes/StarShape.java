@@ -3,6 +3,7 @@ package canvas.model.shape.shapes;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.*;
+import java.awt.geom.Path2D;
 
 public class StarShape extends ShapeAbstractClass {
 
@@ -21,24 +22,29 @@ public class StarShape extends ShapeAbstractClass {
         float alpha = opacity / 255.0f;
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 
-        // 별 모양 생성
-        int[] xPoints = new int[10];
-        int[] yPoints = new int[10];
-        double angle = Math.PI / 5; // 별의 한 코너의 각도
+        Path2D star = new Path2D.Double();
 
-        for (int i = 0; i < 10; i++) {
-            int radius = (i % 2 == 0) ? width / 2 : width / 4; // 별의 외부 반지름과 내부 반지름
-            xPoints[i] = xPos + width / 2 + (int) (radius * Math.sin(i * angle));
-            yPoints[i] = yPos + height / 2 - (int) (radius * Math.cos(i * angle));
+        // 각 꼭짓점의 좌표 계산
+        double[] xPoints = {0.5, 0.613, 1, 0.687, 0.793, 0.5, 0.207, 0.313, 0, 0.387};
+        double[] yPoints = {0, 0.38, 0.38, 0.617, 1, 0.762, 1, 0.617, 0.38, 0.38};
+
+        // 실제 좌표로 변환하여 Path2D에 추가
+        for (int i = 0; i < xPoints.length; i++) {
+            double px = xPos + width * xPoints[i];
+            double py = yPos + height * yPoints[i];
+            if (i == 0) {
+                star.moveTo(px, py);
+            } else {
+                star.lineTo(px, py);
+            }
         }
-
-        // 별 그리기
-        g2.fillPolygon(xPoints, yPoints, 10);
+        star.closePath();
+        g2.fill(star);
 
         // 테두리 설정
         if (frame) {
             g2.setColor(Color.BLACK);
-            g2.drawPolygon(xPoints, yPoints, 10);
+            g2.draw(star);
         }
     }
 }
