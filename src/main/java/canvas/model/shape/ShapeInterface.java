@@ -8,6 +8,8 @@ public interface ShapeInterface {
     void changeMove(int newX, int newY);
     void changeSize(int newWidth, int newHeight);
     void changeOpacity(int opacity);
+    void changeShade(boolean hasShade);
+    void changeFrame(boolean hasFrame);
 
     public int getId();
 

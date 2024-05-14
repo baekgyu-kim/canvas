@@ -68,6 +68,17 @@ public class ShapeAbstractClass implements ShapeInterface {
     }
 
     @Override
+    public void changeShade(boolean hasShade) {
+        this.shadow = hasShade;
+
+    }
+
+    @Override
+    public void changeFrame(boolean hasFrame) {
+        this.frame = hasFrame;
+    }
+
+    @Override
     public int getId() {
         return id;
     }

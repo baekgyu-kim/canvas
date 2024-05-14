@@ -12,6 +12,7 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     protected Color color;
     protected Integer value1;
     protected Integer value2;
+    protected Boolean boolValue;
     public PropertyDtoAbstractClass(ShapeComposite shapeComposite) {
         this.shapeComposite = shapeComposite;
     }
@@ -27,6 +28,10 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
         this.shapeComposite = shapeComposite;
         this.value1 = value1;
         this.value2 = value2;
+    }
+    public PropertyDtoAbstractClass(ShapeComposite shapeComposite, Boolean boolValue) {
+        this.shapeComposite = shapeComposite;
+        this.boolValue = boolValue;
     }
 
     @Override
