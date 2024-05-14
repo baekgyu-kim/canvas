@@ -1,7 +1,6 @@
 package canvas.view.whiteCanvas;
 
 import canvas.controller.Controller;
-import canvas.model.shape.ShapeInterface;
 import canvas.view.whiteCanvas.decorator.ClickedShapeDecorator;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
@@ -35,6 +34,10 @@ public class WhiteCanvas extends JPanel implements Observer {
     }
 
     private void handleMouseClick(int x, int y) {
+        if (allShapes.isEmpty()) {
+            System.out.println("No shapes to interact with.");
+            return;
+        }
         int clickedShapeIndex = findShapeByPoint(x, y);
         if (clickedShapeIndex != -1) {
             ShapeAbstractClass clickedShape = allShapes.get(clickedShapeIndex);
@@ -68,10 +71,10 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     public void updateClickedShapes(ShapeComposite shapeComposite) {
         this.clickedShapes = shapeComposite.getChildren();
-//        System.out.println("========clicked shapes=======");
-//        for (ShapeAbstractClass shape : this.clickedShapes) {
-//            System.out.println("Shape ID: " + shape.getId());
-//        }
+        System.out.println("========clicked shapes=======");
+        for (ShapeAbstractClass shape : this.clickedShapes) {
+            System.out.println("Shape ID: " + shape.getId());
+        }
         repaint();
     }
 
@@ -79,11 +82,12 @@ public class WhiteCanvas extends JPanel implements Observer {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (ShapeAbstractClass shape : this.allShapes) {
-            ShapeInterface shapeToDraw = shape;
             if (this.clickedShapes.contains(shape)) {
-                shapeToDraw = new ClickedShapeDecorator(shape);
+                ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
+                decorator.draw(g);
+            } else {
+                shape.draw(g);
             }
-            shapeToDraw.draw(g);
         }
     }
 }
