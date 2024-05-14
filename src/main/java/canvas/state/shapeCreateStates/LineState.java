@@ -1,11 +1,13 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.shapes.LineShape;
 import canvas.state.StateAbstractClass;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class LineState extends StateAbstractClass {
 
@@ -14,8 +16,8 @@ public class LineState extends StateAbstractClass {
     }
 
     @Override
-    public void handleMouseClick(MouseEvent e) {
-        int id = seq;
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
+        int id = allShapes.size();
         int xPos = e.getX();
         int yPos = e.getY();
         int width = 100;

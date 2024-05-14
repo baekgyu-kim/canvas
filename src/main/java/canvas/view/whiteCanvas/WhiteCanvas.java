@@ -16,7 +16,7 @@ import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
     private Controller controller;
-    private List<ShapeAbstractClass> allShapes = new ArrayList<>();
+    private ArrayList<ShapeAbstractClass> allShapes = new ArrayList<>();
     private List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
     private Point hoverPoint = null;
 
@@ -29,13 +29,7 @@ public class WhiteCanvas extends JPanel implements Observer {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                controller.handleMouseClick(e);
-                repaint();
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                controller.handleMouseRelease(e);
+                controller.handleMouseClick(e, allShapes);
                 repaint();
             }
         });
@@ -51,7 +45,7 @@ public class WhiteCanvas extends JPanel implements Observer {
 
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        this.allShapes = shapes;
+        this.allShapes = (ArrayList<ShapeAbstractClass>) shapes;
         repaint();
     }
 

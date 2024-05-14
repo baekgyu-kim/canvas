@@ -10,6 +10,8 @@ import canvas.state.StateInterface;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     private final Model model;
@@ -48,16 +50,8 @@ public class Controller {
         currentState.activateState();
     }
 
-    public void handleMouseClick(MouseEvent e) {
-        currentState.handleMouseClick(e);
-    }
-
-    public void handleMouseDrag(MouseEvent e) {
-        currentState.handleMouseDrag(e);
-    }
-
-    public void handleMouseRelease(MouseEvent e) {
-        currentState.handleMouseRelease(e);
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
+        currentState.handleMouseClick(e, allShapes);
     }
 
     public void setActiveButton(PaletteButton button) {

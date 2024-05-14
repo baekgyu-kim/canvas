@@ -5,6 +5,7 @@ import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 public class StateAbstractClass implements StateInterface{
@@ -22,19 +23,10 @@ public class StateAbstractClass implements StateInterface{
     }
 
     @Override
-    public void handleMouseClick(MouseEvent e) {
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
 
     }
 
-    @Override
-    public void handleMouseDrag(MouseEvent e) {
-
-    }
-
-    @Override
-    public void handleMouseRelease(MouseEvent e) {
-
-    }
 
     @Override
     public void activateState() {

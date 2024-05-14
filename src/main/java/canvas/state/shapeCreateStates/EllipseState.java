@@ -1,11 +1,13 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.shapes.EllipseShape;
 import canvas.state.StateAbstractClass;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class EllipseState extends StateAbstractClass {
     public EllipseState(Controller controller, int seq) {
@@ -13,8 +15,8 @@ public class EllipseState extends StateAbstractClass {
     }
 
     @Override
-    public void handleMouseClick(MouseEvent e) {
-        int id = seq;
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
+        int id = allShapes.size();
         int xPos = e.getX();
         int yPos = e.getY();
         int width = 100;
