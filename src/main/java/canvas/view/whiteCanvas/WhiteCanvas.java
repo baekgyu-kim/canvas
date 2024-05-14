@@ -1,6 +1,7 @@
 package canvas.view.whiteCanvas;
 
 import canvas.controller.Controller;
+import canvas.model.shape.ShapeInterface;
 import canvas.view.whiteCanvas.decorator.ClickedShapeDecorator;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
@@ -78,12 +79,11 @@ public class WhiteCanvas extends JPanel implements Observer {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         for (ShapeAbstractClass shape : this.allShapes) {
+            ShapeInterface shapeToDraw = shape;
             if (this.clickedShapes.contains(shape)) {
-                ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
-                decorator.draw(g);
-            } else {
-                shape.draw(g);
+                shapeToDraw = new ClickedShapeDecorator(shape);
             }
+            shapeToDraw.draw(g);
         }
     }
 }
