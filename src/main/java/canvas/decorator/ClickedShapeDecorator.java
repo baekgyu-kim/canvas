@@ -22,7 +22,7 @@ public class ClickedShapeDecorator extends JPanel {
         // 검은색 테두리 그리기
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(2)); // 테두리 두께 설정
+        g2d.setStroke(new BasicStroke(5)); // 테두리 두께 설정
         g2d.drawRect(0, 0, getWidth(), getHeight()); // 테두리 그리기
         g2d.dispose();
         shape.draw(g);
