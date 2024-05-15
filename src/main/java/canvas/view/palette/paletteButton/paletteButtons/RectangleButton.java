@@ -1,8 +1,6 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.model.shape.shapes.RectangleShape;
-import canvas.state.shapeCreateStates.EllipseState;
 import canvas.state.shapeCreateStates.RectangleState;
 import canvas.view.palette.paletteButton.PaletteButton;
 

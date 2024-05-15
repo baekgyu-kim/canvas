@@ -2,7 +2,6 @@ package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
 import canvas.state.shapeCreateStates.EllipseState;
-import canvas.state.shapeCreateStates.LineState;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 import javax.swing.*;

@@ -4,7 +4,6 @@ import canvas.controller.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 
-import java.awt.*;
 
 public class FramePropertyDto extends PropertyDtoAbstractClass {
     public FramePropertyDto(ShapeComposite shapeComposite, Boolean hasFrame) {

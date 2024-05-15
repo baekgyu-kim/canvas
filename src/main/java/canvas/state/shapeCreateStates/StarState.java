@@ -22,7 +22,7 @@ public class StarState extends StateAbstractClass {
         int yPos = e.getY();
         int width = 100;
         int height = 100;
-        Color color = Color.yellow;
+        Color color = Color.RED;
         int opacity = 100;
         boolean shadow = false;
         boolean frame = false;

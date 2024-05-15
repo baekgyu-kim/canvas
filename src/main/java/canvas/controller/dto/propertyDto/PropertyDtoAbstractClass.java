@@ -38,9 +38,4 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
     }
 
-    @Override
-    public void applyPropertyUpdate(Model model) {
-    }
-
-
 }

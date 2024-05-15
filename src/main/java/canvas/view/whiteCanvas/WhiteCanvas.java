@@ -22,7 +22,7 @@ public class WhiteCanvas extends JPanel implements Observer {
 
     public WhiteCanvas(Controller controller) {
         this.controller = controller;
-        setBackground(new Color(245, 245, 245)); // 배경색을 밝은 회색으로 설정
+        setBackground(new Color(245, 245, 245));
         setPreferredSize(new Dimension(800, 600));
         setVisible(true);
 

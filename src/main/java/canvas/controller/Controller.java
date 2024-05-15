@@ -11,7 +11,6 @@ import canvas.view.palette.paletteButton.PaletteButton;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     private final Model model;
@@ -36,13 +35,9 @@ public class Controller {
 
     public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto){model.updateShape(shapeComposite, propertyDto);}
 
-    public void bringFront(ZOrderPropertyDto propertyDto) {
-        model.bringFront(propertyDto);
-    }
+    public void bringFront(ZOrderPropertyDto propertyDto) {model.bringFront(propertyDto);}
 
-    public void sendBack(ZOrderPropertyDto propertyDto) {
-        model.sendBack(propertyDto);
-    }
+    public void sendBack(ZOrderPropertyDto propertyDto) {model.sendBack(propertyDto);}
 
     public void setState(StateInterface state) {
         currentState.deactivateState();
@@ -69,7 +64,5 @@ public class Controller {
         setState(new DefaultState(this));
     }
 
-    public PaletteButton getActiveButton() {
-        return this.activeButton;
-    }
+    public PaletteButton getActiveButton() {return this.activeButton;}
 }
