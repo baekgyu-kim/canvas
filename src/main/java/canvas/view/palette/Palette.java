@@ -70,16 +70,4 @@ public class Palette extends JPanel {
         add((Component) this.textButton);
         add(Box.createVerticalStrut(10));
     }
-
-    public void setActiveButton(PaletteButton button) {
-        if (this.activeButton != null) {
-            this.activeButton.deactivate();
-        }
-        this.activeButton = button;
-        this.activeButton.activate();
-    }
-
-    public PaletteButton getActiveButton() {
-        return this.activeButton;
-    }
 }
