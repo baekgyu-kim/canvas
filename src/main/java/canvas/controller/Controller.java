@@ -5,7 +5,7 @@ import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
-import canvas.state.DefaultState;
+import canvas.state.defaultState.DefaultState;
 import canvas.state.StateInterface;
 import canvas.view.palette.paletteButton.PaletteButton;
 

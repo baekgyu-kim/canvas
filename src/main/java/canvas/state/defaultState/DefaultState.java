@@ -1,7 +1,8 @@
-package canvas.state;
+package canvas.state.defaultState;
 
 import canvas.controller.Controller;
 import canvas.model.shape.ShapeAbstractClass;
+import canvas.state.StateAbstractClass;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
