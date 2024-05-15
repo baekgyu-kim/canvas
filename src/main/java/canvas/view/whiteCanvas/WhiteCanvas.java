@@ -15,13 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WhiteCanvas extends JPanel implements Observer {
-    private Controller controller;
     private ArrayList<ShapeAbstractClass> allShapes = new ArrayList<>();
     private List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
     private Point hoverPoint = null;
 
     public WhiteCanvas(Controller controller) {
-        this.controller = controller;
+        controller.registerObserver(this);
         setBackground(new Color(245, 245, 245));
         setPreferredSize(new Dimension(800, 600));
         setVisible(true);

@@ -42,7 +42,6 @@ public class Frame extends JFrame {
         palette = new Palette(controller, 0);
         whiteCanvas = new WhiteCanvas(controller);
         property = new Property(controller);
-        controller.registerObserver(whiteCanvas);
 
         // 스타일 적용
         palette.setBackground(new Color(245, 245, 245));
