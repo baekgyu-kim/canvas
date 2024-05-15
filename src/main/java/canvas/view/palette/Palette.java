@@ -1,7 +1,9 @@
 package canvas.view.palette;
 
 import canvas.controller.Controller;
+import canvas.observer.Observer;
 import canvas.view.palette.paletteButton.*;
+import canvas.view.palette.paletteButton.clearButton.ClearButton;
 import canvas.view.palette.paletteButton.paletteButtons.*;
 
 import javax.swing.*;
@@ -14,6 +16,7 @@ public class Palette extends JPanel {
     private PaletteButton ellipseButton;
     private PaletteButton starButton;
     private PaletteButton textButton;
+    private PaletteButton clearButton;
 
     public Palette(Controller controller) {
         this.controller = controller;
@@ -26,11 +29,12 @@ public class Palette extends JPanel {
     }
 
     private void initComponents() {
-        this.lineButton = createStyledButton(new LineButton(this.controller));
-        this.rectangleButton = createStyledButton(new RectangleButton(this.controller));
-        this.ellipseButton = createStyledButton(new EllipseButton(this.controller));
-        this.starButton = createStyledButton(new StarButton(this.controller));
-        this.textButton = createStyledButton(new TextButton(this.controller));
+        this.lineButton = createStyledButton(new LineShapeButton(this.controller));
+        this.rectangleButton = createStyledButton(new RectangleShapeButton(this.controller));
+        this.ellipseButton = createStyledButton(new EllipseShapeButton(this.controller));
+        this.starButton = createStyledButton(new StarShapeButton(this.controller));
+        this.textButton = createStyledButton(new TextShapeButton(this.controller));
+        this.clearButton = createStyledButton(new ClearButton(this.controller));
     }
 
     private PaletteButton createStyledButton(PaletteButton button) {
@@ -46,11 +50,11 @@ public class Palette extends JPanel {
     }
 
     private void registerButtonsAsObserver() {
-        controller.registerObserver(this.lineButton);
-        controller.registerObserver(this.rectangleButton);
-        controller.registerObserver(this.ellipseButton);
-        controller.registerObserver(this.starButton);
-        controller.registerObserver(this.textButton);
+        controller.registerObserver((Observer) this.lineButton);
+        controller.registerObserver((Observer) this.rectangleButton);
+        controller.registerObserver((Observer) this.ellipseButton);
+        controller.registerObserver((Observer) this.starButton);
+        controller.registerObserver((Observer) this.textButton);
     }
 
     private void addComponents() {
@@ -64,6 +68,8 @@ public class Palette extends JPanel {
         add((Component) this.starButton);
         add(Box.createVerticalStrut(5));
         add((Component) this.textButton);
+        add(Box.createVerticalStrut(30));
+        add((Component) this.clearButton);
         add(Box.createVerticalStrut(10));
     }
 }

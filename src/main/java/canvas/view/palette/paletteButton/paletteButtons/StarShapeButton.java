@@ -1,17 +1,17 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.TextState;
-import canvas.view.palette.paletteButton.PaletteButton;
+import canvas.state.shapeCreateStates.StarState;
+import canvas.view.palette.paletteButton.PaletteShapeButton;
+
 
 import javax.swing.*;
 import java.awt.*;
 
-
-public class TextButton extends PaletteButton{
-    public TextButton(Controller controller) {
+public class StarShapeButton extends PaletteShapeButton {
+    public StarShapeButton(Controller controller) {
         super(controller);
-        initializeButton("Text Box");
+        initializeButton("Star");
         setState();
     }
     @Override
@@ -20,7 +20,7 @@ public class TextButton extends PaletteButton{
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new TextState(controller, seq));
+                controller.setState(new StarState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

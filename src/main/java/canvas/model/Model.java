@@ -54,6 +54,10 @@ public class Model implements Subject {
         allShapes.add(shape);
         notifyObserversAllShapes();
     }
+    public void clearAllShapes() {
+        allShapes.clear();
+        notifyObserversAllShapes();
+    }
 
     public void clickShape(int id){
         ShapeAbstractClass shape = findShapeById(id);

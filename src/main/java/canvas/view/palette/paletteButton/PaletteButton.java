@@ -9,9 +9,8 @@ import javax.swing.*;
 import java.util.List;
 
 
-public abstract class PaletteButton extends JButton implements Observer {
+public abstract class PaletteButton extends JButton {
     protected Controller controller;
-    protected int seq = 0;
     public PaletteButton(Controller controller) {
         this.controller = controller;
     }
@@ -21,17 +20,6 @@ public abstract class PaletteButton extends JButton implements Observer {
         setVisible(true);
     };
 
-    @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        this.seq = shapes.size();
-    }
 
-    @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {}
 
-    protected abstract void setState();
-
-    public abstract void activate();
-
-    public abstract void deactivate();
 }

@@ -7,7 +7,7 @@ import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.state.defaultState.DefaultState;
 import canvas.state.StateInterface;
-import canvas.view.palette.paletteButton.PaletteButton;
+import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Controller {
     private final Model model;
     private StateInterface currentState;
-    private PaletteButton activeButton;
+    private PaletteShapeButton activeButton;
 
     public Controller(Model model){
         this.model=model;
@@ -28,6 +28,8 @@ public class Controller {
     public void removeObserver(Observer observer){model.removeObserver(observer);}
 
     public void createShape(ShapeAbstractClass shape){model.createShape(shape);}
+
+    public void clearAllShapes() {model.clearAllShapes();}
 
     public void toggleShapeClick(int id){model.clickShape(id);}
 
@@ -49,7 +51,7 @@ public class Controller {
         currentState.handleMouseClick(e, allShapes);
     }
 
-    public void setActiveButton(PaletteButton button) {
+    public void setActiveButton(PaletteShapeButton button) {
         if (this.activeButton != null) {
             this.activeButton.deactivate();
         }
@@ -64,5 +66,5 @@ public class Controller {
         setState(new DefaultState(this));
     }
 
-    public PaletteButton getActiveButton() {return this.activeButton;}
+    public PaletteShapeButton getActiveButton() {return this.activeButton;}
 }

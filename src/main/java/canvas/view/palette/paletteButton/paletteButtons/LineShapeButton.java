@@ -2,14 +2,14 @@ package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
 import canvas.state.shapeCreateStates.LineState;
-import canvas.view.palette.paletteButton.PaletteButton;
+import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 
 import javax.swing.*;
 import java.awt.*;
 
-public class LineButton extends PaletteButton {
-    public LineButton(Controller controller) {
+public class LineShapeButton extends PaletteShapeButton {
+    public LineShapeButton(Controller controller) {
         super(controller);
         initializeButton("Line");
         setState();

@@ -1,17 +1,17 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.StarState;
-import canvas.view.palette.paletteButton.PaletteButton;
+import canvas.state.shapeCreateStates.RectangleState;
+import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 
 import javax.swing.*;
 import java.awt.*;
 
-public class StarButton extends PaletteButton {
-    public StarButton(Controller controller) {
+public class RectangleShapeButton extends PaletteShapeButton {
+    public RectangleShapeButton(Controller controller) {
         super(controller);
-        initializeButton("Star");
+        initializeButton("Rectangle");
         setState();
     }
     @Override
@@ -20,7 +20,7 @@ public class StarButton extends PaletteButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new StarState(controller, seq));
+                controller.setState(new RectangleState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

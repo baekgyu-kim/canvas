@@ -2,14 +2,14 @@ package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
 import canvas.state.shapeCreateStates.EllipseState;
-import canvas.view.palette.paletteButton.PaletteButton;
+import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class EllipseButton extends PaletteButton {
+public class EllipseShapeButton extends PaletteShapeButton {
 
-    public EllipseButton(Controller controller) {
+    public EllipseShapeButton(Controller controller) {
         super(controller);
         initializeButton("Ellipse");
         setState();

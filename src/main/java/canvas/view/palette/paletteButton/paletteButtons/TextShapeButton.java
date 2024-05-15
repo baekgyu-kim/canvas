@@ -1,17 +1,17 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.RectangleState;
-import canvas.view.palette.paletteButton.PaletteButton;
-
+import canvas.state.shapeCreateStates.TextState;
+import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class RectangleButton extends PaletteButton {
-    public RectangleButton(Controller controller) {
+
+public class TextShapeButton extends PaletteShapeButton {
+    public TextShapeButton(Controller controller) {
         super(controller);
-        initializeButton("Rectangle");
+        initializeButton("Text Box");
         setState();
     }
     @Override
@@ -20,7 +20,7 @@ public class RectangleButton extends PaletteButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new RectangleState(controller, seq));
+                controller.setState(new TextState(controller, seq));
                 controller.setActiveButton(this);
             }
         });
