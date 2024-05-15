@@ -58,7 +58,7 @@ public class WhiteCanvas extends JPanel implements Observer {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawGrid(g); // 그리드 배경 그리기
+        drawGrid(g);
         for (ShapeAbstractClass shape : this.allShapes) {
             if (this.clickedShapes.contains(shape)) {
                 ClickedShapeDecorator decorator = new ClickedShapeDecorator(shape);
@@ -89,9 +89,9 @@ public class WhiteCanvas extends JPanel implements Observer {
     private void drawHoverFeedback(Graphics g) {
         if (hoverPoint != null) {
             Graphics2D g2d = (Graphics2D) g;
-            g2d.setColor(new Color(0, 0, 255));
+            g2d.setColor(new Color(0, 0, 0));
             g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
-            g2d.fillOval(hoverPoint.x - 5, hoverPoint.y - 5, 15, 15);
+            g2d.fillOval(hoverPoint.x - 5, hoverPoint.y - 5, 20, 20);
         }
     }
 }
