@@ -8,8 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Palette extends JPanel {
-    private Controller controller;
     private int seq;
+    private final Controller controller;
     private PaletteButton lineButton;
     private PaletteButton rectangleButton;
     private PaletteButton ellipseButton;
@@ -38,15 +38,14 @@ public class Palette extends JPanel {
     }
 
     private PaletteButton createStyledButton(PaletteButton button) {
-        JButton btn = (JButton) button;
-        btn.setBackground(new Color(75, 110, 175));
-        btn.setForeground(Color.WHITE);
-        btn.setFont(new Font("Arial", Font.BOLD, 14));
-        btn.setFocusPainted(false);
-        btn.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        btn.setPreferredSize(new Dimension(150, 40));
-        btn.setMaximumSize(new Dimension(150, 40));
+        ((JButton) button).setBackground(new Color(75, 110, 175));
+        ((JButton) button).setForeground(Color.WHITE);
+        ((JButton) button).setFont(new Font("Arial", Font.BOLD, 14));
+        ((JButton) button).setFocusPainted(false);
+        ((JButton) button).setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        ((JButton) button).setAlignmentX(Component.CENTER_ALIGNMENT);
+        ((JButton) button).setPreferredSize(new Dimension(150, 40));
+        ((JButton) button).setMaximumSize(new Dimension(150, 40));
         return button;
     }
 

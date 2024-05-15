@@ -43,7 +43,7 @@ public class Frame extends JFrame {
         whiteCanvas = new WhiteCanvas(controller);
         property = new Property(controller);
 
-        // 스타일 적용
+
         palette.setBackground(new Color(245, 245, 245));
         palette.setBorder(new EmptyBorder(10, 10, 10, 10));
 
@@ -63,7 +63,6 @@ public class Frame extends JFrame {
     private void addComponents() {
         GridBagConstraints gbc = new GridBagConstraints();
 
-        // North padding
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 3;
@@ -71,7 +70,6 @@ public class Frame extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         add(new JLabel(" "), gbc);
 
-        // Palette (West)
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
@@ -80,19 +78,16 @@ public class Frame extends JFrame {
         gbc.fill = GridBagConstraints.BOTH;
         add(palette, gbc);
 
-        // WhiteCanvas (Center)
         gbc.gridx = 1;
         gbc.gridy = 1;
         gbc.weightx = 0.6;
         add(whiteCanvas, gbc);
 
-        // Property (East)
         gbc.gridx = 2;
         gbc.gridy = 1;
         gbc.weightx = 0.2;
         add(property, gbc);
 
-        // South padding
         gbc.gridx = 0;
         gbc.gridy = 2;
         gbc.gridwidth = 3;
