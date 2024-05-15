@@ -27,26 +27,14 @@ public abstract class PropertyButton extends JButton implements Observer, Proper
 
     @Override
     public void updateAllShapes(List<ShapeAbstractClass> shapes) {}
-
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-
-    }
-
-
+    public void updateClickedShapes(ShapeComposite shapeComposite) {}
     @Override
-    public void createPropertyDto() {
-    }
-
+    public void createPropertyDto() {}
     @Override
-    public void createPropertyDto(Color color) {
-    }
-
+    public void createPropertyDto(Color color) {}
     @Override
-    public void createPropertyDto(int integer) {
-    }
-
+    public void createPropertyDto(int integer) {}
     @Override
-    public void createPropertyDto(int integer1, int integer2) {
-    }
+    public void createPropertyDto(int integer1, int integer2) {}
 }

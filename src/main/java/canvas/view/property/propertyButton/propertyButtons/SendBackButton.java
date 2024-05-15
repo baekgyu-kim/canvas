@@ -41,8 +41,4 @@ public class SendBackButton extends PropertyButton {
         this.shapeComposite = shapeComposite;
     }
 
-    @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-
-    }
 }

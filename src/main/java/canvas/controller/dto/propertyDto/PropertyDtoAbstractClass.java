@@ -1,6 +1,5 @@
 package canvas.controller.dto.propertyDto;
 
-import canvas.model.Model;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 
@@ -35,7 +34,6 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     }
 
     @Override
-    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
-    }
+    public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {}
 
 }

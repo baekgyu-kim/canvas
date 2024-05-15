@@ -16,8 +16,6 @@ import java.awt.event.FocusListener;
 import java.util.List;
 
 public class ResizeButton extends PropertyButton {
-    private final int canvasWidth = 800;
-    private final int canvasHeight= 600;
     private Integer currentWidth = 0;
     private Integer currentHeight = 0;
 
@@ -62,6 +60,8 @@ public class ResizeButton extends PropertyButton {
     }
 
     private boolean isValidSize(int width, int height) {
+        int canvasWidth = 800;
+        int canvasHeight = 600;
         return width > 0 && width <= canvasWidth && height > 0 && height <= canvasHeight;
     }
 

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeComposite  {
-    private List<ShapeAbstractClass> children = new ArrayList<>();
+    private final List<ShapeAbstractClass> children = new ArrayList<>();
 
     public void add(ShapeAbstractClass shape) {children.add(shape);}
     public void remove(ShapeAbstractClass shape) { children.remove(shape);}
@@ -17,7 +17,6 @@ public class ShapeComposite  {
         for (ShapeAbstractClass child : children) {
             if (child.getId() == id) {
                 return true;
-
             }
         }
         return false;
@@ -25,12 +24,6 @@ public class ShapeComposite  {
 
     public List<ShapeAbstractClass> getChildren(){
         return this.children;
-    }
-
-    public void draw(Graphics g) {
-        for (ShapeAbstractClass child : children) {
-            child.draw(g);
-        }
     }
 
     public Integer shapesCount(){

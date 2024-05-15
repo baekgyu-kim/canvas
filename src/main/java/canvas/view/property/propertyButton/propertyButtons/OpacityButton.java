@@ -16,7 +16,7 @@ import java.awt.event.FocusListener;
 import java.util.List;
 
 public class OpacityButton extends PropertyButton {
-    private Integer currentOpacity = 100; // default opacity value
+    private Integer currentOpacity = 100;
 
     public OpacityButton(ShapeComposite shapeComposite, Controller controller) {
         super(shapeComposite, controller);

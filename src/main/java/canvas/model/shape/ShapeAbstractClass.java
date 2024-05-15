@@ -41,79 +41,50 @@ public class ShapeAbstractClass implements ShapeInterface {
     @Override
     public void draw(Graphics g) {
     }
-
     @Override
     public void changeColor(Color color) {
         this.color = color;
 
     }
-
     @Override
     public void changeMove(int newX, int newY) {
         this.xPos = newX;
         this.yPos = newY;
 
     }
-
     @Override
     public void changeSize(int newWidth, int newHeight) {
         this.width = newWidth;
         this.height = newHeight;
 
     }
-
     @Override
     public void changeOpacity(int opacity) {
         this.opacity = opacity;
     }
+    @Override
+    public void changeShade(boolean hasShade) {this.shadow = hasShade;}
+    @Override
+    public void changeFrame(boolean hasFrame) {this.frame = hasFrame;}
 
     @Override
-    public void changeShade(boolean hasShade) {
-        this.shadow = hasShade;
-
-    }
-
+    public int getId() {return id;}
     @Override
-    public void changeFrame(boolean hasFrame) {
-        this.frame = hasFrame;
-    }
-
+    public int getXPos() {return xPos;}
     @Override
-    public int getId() {
-        return id;
-    }
+    public int getYPos() {return yPos;}
     @Override
-    public int getXPos() {
-        return xPos;
-    }
+    public int getWidth() {return width;}
     @Override
-    public int getYPos() {
-        return yPos;
-    }
+    public int getHeight() {return height;}
     @Override
-    public int getWidth() {
-        return width;
-    }
+    public Color getColor() {return color;}
     @Override
-    public int getHeight() {
-        return height;
-    }
-    @Override
-    public Color getColor() {
-        return color;
-    }
-    @Override
-    public int getOpacity() {
-        return opacity;
-    }
+    public int getOpacity() {return opacity;}
     @Override
     public boolean getShadow() {return shadow;}
     @Override
-    public boolean getFrame() {
-        return frame;
-    }
+    public boolean getFrame() {return frame;}
     @Override
-    public String getText() {
-        return text;
-    }
+    public String getText() {return text;}
 }

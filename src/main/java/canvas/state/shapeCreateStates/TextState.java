@@ -18,7 +18,6 @@ public class TextState extends StateAbstractClass {
 
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
-        // 다이얼로그를 통해 텍스트 입력 받기
         String text = JOptionPane.showInputDialog(null, "Enter text for the text box:", "Text Box Input", JOptionPane.PLAIN_MESSAGE);
         if (text == null || text.trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Text cannot be empty.", "Invalid Input", JOptionPane.ERROR_MESSAGE);

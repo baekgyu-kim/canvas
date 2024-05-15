@@ -21,20 +21,10 @@ public class StateAbstractClass implements StateInterface{
         this.controller = controller;
         this.seq = seq;
     }
-
     @Override
-    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
-
-    }
-
-
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {}
     @Override
-    public void activateState() {
-
-    }
-
+    public void activateState() {}
     @Override
-    public void deactivateState() {
-
-    }
+    public void deactivateState() {}
 }

@@ -21,32 +21,25 @@ public class ShadowButton extends PropertyButton {
         super(shapeComposite, controller);
         initializeButton("Shadow Effect");
 
-        // 라디오 버튼 초기화
         activateShadowButton = new JRadioButton("Activate shadow effect");
         deactivateShadowButton = new JRadioButton("Deactivate shadow effect");
 
-        // ButtonGroup을 사용하여 두 버튼이 한 그룹에 속하도록 설정
         ButtonGroup group = new ButtonGroup();
         group.add(activateShadowButton);
         group.add(deactivateShadowButton);
 
-        // 버튼에 ActionListener 추가
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 라디오 버튼 패널 생성
                 JPanel panel = new JPanel();
                 panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
                 panel.add(activateShadowButton);
                 panel.add(deactivateShadowButton);
 
-                // 라디오 버튼 상태 설정
                 setRadioButtonState();
 
-                // 팝업 창으로 라디오 버튼 패널 표시
                 int result = JOptionPane.showConfirmDialog(null, panel, "Shadow", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-                // OK 버튼을 누르면 상태 업데이트
                 if (result == JOptionPane.OK_OPTION) {
                     if (activateShadowButton.isSelected()) {
                         hasShadow = true;

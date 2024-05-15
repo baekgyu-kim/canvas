@@ -12,22 +12,13 @@ public interface ShapeInterface {
     void changeFrame(boolean hasFrame);
 
     public int getId();
-
     public int getXPos();
-
     public int getYPos();
-
     public int getWidth();
-
     public int getHeight();
-
     public Color getColor();
-
     public int getOpacity();
-
     public boolean getShadow();
-
     public boolean getFrame();
-
     public String getText();
 }

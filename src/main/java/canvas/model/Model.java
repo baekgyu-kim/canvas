@@ -14,10 +14,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Model implements Subject {
-    private List<Observer> observers;
-    private List<ShapeAbstractClass> allShapes;
+    private final List<Observer> observers;
+    private final List<ShapeAbstractClass> allShapes;
 
-    private ShapeComposite clickedShapesComposite;
+    private final ShapeComposite clickedShapesComposite;
 
     public Model() {
         this.observers = new ArrayList<>();
@@ -106,6 +106,4 @@ public class Model implements Subject {
             notifyObserversAllShapes();
         }
     }
-
-
 }

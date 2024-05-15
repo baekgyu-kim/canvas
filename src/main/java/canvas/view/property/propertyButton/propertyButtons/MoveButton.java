@@ -16,8 +16,6 @@ import java.awt.event.FocusListener;
 import java.util.List;
 
 public class MoveButton extends PropertyButton {
-    private final int canvasWidth = 800;
-    private final int canvasHeight = 600;
     private Integer currentXPos = 0;
     private Integer currentYPos = 0;
 
@@ -38,7 +36,6 @@ public class MoveButton extends PropertyButton {
                 JTextField yField = new JTextField(yPlaceholder, 5);
                 panel.add(yField);
 
-                // Add focus listeners to clear placeholders on focus
                 addPlaceholderFocusListener(xField, xPlaceholder);
                 addPlaceholderFocusListener(yField, yPlaceholder);
 
@@ -62,6 +59,8 @@ public class MoveButton extends PropertyButton {
     }
 
     private boolean isValidCoordinate(int x, int y) {
+        int canvasWidth = 800;
+        int canvasHeight = 600;
         return x >= 0 && x <= canvasWidth && y >= 0 && y <= canvasHeight;
     }
 

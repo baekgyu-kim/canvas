@@ -42,8 +42,4 @@ public class BringFrontButton extends PropertyButton {
         this.shapeComposite = shapeComposite;
     }
 
-    @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-
-    }
 }
