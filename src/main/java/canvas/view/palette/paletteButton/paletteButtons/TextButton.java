@@ -9,9 +9,8 @@ import java.awt.*;
 
 
 public class TextButton extends PaletteButton{
-
-    public TextButton(Controller controller, int seq) {
-        super(controller, seq);
+    public TextButton(Controller controller) {
+        super(controller);
         initializeButton("Text Box");
         setState();
     }

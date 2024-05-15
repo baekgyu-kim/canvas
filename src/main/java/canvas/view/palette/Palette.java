@@ -8,19 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Palette extends JPanel {
-    private int seq;
     private final Controller controller;
     private PaletteButton lineButton;
     private PaletteButton rectangleButton;
     private PaletteButton ellipseButton;
     private PaletteButton starButton;
     private PaletteButton textButton;
-    private PaletteButton activeButton;
 
-    public Palette(Controller controller, int seq) {
+    public Palette(Controller controller) {
         this.controller = controller;
-        this.seq = seq;
-        this.activeButton = null;
         initComponents();
         registerButtonsAsObserver();
         setBackground(new Color(60, 63, 65));
@@ -30,11 +26,11 @@ public class Palette extends JPanel {
     }
 
     private void initComponents() {
-        this.lineButton = createStyledButton(new LineButton(this.controller, this.seq));
-        this.rectangleButton = createStyledButton(new RectangleButton(this.controller, this.seq));
-        this.ellipseButton = createStyledButton(new EllipseButton(this.controller, this.seq));
-        this.starButton = createStyledButton(new StarButton(this.controller, this.seq));
-        this.textButton = createStyledButton(new TextButton(this.controller, this.seq));
+        this.lineButton = createStyledButton(new LineButton(this.controller));
+        this.rectangleButton = createStyledButton(new RectangleButton(this.controller));
+        this.ellipseButton = createStyledButton(new EllipseButton(this.controller));
+        this.starButton = createStyledButton(new StarButton(this.controller));
+        this.textButton = createStyledButton(new TextButton(this.controller));
     }
 
     private PaletteButton createStyledButton(PaletteButton button) {

@@ -11,10 +11,9 @@ import java.util.List;
 
 public abstract class PaletteButton extends JButton implements Observer {
     protected Controller controller;
-    protected int seq;
-    public PaletteButton(Controller controller, int seq) {
+    protected int seq = 0;
+    public PaletteButton(Controller controller) {
         this.controller = controller;
-        this.seq = seq;
     }
 
     public void initializeButton(String text){

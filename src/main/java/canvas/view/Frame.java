@@ -39,7 +39,7 @@ public class Frame extends JFrame {
     }
 
     private void initializeComponents(Controller controller) {
-        palette = new Palette(controller, 0);
+        palette = new Palette(controller);
         whiteCanvas = new WhiteCanvas(controller);
         property = new Property(controller);
 

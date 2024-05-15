@@ -9,8 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LineButton extends PaletteButton {
-    public LineButton(Controller controller, int seq) {
-        super(controller, seq);
+    public LineButton(Controller controller) {
+        super(controller);
         initializeButton("Line");
         setState();
     }

@@ -9,8 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class RectangleButton extends PaletteButton {
-    public RectangleButton(Controller controller, int seq) {
-        super(controller, seq);
+    public RectangleButton(Controller controller) {
+        super(controller);
         initializeButton("Rectangle");
         setState();
     }
