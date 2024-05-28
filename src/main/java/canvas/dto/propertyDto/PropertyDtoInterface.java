@@ -1,6 +1,5 @@
-package canvas.controller.dto.propertyDto;
+package canvas.dto.propertyDto;
 
-import canvas.model.Model;
 import canvas.model.shape.ShapeAbstractClass;
 
 public interface PropertyDtoInterface {
