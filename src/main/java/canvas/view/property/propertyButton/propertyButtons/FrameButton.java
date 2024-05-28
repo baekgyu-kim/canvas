@@ -1,16 +1,12 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.controller.Controller;
-import canvas.controller.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.controller.dto.propertyDto.propertyDtos.FramePropertyDto;
-import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.composite.ShapeComposite;
+import canvas.dto.propertyDto.PropertyDtoAbstractClass;
+import canvas.dto.propertyDto.propertyDtos.FramePropertyDto;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class FrameButton extends PropertyButton {
     private Boolean hasFrame = null;

@@ -1,15 +1,11 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.controller.Controller;
-import canvas.controller.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
-import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.composite.ShapeComposite;
+import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class BringFrontButton extends PropertyButton {
     public BringFrontButton() {
