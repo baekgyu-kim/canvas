@@ -17,10 +17,10 @@ public class Frame extends JFrame {
     private WhiteCanvas whiteCanvas;
     private Property property;
 
-    public Frame(Controller controller) {
+    public Frame() {
         super("Canvas Application");
         initializeLookAndFeel();
-        initializeComponents(controller);
+        initializeComponents();
         setupFrame();
         addComponents();
     }
@@ -38,10 +38,10 @@ public class Frame extends JFrame {
         }
     }
 
-    private void initializeComponents(Controller controller) {
-        palette = new Palette(controller);
-        whiteCanvas = new WhiteCanvas(controller);
-        property = new Property(controller);
+    private void initializeComponents() {
+        palette = new Palette();
+        whiteCanvas = new WhiteCanvas();
+        property = new Property();
 
 
         palette.setBackground(new Color(245, 245, 245));

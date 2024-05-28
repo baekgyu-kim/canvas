@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public abstract class PaletteButton extends JButton {
     protected Controller controller;
-    public PaletteButton(Controller controller) {
-        this.controller = controller;
+    public PaletteButton() {
+        this.controller = Controller.getInstance();
     }
     public void initializeButton(String text){
         setText(text);

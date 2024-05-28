@@ -20,8 +20,8 @@ public class WhiteCanvas extends JPanel implements Observer {
     private Point hoverPoint = null;
     private final Controller controller;
 
-    public WhiteCanvas(Controller controller) {
-        this.controller = controller;
+    public WhiteCanvas() {
+        this.controller = Controller.getInstance();
         controller.registerObserver(this);
         setBackground(new Color(245, 245, 245));
         setPreferredSize(new Dimension(800, 600));

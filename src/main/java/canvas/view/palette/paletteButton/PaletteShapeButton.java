@@ -8,7 +8,9 @@ import canvas.observer.Observer;
 
 public abstract class PaletteShapeButton extends PaletteButton implements Observer {
     protected int seq = 0;
-    public PaletteShapeButton(Controller controller) {super(controller);}
+    public PaletteShapeButton() {
+        super();
+    }
 
     @Override
     public void onUpdateAllShapes() {

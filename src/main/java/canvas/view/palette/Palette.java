@@ -18,8 +18,8 @@ public class Palette extends JPanel {
     private PaletteButton textButton;
     private PaletteButton clearButton;
 
-    public Palette(Controller controller) {
-        this.controller = controller;
+    public Palette() {
+        this.controller = Controller.getInstance();
         initComponents();
         registerButtonsAsObserver();
         setBackground(new Color(60, 63, 65));
@@ -29,12 +29,12 @@ public class Palette extends JPanel {
     }
 
     private void initComponents() {
-        this.lineButton = createStyledButton(new LineShapeButton(this.controller));
-        this.rectangleButton = createStyledButton(new RectangleShapeButton(this.controller));
-        this.ellipseButton = createStyledButton(new EllipseShapeButton(this.controller));
-        this.starButton = createStyledButton(new StarShapeButton(this.controller));
-        this.textButton = createStyledButton(new TextShapeButton(this.controller));
-        this.clearButton = createStyledButton(new ClearButton(this.controller));
+        this.lineButton = createStyledButton(new LineShapeButton());
+        this.rectangleButton = createStyledButton(new RectangleShapeButton());
+        this.ellipseButton = createStyledButton(new EllipseShapeButton());
+        this.starButton = createStyledButton(new StarShapeButton());
+        this.textButton = createStyledButton(new TextShapeButton());
+        this.clearButton = createStyledButton(new ClearButton());
     }
 
     private PaletteButton createStyledButton(PaletteButton button) {

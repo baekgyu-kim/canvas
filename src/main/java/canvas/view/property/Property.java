@@ -20,8 +20,8 @@ public class Property extends JPanel {
     private PropertyButton bringFrontButton;
     private PropertyButton sendBackButton;
 
-    public Property(Controller controller) {
-        this.controller = controller;
+    public Property() {
+        this.controller = Controller.getInstance();
         initComponents();
         registerButtonsAsObserver();
         setBackground(new Color(45, 45, 48));

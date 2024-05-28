@@ -14,12 +14,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
+    private static Controller controllerInstance;
+
     private final Model model;
     private StateInterface currentState;
     private PaletteShapeButton activeButton;
 
-    public Controller(Model model){
-        this.model=model;
+    public static Controller getInstance() {
+        if (controllerInstance == null) {
+            controllerInstance = new Controller();
+        }
+        return controllerInstance;
+    }
+
+    private Controller(){
+        this.model = Model.getInstance();
         this.currentState = new DefaultState(this);
         this.currentState.activateState();
     }

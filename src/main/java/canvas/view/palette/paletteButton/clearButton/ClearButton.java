@@ -7,8 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ClearButton extends PaletteButton {
-    public ClearButton(Controller controller) {
-        super(controller);
+    public ClearButton() {
+        super();
         initializeButton("Clear All");
         addActionListener(new ActionListener() {
             @Override

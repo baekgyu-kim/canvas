@@ -9,8 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class StarShapeButton extends PaletteShapeButton {
-    public StarShapeButton(Controller controller) {
-        super(controller);
+    public StarShapeButton() {
+        super();
         initializeButton("Star");
         setState();
     }

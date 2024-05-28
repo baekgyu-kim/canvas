@@ -9,8 +9,8 @@ import java.awt.*;
 
 public class EllipseShapeButton extends PaletteShapeButton {
 
-    public EllipseShapeButton(Controller controller) {
-        super(controller);
+    public EllipseShapeButton() {
+        super();
         initializeButton("Ellipse");
         setState();
     }

@@ -9,8 +9,8 @@ import java.awt.*;
 
 
 public class TextShapeButton extends PaletteShapeButton {
-    public TextShapeButton(Controller controller) {
-        super(controller);
+    public TextShapeButton() {
+        super();
         initializeButton("Text Box");
         setState();
     }

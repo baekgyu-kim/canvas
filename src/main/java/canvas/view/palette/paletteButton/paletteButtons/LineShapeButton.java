@@ -9,8 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LineShapeButton extends PaletteShapeButton {
-    public LineShapeButton(Controller controller) {
-        super(controller);
+    public LineShapeButton() {
+        super();
         initializeButton("Line");
         setState();
     }

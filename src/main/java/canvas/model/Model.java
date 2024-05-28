@@ -14,15 +14,23 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Model implements Subject {
+    private static Model modelInstance;
+
     private final List<Observer> observers;
     private final List<ShapeAbstractClass> allShapes;
-
     private final ShapeComposite clickedShapesComposite;
 
-    public Model() {
+    private Model() {
         this.observers = new ArrayList<>();
         this.allShapes = new ArrayList<>();
         this.clickedShapesComposite = new ShapeComposite();
+    }
+
+    public static Model getInstance() {
+        if (modelInstance == null) {
+            modelInstance = new Model();
+        }
+        return modelInstance;
     }
     @Override
     public void registerObserver(Observer observer) {
