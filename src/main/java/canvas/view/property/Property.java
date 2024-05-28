@@ -31,14 +31,14 @@ public class Property extends JPanel {
     }
 
     private void initComponents() {
-        this.moveButton = createStyledButton(new MoveButton(this.shapeComposite, this.controller));
-        this.resizeButton = createStyledButton(new ResizeButton(this.shapeComposite, this.controller));
-        this.colorButton = createStyledButton(new ColorButton(this.shapeComposite, this.controller));
-        this.opacityButton = createStyledButton(new OpacityButton(this.shapeComposite, this.controller));
-        this.shadowButton = createStyledButton(new ShadowButton(this.shapeComposite, this.controller));
-        this.frameButton = createStyledButton(new FrameButton(this.shapeComposite, this.controller));
-        this.bringFrontButton = createStyledButton(new BringFrontButton(this.shapeComposite, this.controller));
-        this.sendBackButton = createStyledButton(new SendBackButton(this.shapeComposite, this.controller));
+        this.moveButton = createStyledButton(new MoveButton());
+        this.resizeButton = createStyledButton(new ResizeButton());
+        this.colorButton = createStyledButton(new ColorButton());
+        this.opacityButton = createStyledButton(new OpacityButton());
+        this.shadowButton = createStyledButton(new ShadowButton());
+        this.frameButton = createStyledButton(new FrameButton());
+        this.bringFrontButton = createStyledButton(new BringFrontButton());
+        this.sendBackButton = createStyledButton(new SendBackButton());
     }
 
     private PropertyButton createStyledButton(PropertyButton button) {

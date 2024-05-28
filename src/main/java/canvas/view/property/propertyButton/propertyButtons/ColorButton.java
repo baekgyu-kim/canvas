@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ColorButton extends PropertyButton {
     private Color currentColor = Color.BLACK;
-    public ColorButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public ColorButton() {
+        super();
         initializeButton("Change Color");
         addActionListener(new ActionListener() {
             @Override

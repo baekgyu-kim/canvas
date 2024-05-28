@@ -14,9 +14,9 @@ public abstract class PropertyButton extends JButton implements Observer, Proper
     protected ShapeComposite shapeComposite;
     protected Controller controller;
 
-    public PropertyButton(ShapeComposite shapeComposite, Controller controller) {
-        this.shapeComposite = shapeComposite;
-        this.controller = controller;
+    public PropertyButton() {
+        this.controller = Controller.getInstance();
+        this.shapeComposite = controller.getClickedShapesComposite();
     }
 
     public void initializeButton(String text){

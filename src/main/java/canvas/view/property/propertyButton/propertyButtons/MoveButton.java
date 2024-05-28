@@ -19,8 +19,8 @@ public class MoveButton extends PropertyButton {
     private Integer currentXPos = 0;
     private Integer currentYPos = 0;
 
-    public MoveButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public MoveButton() {
+        super();
         initializeButton("Move Shape");
         addActionListener(new ActionListener() {
             @Override

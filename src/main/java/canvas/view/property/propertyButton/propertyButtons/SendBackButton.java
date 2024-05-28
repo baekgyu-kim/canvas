@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class SendBackButton extends PropertyButton {
-    public SendBackButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public SendBackButton() {
+        super();
         initializeButton("Send Back");
 
         addActionListener(new ActionListener() {

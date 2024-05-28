@@ -18,8 +18,8 @@ import java.util.List;
 public class OpacityButton extends PropertyButton {
     private Integer currentOpacity = 100;
 
-    public OpacityButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public OpacityButton() {
+        super();
         initializeButton("Change Opacity");
         addActionListener(new ActionListener() {
             @Override

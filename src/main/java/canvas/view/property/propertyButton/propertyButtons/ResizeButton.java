@@ -19,8 +19,8 @@ public class ResizeButton extends PropertyButton {
     private Integer currentWidth = 0;
     private Integer currentHeight = 0;
 
-    public ResizeButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public ResizeButton() {
+        super();
         initializeButton("Resize Shape");
         addActionListener(new ActionListener() {
             @Override

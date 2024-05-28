@@ -17,8 +17,8 @@ public class ShadowButton extends PropertyButton {
     private JRadioButton activateShadowButton;
     private JRadioButton deactivateShadowButton;
 
-    public ShadowButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public ShadowButton() {
+        super();
         initializeButton("Shadow Effect");
 
         activateShadowButton = new JRadioButton("Activate shadow effect");

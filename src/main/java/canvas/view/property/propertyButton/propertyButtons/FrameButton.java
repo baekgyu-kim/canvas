@@ -17,8 +17,8 @@ public class FrameButton extends PropertyButton {
     private JRadioButton activateFrameButton;
     private JRadioButton deactivateFrameButton;
 
-    public FrameButton(ShapeComposite shapeComposite, Controller controller) {
-        super(shapeComposite, controller);
+    public FrameButton() {
+        super();
         initializeButton("Frame Effect");
 
         activateFrameButton = new JRadioButton("Activate frame effect");
