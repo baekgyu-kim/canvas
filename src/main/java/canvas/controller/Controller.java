@@ -11,6 +11,7 @@ import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     private final Model model;
@@ -67,4 +68,12 @@ public class Controller {
     }
 
     public PaletteShapeButton getActiveButton() {return this.activeButton;}
+
+    public List<ShapeAbstractClass> getAllShapes(){
+        return model.getAllShapes();
+    }
+
+    public ShapeComposite getClickedShapesComposite(){
+        return model.getClickedShapesComposite();
+    }
 }

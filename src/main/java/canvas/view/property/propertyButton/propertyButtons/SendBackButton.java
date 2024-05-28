@@ -37,8 +37,8 @@ public class SendBackButton extends PropertyButton {
         controller.sendBack(dto);
     }
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+    public void onUpdateClickedShapes() {
+        this.shapeComposite = controller.getClickedShapesComposite();
     }
 
 }

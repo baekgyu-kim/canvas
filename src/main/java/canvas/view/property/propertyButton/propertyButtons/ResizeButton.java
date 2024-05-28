@@ -75,8 +75,8 @@ public class ResizeButton extends PropertyButton {
     }
 
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+    public void onUpdateClickedShapes() {
+        this.shapeComposite = controller.getClickedShapesComposite();
         if(shapeComposite == null){
             throw new NullPointerException("shapeComposite is null");
         }
@@ -87,7 +87,7 @@ public class ResizeButton extends PropertyButton {
     }
 
     @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
+    public void onUpdateAllShapes() {
         if(shapeComposite != null && shapeComposite.shapesCount() == 1){
             this.currentWidth = shapeComposite.getChildren().get(0).getWidth();
             this.currentHeight = shapeComposite.getChildren().get(0).getHeight();

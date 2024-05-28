@@ -38,8 +38,8 @@ public class BringFrontButton extends PropertyButton {
     }
 
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        this.shapeComposite = shapeComposite;
+    public void onUpdateClickedShapes() {
+        this.shapeComposite = controller.getClickedShapesComposite();
     }
 
 }

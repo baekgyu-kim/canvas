@@ -39,14 +39,14 @@ public class Model implements Subject {
     @Override
     public void notifyObserversAllShapes() {
         for (Observer observer : observers) {
-            observer.updateAllShapes(allShapes);
+            observer.onUpdateAllShapes();
         }
     }
 
     @Override
     public void notifyObserversClickedShapes() {
         for (Observer observer : observers) {
-            observer.updateClickedShapes(clickedShapesComposite);
+            observer.onUpdateClickedShapes();
         }
     }
 
@@ -105,5 +105,13 @@ public class Model implements Subject {
             allShapes.add(0, shape);
             notifyObserversAllShapes();
         }
+    }
+
+    public List<ShapeAbstractClass> getAllShapes() {
+        return allShapes;
+    }
+
+    public ShapeComposite getClickedShapesComposite() {
+        return clickedShapesComposite;
     }
 }

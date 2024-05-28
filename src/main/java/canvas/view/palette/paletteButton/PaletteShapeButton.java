@@ -1,11 +1,9 @@
 package canvas.view.palette.paletteButton;
 
 import canvas.controller.Controller;
-import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
-import java.util.List;
 
 
 public abstract class PaletteShapeButton extends PaletteButton implements Observer {
@@ -13,11 +11,11 @@ public abstract class PaletteShapeButton extends PaletteButton implements Observ
     public PaletteShapeButton(Controller controller) {super(controller);}
 
     @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        this.seq = shapes.size();
+    public void onUpdateAllShapes() {
+        this.seq = controller.getAllShapes().size();
     }
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {}
+    public void onUpdateClickedShapes() {}
 
     protected abstract void setState();
     public abstract void activate();

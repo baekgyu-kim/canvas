@@ -18,8 +18,10 @@ public class WhiteCanvas extends JPanel implements Observer {
     private ArrayList<ShapeAbstractClass> allShapes = new ArrayList<>();
     private List<ShapeAbstractClass> clickedShapes = new ArrayList<>();
     private Point hoverPoint = null;
+    private final Controller controller;
 
     public WhiteCanvas(Controller controller) {
+        this.controller = controller;
         controller.registerObserver(this);
         setBackground(new Color(245, 245, 245));
         setPreferredSize(new Dimension(800, 600));
@@ -43,14 +45,14 @@ public class WhiteCanvas extends JPanel implements Observer {
     }
 
     @Override
-    public void updateAllShapes(List<ShapeAbstractClass> shapes) {
-        this.allShapes = (ArrayList<ShapeAbstractClass>) shapes;
+    public void onUpdateAllShapes() {
+        this.allShapes = (ArrayList<ShapeAbstractClass>) controller.getAllShapes();
         repaint();
     }
 
     @Override
-    public void updateClickedShapes(ShapeComposite shapeComposite) {
-        this.clickedShapes = shapeComposite.getChildren();
+    public void onUpdateClickedShapes() {
+        this.clickedShapes = controller.getClickedShapesComposite().getChildren();
         repaint();
     }
 
