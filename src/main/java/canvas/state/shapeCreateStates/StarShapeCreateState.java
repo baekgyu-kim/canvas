@@ -1,32 +1,23 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.factory.shape.StarCreator;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.StarShape;
-import canvas.state.StateAbstractClass;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class StarState extends StateAbstractClass {
+public class StarShapeCreateState extends ShapeCreateStateAbstractClass {
 
-    public StarState(Controller controller, int seq) {
+    public StarShapeCreateState(Controller controller, int seq) {
         super(controller, seq);
+        this.shapeCreatorInterface = new StarCreator();
     }
 
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
         int id = allShapes.size();
-        int xPos = e.getX();
-        int yPos = e.getY();
-        int width = 100;
-        int height = 100;
-        Color color = Color.RED;
-        int opacity = 100;
-        boolean shadow = false;
-        boolean frame = false;
-        StarShape starShape = new StarShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
+        ShapeAbstractClass starShape = shapeCreatorInterface.createShape(e, id);
         controller.createShape(starShape);
     }
 

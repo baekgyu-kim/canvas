@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.StarState;
+import canvas.state.shapeCreateStates.StarShapeCreateState;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 
@@ -20,7 +20,7 @@ public class StarShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new StarState(controller, seq));
+                controller.setState(new StarShapeCreateState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

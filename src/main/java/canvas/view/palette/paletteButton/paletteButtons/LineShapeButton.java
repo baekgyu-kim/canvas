@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.LineState;
+import canvas.state.shapeCreateStates.LineShapeCreateState;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 
@@ -20,7 +20,7 @@ public class LineShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new LineState(controller, seq));
+                controller.setState(new LineShapeCreateState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

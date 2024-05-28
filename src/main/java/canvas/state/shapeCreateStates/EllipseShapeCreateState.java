@@ -1,31 +1,22 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.creator.EllipseCreator;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.EllipseShape;
-import canvas.state.StateAbstractClass;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class EllipseState extends StateAbstractClass {
-    public EllipseState(Controller controller, int seq) {
+public class EllipseShapeCreateState extends ShapeCreateStateAbstractClass {
+    public EllipseShapeCreateState(Controller controller, int seq) {
         super(controller, seq);
+        this.shapeCreatorInterface = new EllipseCreator();
     }
 
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
         int id = allShapes.size();
-        int xPos = e.getX();
-        int yPos = e.getY();
-        int width = 100;
-        int height = 100;
-        Color color = Color.green;
-        int opacity = 100;
-        boolean shadow = false;
-        boolean frame = false;
-        EllipseShape ellipseShape = new EllipseShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
+        ShapeAbstractClass ellipseShape = shapeCreatorInterface.createShape(e, id);
         controller.createShape(ellipseShape);
     }
 

@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.EllipseState;
+import canvas.state.shapeCreateStates.EllipseShapeCreateState;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class EllipseShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new EllipseState(controller, seq));
+                controller.setState(new EllipseShapeCreateState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

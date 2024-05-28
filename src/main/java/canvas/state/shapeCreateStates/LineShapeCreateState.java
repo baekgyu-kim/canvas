@@ -1,32 +1,23 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.factory.shape.LineCreator;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.LineShape;
-import canvas.state.StateAbstractClass;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class LineState extends StateAbstractClass {
+public class LineShapeCreateState extends ShapeCreateStateAbstractClass {
 
-    public LineState(Controller controller, int seq) {
+    public LineShapeCreateState(Controller controller, int seq) {
         super(controller, seq);
+        this.shapeCreatorInterface = new LineCreator();
     }
 
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
         int id = allShapes.size();
-        int xPos = e.getX();
-        int yPos = e.getY();
-        int width = 100;
-        int height = 2;
-        Color color = Color.black;
-        int opacity = 100;
-        boolean shadow = false;
-        boolean frame = false;
-        LineShape lineShape = new LineShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
+        ShapeAbstractClass lineShape = shapeCreatorInterface.createShape(e, id);
         controller.createShape(lineShape);
     }
 

@@ -1,32 +1,23 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.factory.shape.RectangleCreator;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.RectangleShape;
-import canvas.state.StateAbstractClass;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class RectangleState extends StateAbstractClass {
+public class RectangleShapeCreateState extends ShapeCreateStateAbstractClass {
 
-    public RectangleState(Controller controller, int seq) {
+    public RectangleShapeCreateState(Controller controller, int seq) {
         super(controller, seq);
+        this.shapeCreatorInterface = new RectangleCreator();
     }
 
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
         int id = allShapes.size();
-        int xPos = e.getX();
-        int yPos = e.getY();
-        int width = 100;
-        int height = 100;
-        Color color = Color.blue;
-        int opacity = 100;
-        boolean shadow = false;
-        boolean frame = false;
-        RectangleShape rectangleShape = new RectangleShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
+        ShapeAbstractClass rectangleShape = shapeCreatorInterface.createShape(e, id);
         controller.createShape(rectangleShape);
     }
 

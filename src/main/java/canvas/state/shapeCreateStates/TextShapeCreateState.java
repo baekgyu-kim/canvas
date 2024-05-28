@@ -1,19 +1,18 @@
 package canvas.state.shapeCreateStates;
 
 import canvas.controller.Controller;
+import canvas.factory.shape.TextCreator;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.TextShape;
-import canvas.state.StateAbstractClass;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-public class TextState extends StateAbstractClass {
+public class TextShapeCreateState extends ShapeCreateStateAbstractClass {
 
-    public TextState(Controller controller, int seq) {
+    public TextShapeCreateState(Controller controller, int seq) {
         super(controller, seq);
+        this.shapeCreatorInterface = new TextCreator();
     }
 
     @Override
@@ -23,15 +22,7 @@ public class TextState extends StateAbstractClass {
             JOptionPane.showMessageDialog(null, "Text cannot be empty.", "Invalid Input", JOptionPane.ERROR_MESSAGE);
         } else {
             int id = allShapes.size();
-            int xPos = e.getX();
-            int yPos = e.getY();
-            int width = 200;
-            int height = 50;
-            Color color = Color.black;
-            int opacity = 100;
-            boolean shadow = false;
-            boolean frame = false;
-            TextShape textShape = new TextShape(id, xPos, yPos, width, height, color, opacity, shadow, frame, text);
+            ShapeAbstractClass textShape = shapeCreatorInterface.createShape(e, id, text);
             controller.createShape(textShape);
         }
     }

@@ -1,4 +1,4 @@
-package canvas.factory;
+package canvas.factory.dto;
 
 
 import java.awt.*;

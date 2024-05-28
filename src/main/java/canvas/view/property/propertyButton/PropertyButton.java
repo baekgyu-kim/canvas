@@ -1,7 +1,7 @@
 package canvas.view.property.propertyButton;
 
 import canvas.controller.Controller;
-import canvas.factory.PropertyDtoCreatorInterface;
+import canvas.factory.dto.PropertyDtoCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;

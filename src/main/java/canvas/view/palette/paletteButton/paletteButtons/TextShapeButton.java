@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.TextState;
+import canvas.state.shapeCreateStates.TextShapeCreateState;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import javax.swing.*;
@@ -20,7 +20,7 @@ public class TextShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new TextState(controller, seq));
+                controller.setState(new TextShapeCreateState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

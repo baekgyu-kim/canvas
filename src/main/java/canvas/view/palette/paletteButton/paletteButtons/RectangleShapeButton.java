@@ -1,7 +1,7 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
 import canvas.controller.Controller;
-import canvas.state.shapeCreateStates.RectangleState;
+import canvas.state.shapeCreateStates.RectangleShapeCreateState;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 
@@ -20,7 +20,7 @@ public class RectangleShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new RectangleState(controller, seq));
+                controller.setState(new RectangleShapeCreateState(controller, seq));
                 controller.setActiveButton(this);
             }
         });

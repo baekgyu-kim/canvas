@@ -2,15 +2,21 @@ package canvas.state.defaultState;
 
 import canvas.controller.Controller;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.state.StateAbstractClass;
+import canvas.model.shape.composite.ShapeComposite;
+import canvas.state.StateInterface;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 
-public class DefaultState extends StateAbstractClass {
+public class DefaultState implements StateInterface {
+    protected Controller controller;
+    protected List<ShapeAbstractClass> allShapes;
+    protected ShapeComposite shapeComposite;
+    protected int seq;
 
-    public DefaultState(Controller controller) {
-        super(controller);
+    public DefaultState(Controller controller){
+        this.controller = controller;
     }
 
     @Override
