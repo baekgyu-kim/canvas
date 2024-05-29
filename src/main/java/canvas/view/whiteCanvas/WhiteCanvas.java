@@ -3,7 +3,6 @@ package canvas.view.whiteCanvas;
 import canvas.controller.Controller;
 import canvas.view.whiteCanvas.decorator.ClickedShapeDecorator;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 import javax.swing.*;

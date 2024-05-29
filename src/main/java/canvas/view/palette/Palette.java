@@ -1,6 +1,5 @@
 package canvas.view.palette;
 
-import canvas.controller.Controller;
 import canvas.view.palette.paletteButton.*;
 import canvas.view.palette.paletteButton.clearButton.ClearButton;
 import canvas.view.palette.paletteButton.paletteButtons.*;
