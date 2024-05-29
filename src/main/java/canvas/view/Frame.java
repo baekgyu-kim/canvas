@@ -1,6 +1,5 @@
 package canvas.view;
 
-import canvas.controller.Controller;
 import canvas.view.whiteCanvas.WhiteCanvas;
 import canvas.view.palette.Palette;
 import canvas.view.property.Property;

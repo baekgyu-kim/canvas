@@ -13,7 +13,6 @@ public class EllipseShape extends ShapeAbstractClass {
     @Override
     public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        // 그림자 설정
         if (shadow) {
             int shadowOffset = 5;
             g2.setColor(new Color(0, 0, 0, 100));

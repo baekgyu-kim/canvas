@@ -2,7 +2,6 @@ package canvas.model.shape.composite;
 
 import canvas.model.shape.ShapeAbstractClass;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

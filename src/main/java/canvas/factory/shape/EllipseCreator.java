@@ -1,7 +1,5 @@
-package canvas.creator;
+package canvas.factory.shape;
 
-import canvas.factory.shape.ShapeCreatorAbstractClass;
-import canvas.factory.shape.ShapeCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.shapes.EllipseShape;
 

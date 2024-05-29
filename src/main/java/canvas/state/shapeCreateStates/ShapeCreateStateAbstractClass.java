@@ -1,6 +1,5 @@
 package canvas.state.shapeCreateStates;
 
-import canvas.controller.Controller;
 import canvas.factory.shape.ShapeCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;

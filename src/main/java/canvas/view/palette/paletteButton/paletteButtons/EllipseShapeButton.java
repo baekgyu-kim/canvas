@@ -1,6 +1,5 @@
 package canvas.view.palette.paletteButton.paletteButtons;
 
-import canvas.controller.Controller;
 import canvas.state.shapeCreateStates.EllipseShapeCreateState;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 

@@ -11,14 +11,14 @@ public interface ShapeInterface {
     void changeShade(boolean hasShade);
     void changeFrame(boolean hasFrame);
 
-    public int getId();
-    public int getXPos();
-    public int getYPos();
-    public int getWidth();
-    public int getHeight();
-    public Color getColor();
-    public int getOpacity();
-    public boolean getShadow();
-    public boolean getFrame();
-    public String getText();
+    int getId();
+    int getXPos();
+    int getYPos();
+    int getWidth();
+    int getHeight();
+    Color getColor();
+    int getOpacity();
+    boolean getShadow();
+    boolean getFrame();
+    String getText();
 }

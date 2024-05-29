@@ -1,7 +1,6 @@
 package canvas.view.palette;
 
 import canvas.controller.Controller;
-import canvas.observer.Observer;
 import canvas.view.palette.paletteButton.*;
 import canvas.view.palette.paletteButton.clearButton.ClearButton;
 import canvas.view.palette.paletteButton.paletteButtons.*;
@@ -10,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Palette extends JPanel {
-    private final Controller controller;
     private PaletteButton lineButton;
     private PaletteButton rectangleButton;
     private PaletteButton ellipseButton;
@@ -19,7 +17,6 @@ public class Palette extends JPanel {
     private PaletteButton clearButton;
 
     public Palette() {
-        this.controller = Controller.getInstance();
         initComponents();
         setBackground(new Color(60, 63, 65));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

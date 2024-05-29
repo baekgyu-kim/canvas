@@ -1,6 +1,5 @@
 package canvas.view.palette.paletteButton.clearButton;
 
-import canvas.controller.Controller;
 import canvas.view.palette.paletteButton.PaletteButton;
 
 import java.awt.event.ActionEvent;

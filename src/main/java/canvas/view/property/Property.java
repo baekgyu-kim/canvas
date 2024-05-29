@@ -1,7 +1,5 @@
 package canvas.view.property;
 
-import canvas.controller.Controller;
-import canvas.model.shape.composite.ShapeComposite;
 import canvas.view.property.propertyButton.PropertyButton;
 import canvas.view.property.propertyButton.propertyButtons.*;
 
@@ -9,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Property extends JPanel {
-    private ShapeComposite shapeComposite;
     private PropertyButton moveButton;
     private PropertyButton resizeButton;
     private PropertyButton colorButton;
