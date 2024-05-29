@@ -9,7 +9,7 @@ public class BringFrontDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto() {
-        ZOrderPropertyDto zOrderPropertyDto = new ZOrderPropertyDto(shapeComposite);
+        ZOrderPropertyDto zOrderPropertyDto = new ZOrderPropertyDto(clickedShapes);
         controller.bringFront(zOrderPropertyDto);
     }
 }

@@ -9,7 +9,7 @@ public class SendBackDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto() {
-        ZOrderPropertyDto zOrderPropertyDto = new ZOrderPropertyDto(shapeComposite);
+        ZOrderPropertyDto zOrderPropertyDto = new ZOrderPropertyDto(clickedShapes);
         controller.sendBack(zOrderPropertyDto);
     }
 }

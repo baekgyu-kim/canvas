@@ -12,7 +12,7 @@ public class ColorDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto(Color newColor) {
-        PropertyDtoAbstractClass colorPropertyDto = new ColorPropertyDto(shapeComposite, newColor);
+        PropertyDtoAbstractClass colorPropertyDto = new ColorPropertyDto(clickedShapes, newColor);
         controller.updateShape(colorPropertyDto);
     }
 }

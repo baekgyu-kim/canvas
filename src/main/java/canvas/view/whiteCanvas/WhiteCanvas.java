@@ -51,7 +51,7 @@ public class WhiteCanvas extends JPanel implements Observer {
 
     @Override
     public void onUpdateClickedShapes() {
-        this.clickedShapes = controller.getClickedShapesComposite().getChildren();
+        this.clickedShapes = controller.getClickedShapes();
         repaint();
     }
 

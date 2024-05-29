@@ -2,11 +2,12 @@ package canvas.dto.propertyDto.propertyDtos;
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.composite.ShapeComposite;
+
+import java.util.List;
 
 public class OpacityPropertyDto extends PropertyDtoAbstractClass {
-    public OpacityPropertyDto(ShapeComposite shapeComposite, Integer newOpacity) {
-        super(shapeComposite, newOpacity);
+    public OpacityPropertyDto(List<ShapeAbstractClass> clickedShapes, Integer newOpacity) {
+        super(clickedShapes, newOpacity);
     }
 
     @Override

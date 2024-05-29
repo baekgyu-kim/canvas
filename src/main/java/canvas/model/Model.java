@@ -84,10 +84,9 @@ public class Model implements Subject {
 
 
     public void updateShape(PropertyDtoAbstractClass propertyDto) {
-        ShapeComposite shapeComposite = propertyDto.getShapeComposite();
-        List<ShapeAbstractClass> children = shapeComposite.getChildren();
-        for (ShapeAbstractClass child : children) {
-            propertyDto.applyPropertyUpdate(child);
+        List<ShapeAbstractClass> clickedShapes = propertyDto.getClickedShapes();
+        for (ShapeAbstractClass shape : clickedShapes) {
+            propertyDto.applyPropertyUpdate(shape);
         }
         notifyObserversAllShapes();
     }
@@ -120,7 +119,7 @@ public class Model implements Subject {
         return allShapes;
     }
 
-    public ShapeComposite getClickedShapesComposite() {
-        return clickedShapesComposite;
+    public List<ShapeAbstractClass> getClickedShapes() {
+        return clickedShapesComposite.getChildren();
     }
 }

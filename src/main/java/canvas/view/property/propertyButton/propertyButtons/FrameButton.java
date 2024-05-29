@@ -44,7 +44,7 @@ public class FrameButton extends PropertyButton {
     }
 
     private void createPropertyDto(Boolean newFrame) {
-        if (shapeComposite == null) {
+        if (clickedShapes == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
@@ -62,12 +62,12 @@ public class FrameButton extends PropertyButton {
     }
 
     private void onUpdate() {
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if (shapeComposite == null) {
+        this.clickedShapes = controller.getClickedShapes();
+        if (clickedShapes == null) {
             throw new NullPointerException("shapeComposite is null");
         }
-        if (shapeComposite.shapesCount() == 1) {
-            this.hasFrame = shapeComposite.getChildren().get(0).getFrame();
+        if (clickedShapes.size() == 1) {
+            this.hasFrame = clickedShapes.get(0).getFrame();
         } else {
             this.hasFrame = null;
         }

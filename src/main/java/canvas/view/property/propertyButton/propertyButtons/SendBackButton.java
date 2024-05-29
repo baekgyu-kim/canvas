@@ -15,10 +15,10 @@ public class SendBackButton extends PropertyButton {
     }
 
     private void createPropertyDto() {
-        if (shapeComposite == null) {
+        if (clickedShapes == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
-        } else if (shapeComposite.shapesCount() != 1) {
+        } else if (clickedShapes.size() != 1) {
             JOptionPane.showMessageDialog(null, "Send Back 동작은 1개의 도형에 대해서만 동작할 수 있습니다.");
             return;
         }
@@ -26,7 +26,7 @@ public class SendBackButton extends PropertyButton {
     }
     @Override
     public void onUpdateClickedShapes() {
-        this.shapeComposite = controller.getClickedShapesComposite();
+        this.clickedShapes = controller.getClickedShapes();
     }
 
 }

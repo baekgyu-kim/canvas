@@ -24,8 +24,4 @@ public class ShapeComposite  {
     public List<ShapeAbstractClass> getChildren(){
         return this.children;
     }
-
-    public Integer shapesCount(){
-        return this.children.size();
-    }
 }

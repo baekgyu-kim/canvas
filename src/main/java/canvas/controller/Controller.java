@@ -82,7 +82,7 @@ public class Controller {
         return model.getAllShapes();
     }
 
-    public ShapeComposite getClickedShapesComposite(){
-        return model.getClickedShapesComposite();
+    public List<ShapeAbstractClass> getClickedShapes(){
+        return model.getClickedShapes();
     }
 }

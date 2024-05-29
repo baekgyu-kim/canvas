@@ -44,7 +44,7 @@ public class ShadowButton extends PropertyButton {
     }
 
     private void createPropertyDto(Boolean newShadow) {
-        if (shapeComposite == null) {
+        if (clickedShapes == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
@@ -62,12 +62,12 @@ public class ShadowButton extends PropertyButton {
     }
 
     private void onUpdate() {
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if (shapeComposite == null) {
+        this.clickedShapes = controller.getClickedShapes();
+        if (clickedShapes == null) {
             throw new NullPointerException("shapeComposite is null");
         }
-        if (shapeComposite.shapesCount() == 1) {
-            this.hasShadow = shapeComposite.getChildren().get(0).getShadow();
+        if (clickedShapes.size() == 1) {
+            this.hasShadow = clickedShapes.get(0).getShadow();
         } else {
             this.hasShadow = null;
         }

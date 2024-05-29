@@ -45,7 +45,7 @@ public class OpacityButton extends PropertyButton {
     }
 
     private void createPropertyDto(int newOpacity) {
-        if (shapeComposite == null) {
+        if (clickedShapes == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
@@ -63,12 +63,12 @@ public class OpacityButton extends PropertyButton {
     }
 
     private void onUpdate(){
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if(shapeComposite == null){
+        this.clickedShapes = controller.getClickedShapes();
+        if(clickedShapes == null){
             throw new NullPointerException("shapeComposite is null");
         }
-        if(shapeComposite.shapesCount() == 1){
-            this.currentOpacity = shapeComposite.getChildren().get(0).getOpacity();
+        if(clickedShapes.size() == 1){
+            this.currentOpacity = clickedShapes.get(0).getOpacity();
         }
     }
 

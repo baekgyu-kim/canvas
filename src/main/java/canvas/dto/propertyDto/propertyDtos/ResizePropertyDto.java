@@ -2,11 +2,12 @@ package canvas.dto.propertyDto.propertyDtos;
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.composite.ShapeComposite;
+
+import java.util.List;
 
 public class ResizePropertyDto extends PropertyDtoAbstractClass {
-    public ResizePropertyDto(ShapeComposite shapeComposite, Integer newWidth, Integer newHeight) {
-        super(shapeComposite, newWidth, newHeight);
+    public ResizePropertyDto(List<ShapeAbstractClass> clickedShapes, Integer newWidth, Integer newHeight) {
+        super(clickedShapes, newWidth, newHeight);
     }
 
     @Override

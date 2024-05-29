@@ -11,7 +11,7 @@ public class MoveDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto(int newX, int newY) {
-        PropertyDtoAbstractClass movePropertyDto = new MovePropertyDto(shapeComposite, newX, newY);
+        PropertyDtoAbstractClass movePropertyDto = new MovePropertyDto(clickedShapes, newX, newY);
         controller.updateShape(movePropertyDto);
     }
 }

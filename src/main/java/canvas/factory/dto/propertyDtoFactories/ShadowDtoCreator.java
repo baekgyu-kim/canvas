@@ -10,7 +10,7 @@ public class ShadowDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto(Boolean newShadow) {
-        PropertyDtoAbstractClass shadowPropertyDto = new ShadowPropertyDto(shapeComposite, newShadow);
+        PropertyDtoAbstractClass shadowPropertyDto = new ShadowPropertyDto(clickedShapes, newShadow);
         controller.updateShape(shadowPropertyDto);
     }
 }
