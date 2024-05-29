@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class FrameButton extends PropertyButton {
     private Boolean hasFrame = null;
-    private JRadioButton activateFrameButton;
-    private JRadioButton deactivateFrameButton;
+    private final JRadioButton activateFrameButton;
+    private final JRadioButton deactivateFrameButton;
 
     public FrameButton() {
         super();
@@ -49,6 +49,20 @@ public class FrameButton extends PropertyButton {
             return;
         }
         propertyDtoCreatorInterface.createPropertyDto(newFrame);
+    }
+
+    @Override
+    public void onUpdateAllShapes(){
+        this.shapeComposite = controller.getClickedShapesComposite();
+        if (shapeComposite == null) {
+            throw new NullPointerException("shapeComposite is null");
+        }
+        if (shapeComposite.shapesCount() == 1) {
+            this.hasFrame = shapeComposite.getChildren().get(0).getFrame();
+        } else {
+            this.hasFrame = null;
+        }
+        setRadioButtonState();
     }
 
     @Override

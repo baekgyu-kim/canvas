@@ -4,8 +4,6 @@ import canvas.factory.dto.propertyDtoFactories.BringFrontDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class BringFrontButton extends PropertyButton {
     public BringFrontButton() {

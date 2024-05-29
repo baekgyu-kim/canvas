@@ -28,6 +28,18 @@ public class ColorButton extends PropertyButton {
         }
         propertyDtoCreatorInterface.createPropertyDto(newColor);
     }
+
+    @Override
+    public void onUpdateAllShapes(){
+        this.shapeComposite = controller.getClickedShapesComposite();
+        if(shapeComposite == null){
+            throw new NullPointerException("shapeComposite is null");
+        }
+        if(shapeComposite.shapesCount() == 1){
+            this.currentColor = shapeComposite.getChildren().get(0).getColor();
+        }
+    }
+
     @Override
     public void onUpdateClickedShapes() {
         this.shapeComposite = controller.getClickedShapesComposite();

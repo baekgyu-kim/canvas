@@ -5,8 +5,6 @@ import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 
 public class MoveButton extends PropertyButton {
     private Integer currentXPos = 0;
@@ -64,6 +62,18 @@ public class MoveButton extends PropertyButton {
     }
 
     @Override
+    public void onUpdateAllShapes(){
+        this.shapeComposite = controller.getClickedShapesComposite();
+        if(shapeComposite == null){
+            throw new NullPointerException("shapeComposite is null");
+        }
+        if(shapeComposite.shapesCount() == 1){
+            this.currentXPos = shapeComposite.getChildren().get(0).getXPos();
+            this.currentYPos = shapeComposite.getChildren().get(0).getYPos();
+        }
+    }
+
+    @Override
     public void onUpdateClickedShapes() {
         this.shapeComposite = controller.getClickedShapesComposite();
         if(shapeComposite == null){
@@ -76,20 +86,6 @@ public class MoveButton extends PropertyButton {
     }
 
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
-        textField.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                if (textField.getText().equals(placeholder)) {
-                    textField.setText("");
-                }
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (textField.getText().isEmpty()) {
-                    textField.setText(placeholder);
-                }
-            }
-        });
+        ResizeButton.setPlaceholder(textField, placeholder);
     }
 }

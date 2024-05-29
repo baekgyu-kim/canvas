@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class ShadowButton extends PropertyButton {
     private Boolean hasShadow = null;
-    private JRadioButton activateShadowButton;
-    private JRadioButton deactivateShadowButton;
+    private final JRadioButton activateShadowButton;
+    private final JRadioButton deactivateShadowButton;
 
     public ShadowButton() {
         super();
@@ -49,6 +49,20 @@ public class ShadowButton extends PropertyButton {
             return;
         }
         propertyDtoCreatorInterface.createPropertyDto(newShadow);
+    }
+
+    @Override
+    public void onUpdateAllShapes(){
+        this.shapeComposite = controller.getClickedShapesComposite();
+        if (shapeComposite == null) {
+            throw new NullPointerException("shapeComposite is null");
+        }
+        if (shapeComposite.shapesCount() == 1) {
+            this.hasShadow = shapeComposite.getChildren().get(0).getShadow();
+        } else {
+            this.hasShadow = null;
+        }
+        setRadioButtonState();
     }
 
     @Override
