@@ -4,8 +4,6 @@ import canvas.factory.dto.propertyDtoFactories.FrameDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class FrameButton extends PropertyButton {
     private Boolean hasFrame = null;
@@ -24,26 +22,23 @@ public class FrameButton extends PropertyButton {
         group.add(activateFrameButton);
         group.add(deactivateFrameButton);
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JPanel panel = new JPanel();
-                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-                panel.add(activateFrameButton);
-                panel.add(deactivateFrameButton);
+        addActionListener(e -> {
+            JPanel panel = new JPanel();
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.add(activateFrameButton);
+            panel.add(deactivateFrameButton);
 
-                setRadioButtonState();
+            setRadioButtonState();
 
-                int result = JOptionPane.showConfirmDialog(null, panel, "Frame", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(null, panel, "Frame", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-                if (result == JOptionPane.OK_OPTION) {
-                    if (activateFrameButton.isSelected()) {
-                        hasFrame = true;
-                    } else if (deactivateFrameButton.isSelected()) {
-                        hasFrame = false;
-                    }
-                    createPropertyDto(hasFrame);
+            if (result == JOptionPane.OK_OPTION) {
+                if (activateFrameButton.isSelected()) {
+                    hasFrame = true;
+                } else if (deactivateFrameButton.isSelected()) {
+                    hasFrame = false;
                 }
+                createPropertyDto(hasFrame);
             }
         });
     }

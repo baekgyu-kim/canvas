@@ -4,8 +4,6 @@ import canvas.factory.dto.propertyDtoFactories.SendBackDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class SendBackButton extends PropertyButton {
     public SendBackButton() {
@@ -13,12 +11,7 @@ public class SendBackButton extends PropertyButton {
         this.propertyDtoCreatorInterface = new SendBackDtoCreator();
         initializeButton("Send Back");
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createPropertyDto();
-            }
-        });
+        addActionListener(e -> createPropertyDto());
     }
 
     private void createPropertyDto() {

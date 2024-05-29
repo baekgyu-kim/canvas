@@ -5,8 +5,6 @@ import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
@@ -18,37 +16,34 @@ public class MoveButton extends PropertyButton {
         super();
         this.propertyDtoCreatorInterface = new MoveDtoCreator();
         initializeButton("Move Shape");
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String xPlaceholder = currentXPos.toString();
-                String yPlaceholder = currentYPos.toString();
+        addActionListener(e -> {
+            String xPlaceholder = currentXPos.toString();
+            String yPlaceholder = currentYPos.toString();
 
-                JPanel panel = new JPanel(new GridLayout(2, 2));
-                panel.add(new JLabel("Enter new x coordinate:"));
-                JTextField xField = new JTextField(xPlaceholder, 5);
-                panel.add(xField);
-                panel.add(new JLabel("Enter new y coordinate:"));
-                JTextField yField = new JTextField(yPlaceholder, 5);
-                panel.add(yField);
+            JPanel panel = new JPanel(new GridLayout(2, 2));
+            panel.add(new JLabel("Enter new x coordinate:"));
+            JTextField xField = new JTextField(xPlaceholder, 5);
+            panel.add(xField);
+            panel.add(new JLabel("Enter new y coordinate:"));
+            JTextField yField = new JTextField(yPlaceholder, 5);
+            panel.add(yField);
 
-                addPlaceholderFocusListener(xField, xPlaceholder);
-                addPlaceholderFocusListener(yField, yPlaceholder);
+            addPlaceholderFocusListener(xField, xPlaceholder);
+            addPlaceholderFocusListener(yField, yPlaceholder);
 
-                int result = JOptionPane.showConfirmDialog(null, panel,
-                        "Move Shape", JOptionPane.OK_CANCEL_OPTION);
-                if (result == JOptionPane.OK_OPTION) {
-                    try {
-                        int newX = Integer.parseInt(xField.getText());
-                        int newY = Integer.parseInt(yField.getText());
-                        if (isValidCoordinate(newX, newY)) {
-                            createPropertyDto(newX, newY);
-                        } else {
-                            JOptionPane.showMessageDialog(null, "Coordinates are out of canvas bounds.");
-                        }
-                    } catch (NumberFormatException ex) {
-                        JOptionPane.showMessageDialog(null, "Please enter valid numbers for both x and y coordinates.");
+            int result = JOptionPane.showConfirmDialog(null, panel,
+                    "Move Shape", JOptionPane.OK_CANCEL_OPTION);
+            if (result == JOptionPane.OK_OPTION) {
+                try {
+                    int newX = Integer.parseInt(xField.getText());
+                    int newY = Integer.parseInt(yField.getText());
+                    if (isValidCoordinate(newX, newY)) {
+                        createPropertyDto(newX, newY);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Coordinates are out of canvas bounds.");
                     }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Please enter valid numbers for both x and y coordinates.");
                 }
             }
         });

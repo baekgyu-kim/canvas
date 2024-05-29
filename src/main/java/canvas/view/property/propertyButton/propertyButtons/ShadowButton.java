@@ -4,8 +4,6 @@ import canvas.factory.dto.propertyDtoFactories.ShadowDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ShadowButton extends PropertyButton {
     private Boolean hasShadow = null;
@@ -24,26 +22,23 @@ public class ShadowButton extends PropertyButton {
         group.add(activateShadowButton);
         group.add(deactivateShadowButton);
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JPanel panel = new JPanel();
-                panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-                panel.add(activateShadowButton);
-                panel.add(deactivateShadowButton);
+        addActionListener(e -> {
+            JPanel panel = new JPanel();
+            panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+            panel.add(activateShadowButton);
+            panel.add(deactivateShadowButton);
 
-                setRadioButtonState();
+            setRadioButtonState();
 
-                int result = JOptionPane.showConfirmDialog(null, panel, "Shadow", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            int result = JOptionPane.showConfirmDialog(null, panel, "Shadow", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
-                if (result == JOptionPane.OK_OPTION) {
-                    if (activateShadowButton.isSelected()) {
-                        hasShadow = true;
-                    } else if (deactivateShadowButton.isSelected()) {
-                        hasShadow = false;
-                    }
-                    createPropertyDto(hasShadow);
+            if (result == JOptionPane.OK_OPTION) {
+                if (activateShadowButton.isSelected()) {
+                    hasShadow = true;
+                } else if (deactivateShadowButton.isSelected()) {
+                    hasShadow = false;
                 }
+                createPropertyDto(hasShadow);
             }
         });
     }

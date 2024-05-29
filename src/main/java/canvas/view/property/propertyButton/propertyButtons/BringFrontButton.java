@@ -13,12 +13,7 @@ public class BringFrontButton extends PropertyButton {
         this.propertyDtoCreatorInterface = new BringFrontDtoCreator();
         initializeButton("Bring Front");
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createPropertyDto();
-            }
-        });
+        addActionListener(e -> createPropertyDto());
     }
 
     private void createPropertyDto() {

@@ -5,8 +5,6 @@ import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class ColorButton extends PropertyButton {
     private Color currentColor = Color.BLACK;
@@ -14,16 +12,12 @@ public class ColorButton extends PropertyButton {
         super();
         this.propertyDtoCreatorInterface = new ColorDtoCreator();
         initializeButton("Change Color");
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        addActionListener(e -> {
+                Color newColor = JColorChooser.showDialog(null, "Choose a color", currentColor);
+                if (newColor != null) {
+                    createPropertyDto(newColor);
+                }
 
-                    Color newColor = JColorChooser.showDialog(null, "Choose a color", currentColor);
-                    if (newColor != null) {
-                        createPropertyDto(newColor);
-                    }
-
-            }
         });
     }
 
