@@ -13,7 +13,6 @@ public class DefaultState implements StateInterface {
     protected Controller controller;
     protected List<ShapeAbstractClass> allShapes;
     protected ShapeComposite shapeComposite;
-    protected int seq;
 
     public DefaultState(Controller controller){
         this.controller = controller;
