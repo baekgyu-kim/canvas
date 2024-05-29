@@ -1,7 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.OpacityPropertyDto;
+import canvas.factory.dto.propertyDtoFactories.OpacityDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -16,6 +15,7 @@ public class OpacityButton extends PropertyButton {
 
     public OpacityButton() {
         super();
+        this.propertyDtoCreatorInterface = new OpacityDtoCreator();
         initializeButton("Change Opacity");
         addActionListener(new ActionListener() {
             @Override
@@ -51,13 +51,12 @@ public class OpacityButton extends PropertyButton {
         return opacity >= 0 && opacity <= 100;
     }
 
-    public void createPropertyDto(int newOpacity) {
+    private void createPropertyDto(int newOpacity) {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass opacityDto = new OpacityPropertyDto(shapeComposite, newOpacity);
-        controller.updateShape(shapeComposite, opacityDto);
+        propertyDtoCreatorInterface.createPropertyDto(newOpacity);
     }
 
     @Override

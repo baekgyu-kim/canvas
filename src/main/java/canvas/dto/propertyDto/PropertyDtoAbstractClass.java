@@ -33,6 +33,10 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
         this.boolValue = boolValue;
     }
 
+    public ShapeComposite getShapeComposite() {
+        return this.shapeComposite;
+    }
+
     @Override
     public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {}
 

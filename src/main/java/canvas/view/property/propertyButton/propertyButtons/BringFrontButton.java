@@ -1,6 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
+import canvas.factory.dto.propertyDtoFactories.BringFrontDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 public class BringFrontButton extends PropertyButton {
     public BringFrontButton() {
         super();
+        this.propertyDtoCreatorInterface = new BringFrontDtoCreator();
         initializeButton("Bring Front");
 
         addActionListener(new ActionListener() {
@@ -20,7 +21,7 @@ public class BringFrontButton extends PropertyButton {
         });
     }
 
-    public void createPropertyDto() {
+    private void createPropertyDto() {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
@@ -28,9 +29,7 @@ public class BringFrontButton extends PropertyButton {
             JOptionPane.showMessageDialog(null, "Bring Front 동작은 1개의 도형에 대해서만 동작할 수 있습니다.");
             return;
         }
-
-        ZOrderPropertyDto dto = new ZOrderPropertyDto(shapeComposite);
-        controller.bringFront(dto);
+        propertyDtoCreatorInterface.createPropertyDto();
     }
 
     @Override

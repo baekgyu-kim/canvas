@@ -1,7 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.ResizePropertyDto;
+import canvas.factory.dto.propertyDtoFactories.ResizeDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -17,6 +16,7 @@ public class ResizeButton extends PropertyButton {
 
     public ResizeButton() {
         super();
+        this.propertyDtoCreatorInterface = new ResizeDtoCreator();
         initializeButton("Resize Shape");
         addActionListener(new ActionListener() {
             @Override
@@ -61,13 +61,12 @@ public class ResizeButton extends PropertyButton {
         return width > 0 && width <= canvasWidth && height > 0 && height <= canvasHeight;
     }
 
-    public void createPropertyDto(int newWidth, int newHeight) {
+    private void createPropertyDto(int newWidth, int newHeight) {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass resizeDto = new ResizePropertyDto(shapeComposite,newWidth, newHeight);
-        controller.updateShape(shapeComposite, resizeDto);
+        propertyDtoCreatorInterface.createPropertyDto(newWidth, newHeight);
     }
 
     @Override

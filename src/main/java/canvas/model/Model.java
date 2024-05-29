@@ -83,7 +83,8 @@ public class Model implements Subject {
     }
 
 
-    public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto) {
+    public void updateShape(PropertyDtoAbstractClass propertyDto) {
+        ShapeComposite shapeComposite = propertyDto.getShapeComposite();
         List<ShapeAbstractClass> children = shapeComposite.getChildren();
         for (ShapeAbstractClass child : children) {
             propertyDto.applyPropertyUpdate(child);

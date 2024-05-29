@@ -6,11 +6,11 @@ import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 
 import javax.swing.*;
-import java.awt.*;
 
-public abstract class PropertyButton extends JButton implements Observer, PropertyDtoCreatorInterface {
+public abstract class PropertyButton extends JButton implements Observer {
     protected ShapeComposite shapeComposite;
     protected Controller controller;
+    protected PropertyDtoCreatorInterface propertyDtoCreatorInterface;
 
     public PropertyButton() {
         this.controller = Controller.getInstance();
@@ -21,19 +21,10 @@ public abstract class PropertyButton extends JButton implements Observer, Proper
     public void initializeButton(String text){
         setText(text);
         setVisible(true);
-    };
-
+    }
 
     @Override
     public void onUpdateAllShapes() {}
     @Override
     public void onUpdateClickedShapes() {}
-    @Override
-    public void createPropertyDto() {}
-    @Override
-    public void createPropertyDto(Color color) {}
-    @Override
-    public void createPropertyDto(int integer) {}
-    @Override
-    public void createPropertyDto(int integer1, int integer2) {}
 }

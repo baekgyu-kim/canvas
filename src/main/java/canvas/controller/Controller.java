@@ -45,7 +45,7 @@ public class Controller {
 
     public void clearClicks(){model.clearClicks();}
 
-    public void updateShape(ShapeComposite shapeComposite, PropertyDtoAbstractClass propertyDto){model.updateShape(shapeComposite, propertyDto);}
+    public void updateShape(PropertyDtoAbstractClass propertyDto){model.updateShape(propertyDto);}
 
     public void bringFront(ZOrderPropertyDto propertyDto) {model.bringFront(propertyDto);}
 

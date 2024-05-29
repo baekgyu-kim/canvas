@@ -1,7 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.ShadowPropertyDto;
+import canvas.factory.dto.propertyDtoFactories.ShadowDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -15,6 +14,7 @@ public class ShadowButton extends PropertyButton {
 
     public ShadowButton() {
         super();
+        this.propertyDtoCreatorInterface = new ShadowDtoCreator();
         initializeButton("Shadow Effect");
 
         activateShadowButton = new JRadioButton("Activate shadow effect");
@@ -48,13 +48,12 @@ public class ShadowButton extends PropertyButton {
         });
     }
 
-    public void createPropertyDto(Boolean newShadow) {
+    private void createPropertyDto(Boolean newShadow) {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass shadowDto = new ShadowPropertyDto(shapeComposite, newShadow);
-        controller.updateShape(shapeComposite, shadowDto);
+        propertyDtoCreatorInterface.createPropertyDto(newShadow);
     }
 
     @Override

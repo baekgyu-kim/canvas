@@ -1,6 +1,6 @@
 package canvas.state.shapeCreateStates;
 
-import canvas.factory.shape.RectangleCreator;
+import canvas.factory.shape.shapeFactories.RectangleCreator;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.event.MouseEvent;

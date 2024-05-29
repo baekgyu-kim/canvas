@@ -1,6 +1,6 @@
 package canvas.state.shapeCreateStates;
 
-import canvas.factory.shape.EllipseCreator;
+import canvas.factory.shape.shapeFactories.EllipseCreator;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.event.MouseEvent;

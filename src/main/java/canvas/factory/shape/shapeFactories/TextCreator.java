@@ -1,13 +1,12 @@
-package canvas.factory.shape;
+package canvas.factory.shape.shapeFactories;
 
-import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.LineShape;
+import canvas.factory.shape.ShapeCreatorAbstractClass;
 import canvas.model.shape.shapes.TextShape;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class TextCreator extends ShapeCreatorAbstractClass{
+public class TextCreator extends ShapeCreatorAbstractClass {
     public TextCreator() {
         super();
     }

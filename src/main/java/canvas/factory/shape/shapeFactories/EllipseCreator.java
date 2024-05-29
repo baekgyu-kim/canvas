@@ -1,7 +1,6 @@
-package canvas.factory.shape;
+package canvas.factory.shape.shapeFactories;
 
-import canvas.controller.Controller;
-import canvas.model.shape.ShapeAbstractClass;
+import canvas.factory.shape.ShapeCreatorAbstractClass;
 import canvas.model.shape.shapes.EllipseShape;
 
 import java.awt.*;

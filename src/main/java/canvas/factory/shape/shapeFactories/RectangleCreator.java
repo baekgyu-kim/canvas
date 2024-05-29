@@ -1,12 +1,12 @@
-package canvas.factory.shape;
+package canvas.factory.shape.shapeFactories;
 
-import canvas.model.shape.ShapeAbstractClass;
+import canvas.factory.shape.ShapeCreatorAbstractClass;
 import canvas.model.shape.shapes.RectangleShape;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class RectangleCreator extends ShapeCreatorAbstractClass{
+public class RectangleCreator extends ShapeCreatorAbstractClass {
     public RectangleCreator() {
         super();
     }

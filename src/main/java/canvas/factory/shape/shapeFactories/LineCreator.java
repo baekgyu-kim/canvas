@@ -1,13 +1,12 @@
-package canvas.factory.shape;
+package canvas.factory.shape.shapeFactories;
 
-import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.shapes.EllipseShape;
+import canvas.factory.shape.ShapeCreatorAbstractClass;
 import canvas.model.shape.shapes.LineShape;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class LineCreator extends ShapeCreatorAbstractClass{
+public class LineCreator extends ShapeCreatorAbstractClass {
     public LineCreator(){
         super();
     }

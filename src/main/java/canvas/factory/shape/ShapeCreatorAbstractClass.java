@@ -6,7 +6,7 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.awt.event.MouseEvent;
 
 public abstract class ShapeCreatorAbstractClass implements ShapeCreatorInterface{
-    Controller controller;
+    protected Controller controller;
     public ShapeCreatorAbstractClass(){
         this.controller = Controller.getInstance();
     }

@@ -1,6 +1,6 @@
 package canvas.state.shapeCreateStates;
 
-import canvas.factory.shape.LineCreator;
+import canvas.factory.shape.shapeFactories.LineCreator;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.event.MouseEvent;

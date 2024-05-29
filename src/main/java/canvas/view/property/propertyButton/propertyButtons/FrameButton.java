@@ -1,7 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.FramePropertyDto;
+import canvas.factory.dto.propertyDtoFactories.FrameDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -15,6 +14,7 @@ public class FrameButton extends PropertyButton {
 
     public FrameButton() {
         super();
+        this.propertyDtoCreatorInterface = new FrameDtoCreator();
         initializeButton("Frame Effect");
 
         activateFrameButton = new JRadioButton("Activate frame effect");
@@ -48,13 +48,12 @@ public class FrameButton extends PropertyButton {
         });
     }
 
-    public void createPropertyDto(Boolean newFrame) {
+    private void createPropertyDto(Boolean newFrame) {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass frameDto = new FramePropertyDto(shapeComposite, newFrame);
-        controller.updateShape(shapeComposite, frameDto);
+        propertyDtoCreatorInterface.createPropertyDto(newFrame);
     }
 
     @Override

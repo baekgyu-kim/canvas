@@ -1,7 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.ColorPropertyDto;
+import canvas.factory.dto.propertyDtoFactories.ColorDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -13,6 +12,7 @@ public class ColorButton extends PropertyButton {
     private Color currentColor = Color.BLACK;
     public ColorButton() {
         super();
+        this.propertyDtoCreatorInterface = new ColorDtoCreator();
         initializeButton("Change Color");
         addActionListener(new ActionListener() {
             @Override
@@ -27,13 +27,12 @@ public class ColorButton extends PropertyButton {
         });
     }
 
-    public void createPropertyDto(Color newColor) {
+    private void createPropertyDto(Color newColor) {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass colorDto = new ColorPropertyDto(shapeComposite, newColor);
-        controller.updateShape(shapeComposite, colorDto);
+        propertyDtoCreatorInterface.createPropertyDto(newColor);
     }
     @Override
     public void onUpdateClickedShapes() {

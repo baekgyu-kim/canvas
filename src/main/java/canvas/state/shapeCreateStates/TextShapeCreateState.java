@@ -1,6 +1,6 @@
 package canvas.state.shapeCreateStates;
 
-import canvas.factory.shape.TextCreator;
+import canvas.factory.shape.shapeFactories.TextCreator;
 import canvas.model.shape.ShapeAbstractClass;
 
 import javax.swing.*;

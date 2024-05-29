@@ -1,7 +1,6 @@
 package canvas.view.property.propertyButton.propertyButtons;
 
-import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.MovePropertyDto;
+import canvas.factory.dto.propertyDtoFactories.MoveDtoCreator;
 import canvas.view.property.propertyButton.PropertyButton;
 
 import javax.swing.*;
@@ -17,6 +16,7 @@ public class MoveButton extends PropertyButton {
 
     public MoveButton() {
         super();
+        this.propertyDtoCreatorInterface = new MoveDtoCreator();
         initializeButton("Move Shape");
         addActionListener(new ActionListener() {
             @Override
@@ -60,13 +60,12 @@ public class MoveButton extends PropertyButton {
         return x >= 0 && x <= canvasWidth && y >= 0 && y <= canvasHeight;
     }
 
-    public void createPropertyDto(int newX, int newY) {
+    private void createPropertyDto(int newX, int newY) {
         if (shapeComposite == null) {
             JOptionPane.showMessageDialog(null, "속성값을 바꿀 도형이 선택되어있지 않습니다.");
             return;
         }
-        PropertyDtoAbstractClass moveDto = new MovePropertyDto(shapeComposite, newX, newY);
-        controller.updateShape(shapeComposite, moveDto);
+        propertyDtoCreatorInterface.createPropertyDto(newX, newY);
     }
 
     @Override
