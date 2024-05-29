@@ -63,18 +63,15 @@ public class MoveButton extends PropertyButton {
 
     @Override
     public void onUpdateAllShapes(){
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if(shapeComposite == null){
-            throw new NullPointerException("shapeComposite is null");
-        }
-        if(shapeComposite.shapesCount() == 1){
-            this.currentXPos = shapeComposite.getChildren().get(0).getXPos();
-            this.currentYPos = shapeComposite.getChildren().get(0).getYPos();
-        }
+        onUpdate();
     }
 
     @Override
     public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate() {
         this.shapeComposite = controller.getClickedShapesComposite();
         if(shapeComposite == null){
             throw new NullPointerException("shapeComposite is null");
@@ -88,4 +85,5 @@ public class MoveButton extends PropertyButton {
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
         ResizeButton.setPlaceholder(textField, placeholder);
     }
+
 }

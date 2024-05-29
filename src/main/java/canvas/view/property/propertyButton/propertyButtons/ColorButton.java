@@ -31,17 +31,15 @@ public class ColorButton extends PropertyButton {
 
     @Override
     public void onUpdateAllShapes(){
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if(shapeComposite == null){
-            throw new NullPointerException("shapeComposite is null");
-        }
-        if(shapeComposite.shapesCount() == 1){
-            this.currentColor = shapeComposite.getChildren().get(0).getColor();
-        }
+        onUpdate();
     }
 
     @Override
     public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate(){
         this.shapeComposite = controller.getClickedShapesComposite();
         if(shapeComposite == null){
             throw new NullPointerException("shapeComposite is null");

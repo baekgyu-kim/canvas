@@ -54,17 +54,15 @@ public class OpacityButton extends PropertyButton {
 
     @Override
     public void onUpdateAllShapes(){
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if(shapeComposite == null){
-            throw new NullPointerException("shapeComposite is null");
-        }
-        if(shapeComposite.shapesCount() == 1){
-            this.currentOpacity = shapeComposite.getChildren().get(0).getOpacity();
-        }
+        onUpdate();
     }
 
     @Override
     public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate(){
         this.shapeComposite = controller.getClickedShapesComposite();
         if(shapeComposite == null){
             throw new NullPointerException("shapeComposite is null");

@@ -53,20 +53,15 @@ public class FrameButton extends PropertyButton {
 
     @Override
     public void onUpdateAllShapes(){
-        this.shapeComposite = controller.getClickedShapesComposite();
-        if (shapeComposite == null) {
-            throw new NullPointerException("shapeComposite is null");
-        }
-        if (shapeComposite.shapesCount() == 1) {
-            this.hasFrame = shapeComposite.getChildren().get(0).getFrame();
-        } else {
-            this.hasFrame = null;
-        }
-        setRadioButtonState();
+        onUpdate();
     }
 
     @Override
     public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate() {
         this.shapeComposite = controller.getClickedShapesComposite();
         if (shapeComposite == null) {
             throw new NullPointerException("shapeComposite is null");
