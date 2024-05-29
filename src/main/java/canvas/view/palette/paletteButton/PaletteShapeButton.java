@@ -6,18 +6,10 @@ import canvas.observer.Observer;
 
 
 
-public abstract class PaletteShapeButton extends PaletteButton implements Observer {
-    protected int seq = 0;
+public abstract class PaletteShapeButton extends PaletteButton {
     public PaletteShapeButton() {
         super();
     }
-
-    @Override
-    public void onUpdateAllShapes() {
-        this.seq = controller.getAllShapes().size();
-    }
-    @Override
-    public void onUpdateClickedShapes() {}
 
     protected abstract void setState();
     public abstract void activate();

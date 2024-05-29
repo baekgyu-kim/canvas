@@ -21,7 +21,6 @@ public class Palette extends JPanel {
     public Palette() {
         this.controller = Controller.getInstance();
         initComponents();
-        registerButtonsAsObserver();
         setBackground(new Color(60, 63, 65));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         addComponents();
@@ -47,14 +46,6 @@ public class Palette extends JPanel {
         ((JButton) button).setPreferredSize(new Dimension(150, 40));
         ((JButton) button).setMaximumSize(new Dimension(150, 40));
         return button;
-    }
-
-    private void registerButtonsAsObserver() {
-        controller.registerObserver((Observer) this.lineButton);
-        controller.registerObserver((Observer) this.rectangleButton);
-        controller.registerObserver((Observer) this.ellipseButton);
-        controller.registerObserver((Observer) this.starButton);
-        controller.registerObserver((Observer) this.textButton);
     }
 
     private void addComponents() {
