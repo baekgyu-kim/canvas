@@ -20,7 +20,7 @@ public class TextShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new TextShapeCreateState(controller, seq));
+                controller.setState(new TextShapeCreateState());
                 controller.setActiveButton(this);
             }
         });

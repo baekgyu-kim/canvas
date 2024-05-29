@@ -20,7 +20,7 @@ public class RectangleShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new RectangleShapeCreateState(controller, seq));
+                controller.setState(new RectangleShapeCreateState());
                 controller.setActiveButton(this);
             }
         });

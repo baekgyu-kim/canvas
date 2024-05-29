@@ -8,9 +8,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class EllipseShapeCreateState extends ShapeCreateStateAbstractClass {
-    public EllipseShapeCreateState(Controller controller, int seq) {
-        super(controller, seq);
+    private Controller controller;
+    public EllipseShapeCreateState() {
+        super();
         this.shapeCreatorInterface = new EllipseCreator();
+        this.controller = Controller.getInstance();
     }
 
     @Override

@@ -8,10 +8,13 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class LineShapeCreateState extends ShapeCreateStateAbstractClass {
+    private Controller controller;
 
-    public LineShapeCreateState(Controller controller, int seq) {
-        super(controller, seq);
+
+    public LineShapeCreateState() {
+        super();
         this.shapeCreatorInterface = new LineCreator();
+        this.controller = Controller.getInstance();
     }
 
     @Override

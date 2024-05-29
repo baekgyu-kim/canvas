@@ -11,15 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeCreateStateAbstractClass implements StateInterface {
-    protected Controller controller;
     protected ShapeCreatorInterface shapeCreatorInterface;
     protected List<ShapeAbstractClass> allShapes;
     protected ShapeComposite shapeComposite;
-    protected int seq;
 
-    public ShapeCreateStateAbstractClass(Controller controller, int seq){
-        this.controller = controller;
-        this.seq = seq;
+    public ShapeCreateStateAbstractClass(){
     }
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {}

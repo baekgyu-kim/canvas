@@ -20,7 +20,7 @@ public class StarShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new StarShapeCreateState(controller, seq));
+                controller.setState(new StarShapeCreateState());
                 controller.setActiveButton(this);
             }
         });

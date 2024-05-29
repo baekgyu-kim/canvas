@@ -21,7 +21,7 @@ public class EllipseShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new EllipseShapeCreateState(controller, seq));
+                controller.setState(new EllipseShapeCreateState());
                 controller.setActiveButton(this);
             }
         });

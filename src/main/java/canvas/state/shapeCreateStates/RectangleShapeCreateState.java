@@ -8,10 +8,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class RectangleShapeCreateState extends ShapeCreateStateAbstractClass {
-
-    public RectangleShapeCreateState(Controller controller, int seq) {
-        super(controller, seq);
+    private Controller controller;
+    public RectangleShapeCreateState() {
+        super();
         this.shapeCreatorInterface = new RectangleCreator();
+        this.controller = Controller.getInstance();
     }
 
     @Override

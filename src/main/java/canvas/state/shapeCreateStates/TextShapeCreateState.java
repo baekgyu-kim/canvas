@@ -9,10 +9,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class TextShapeCreateState extends ShapeCreateStateAbstractClass {
-
-    public TextShapeCreateState(Controller controller, int seq) {
-        super(controller, seq);
+    private Controller controller;
+    public TextShapeCreateState() {
+        super();
         this.shapeCreatorInterface = new TextCreator();
+        this.controller = Controller.getInstance();
     }
 
     @Override

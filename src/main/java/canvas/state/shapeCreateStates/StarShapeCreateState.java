@@ -8,10 +8,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class StarShapeCreateState extends ShapeCreateStateAbstractClass {
-
-    public StarShapeCreateState(Controller controller, int seq) {
-        super(controller, seq);
+    private Controller controller;
+    public StarShapeCreateState() {
+        super();
         this.shapeCreatorInterface = new StarCreator();
+        this.controller = Controller.getInstance();
     }
 
     @Override

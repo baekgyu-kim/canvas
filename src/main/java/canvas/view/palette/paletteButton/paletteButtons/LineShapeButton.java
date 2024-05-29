@@ -20,7 +20,7 @@ public class LineShapeButton extends PaletteShapeButton {
             if (controller.getActiveButton() == this) {
                 controller.setDefaultState();
             } else {
-                controller.setState(new LineShapeCreateState(controller, seq));
+                controller.setState(new LineShapeCreateState());
                 controller.setActiveButton(this);
             }
         });
