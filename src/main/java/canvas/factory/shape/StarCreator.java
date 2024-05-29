@@ -8,8 +8,11 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class StarCreator extends ShapeCreatorAbstractClass{
+    public StarCreator() {
+        super();
+    }
     @Override
-    public ShapeAbstractClass createShape(MouseEvent e, int id) {
+    public void createShape(MouseEvent e, int id) {
         int xPos = e.getX();
         int yPos = e.getY();
         int width = 100;
@@ -18,6 +21,6 @@ public class StarCreator extends ShapeCreatorAbstractClass{
         int opacity = 100;
         boolean shadow = false;
         boolean frame = false;
-        return new StarShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
+        controller.createShape(new StarShape(id, xPos, yPos, width, height, color, opacity, shadow, frame));
     }
 }

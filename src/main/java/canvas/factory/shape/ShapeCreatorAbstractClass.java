@@ -1,17 +1,18 @@
 package canvas.factory.shape;
 
+import canvas.controller.Controller;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.event.MouseEvent;
 
 public abstract class ShapeCreatorAbstractClass implements ShapeCreatorInterface{
-    @Override
-    public ShapeAbstractClass createShape(MouseEvent e, int id) {
-        return null;
+    Controller controller;
+    public ShapeCreatorAbstractClass(){
+        this.controller = Controller.getInstance();
     }
+    @Override
+    public void createShape(MouseEvent e, int id) {}
 
     @Override
-    public ShapeAbstractClass createShape(MouseEvent e, int id, String text) {
-        return null;
-    }
+    public void createShape(MouseEvent e, int id, String text) {}
 }

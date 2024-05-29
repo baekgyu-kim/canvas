@@ -7,9 +7,11 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class RectangleCreator extends ShapeCreatorAbstractClass{
-
+    public RectangleCreator() {
+        super();
+    }
     @Override
-    public ShapeAbstractClass createShape(MouseEvent e, int id) {
+    public void createShape(MouseEvent e, int id) {
         int xPos = e.getX();
         int yPos = e.getY();
         int width = 100;
@@ -18,7 +20,6 @@ public class RectangleCreator extends ShapeCreatorAbstractClass{
         int opacity = 100;
         boolean shadow = false;
         boolean frame = false;
-
-        return new RectangleShape(id, xPos, yPos, width, height, color, opacity, shadow, frame);
+        controller.createShape(new RectangleShape(id, xPos, yPos, width, height, color, opacity, shadow, frame));
     }
 }

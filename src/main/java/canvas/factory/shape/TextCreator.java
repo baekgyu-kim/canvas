@@ -8,8 +8,11 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class TextCreator extends ShapeCreatorAbstractClass{
+    public TextCreator() {
+        super();
+    }
     @Override
-    public ShapeAbstractClass createShape(MouseEvent e, int id, String text) {
+    public void createShape(MouseEvent e, int id, String text) {
         int xPos = e.getX();
         int yPos = e.getY();
         int width = 100;
@@ -18,6 +21,6 @@ public class TextCreator extends ShapeCreatorAbstractClass{
         int opacity = 100;
         boolean shadow = false;
         boolean frame = false;
-        return new TextShape(id, xPos, yPos, width, height, color, opacity, shadow, frame, text);
+        controller.createShape(new TextShape(id, xPos, yPos, width, height, color, opacity, shadow, frame, text));
     }
 }

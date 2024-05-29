@@ -1,6 +1,5 @@
 package canvas.state.shapeCreateStates;
 
-import canvas.controller.Controller;
 import canvas.factory.shape.EllipseCreator;
 import canvas.model.shape.ShapeAbstractClass;
 
@@ -8,18 +7,15 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class EllipseShapeCreateState extends ShapeCreateStateAbstractClass {
-    private Controller controller;
     public EllipseShapeCreateState() {
         super();
         this.shapeCreatorInterface = new EllipseCreator();
-        this.controller = Controller.getInstance();
     }
 
     @Override
     public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
         int id = allShapes.size();
-        ShapeAbstractClass ellipseShape = shapeCreatorInterface.createShape(e, id);
-        controller.createShape(ellipseShape);
+        shapeCreatorInterface.createShape(e, id);
     }
 
     @Override
