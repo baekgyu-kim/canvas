@@ -71,16 +71,6 @@ public class FrameButton extends PropertyButton {
         setRadioButtonState();
     }
 
-    @Override
-    public void onUpdateAllShapes() {
-        if (shapeComposite != null && shapeComposite.shapesCount() == 1) {
-            this.hasFrame = shapeComposite.getChildren().get(0).getFrame();
-        } else {
-            this.hasFrame = null;
-        }
-        setRadioButtonState();
-    }
-
     private void setRadioButtonState() {
         if (hasFrame == null) {
             activateFrameButton.setSelected(false);

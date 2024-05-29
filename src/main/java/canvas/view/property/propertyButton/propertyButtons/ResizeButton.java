@@ -82,13 +82,6 @@ public class ResizeButton extends PropertyButton {
         }
     }
 
-    @Override
-    public void onUpdateAllShapes() {
-        if(shapeComposite != null && shapeComposite.shapesCount() == 1){
-            this.currentWidth = shapeComposite.getChildren().get(0).getWidth();
-            this.currentHeight = shapeComposite.getChildren().get(0).getHeight();
-        }
-    }
 
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
         textField.addFocusListener(new FocusListener() {

@@ -71,15 +71,6 @@ public class ShadowButton extends PropertyButton {
         setRadioButtonState();
     }
 
-    @Override
-    public void onUpdateAllShapes() {
-        if (shapeComposite != null && shapeComposite.shapesCount() == 1) {
-            this.hasShadow = shapeComposite.getChildren().get(0).getShadow();
-        } else {
-            this.hasShadow = null;
-        }
-        setRadioButtonState();
-    }
 
     private void setRadioButtonState() {
         if (hasShadow == null) {

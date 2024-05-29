@@ -17,6 +17,7 @@ public abstract class PropertyButton extends JButton implements Observer, Proper
     public PropertyButton() {
         this.controller = Controller.getInstance();
         this.shapeComposite = controller.getClickedShapesComposite();
+        controller.registerObserver(this);
     }
 
     public void initializeButton(String text){

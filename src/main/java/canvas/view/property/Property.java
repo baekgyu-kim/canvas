@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Property extends JPanel {
-    Controller controller;
     private ShapeComposite shapeComposite;
     private PropertyButton moveButton;
     private PropertyButton resizeButton;
@@ -21,9 +20,7 @@ public class Property extends JPanel {
     private PropertyButton sendBackButton;
 
     public Property() {
-        this.controller = Controller.getInstance();
         initComponents();
-        registerButtonsAsObserver();
         setBackground(new Color(45, 45, 48));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         addComponents();
@@ -53,16 +50,6 @@ public class Property extends JPanel {
         return button;
     }
 
-    private void registerButtonsAsObserver() {
-        controller.registerObserver(this.moveButton);
-        controller.registerObserver(this.resizeButton);
-        controller.registerObserver(this.colorButton);
-        controller.registerObserver(this.opacityButton);
-        controller.registerObserver(this.shadowButton);
-        controller.registerObserver(this.frameButton);
-        controller.registerObserver(this.bringFrontButton);
-        controller.registerObserver(this.sendBackButton);
-    }
 
     private void addComponents() {
         add(createCategoryPanel("Shape Modification", this.moveButton, this.resizeButton, this.colorButton, this.opacityButton));

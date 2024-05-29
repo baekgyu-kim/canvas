@@ -71,12 +71,6 @@ public class OpacityButton extends PropertyButton {
         }
     }
 
-    @Override
-    public void onUpdateAllShapes() {
-        if(shapeComposite != null && shapeComposite.shapesCount() == 1){
-            this.currentOpacity = shapeComposite.getChildren().get(0).getOpacity();
-        }
-    }
 
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
         textField.addFocusListener(new FocusListener() {

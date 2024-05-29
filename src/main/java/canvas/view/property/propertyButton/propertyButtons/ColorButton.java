@@ -46,10 +46,4 @@ public class ColorButton extends PropertyButton {
         }
     }
 
-    @Override
-    public void onUpdateAllShapes() {
-        if(shapeComposite != null && shapeComposite.shapesCount() == 1){
-            this.currentColor = shapeComposite.getChildren().get(0).getColor();
-        }
-    }
 }

@@ -81,14 +81,6 @@ public class MoveButton extends PropertyButton {
         }
     }
 
-    @Override
-    public void onUpdateAllShapes() {
-        if(shapeComposite != null && shapeComposite.shapesCount() == 1){
-                this.currentXPos = shapeComposite.getChildren().get(0).getXPos();
-                this.currentYPos = shapeComposite.getChildren().get(0).getYPos();
-
-        }
-    }
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
         textField.addFocusListener(new FocusListener() {
             @Override
