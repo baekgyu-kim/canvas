@@ -77,6 +77,11 @@ public class Model implements Subject {
         notifyObserversAllShapes();
     }
 
+    public void restoreUpdate(PropertyDtoAbstractClass propertyDto){
+        propertyDto.restoreBackupState();
+        notifyObserversAllShapes();
+    }
+
     public void clickShape(int id){
         ShapeAbstractClass shape = findShapeById(id);
         if (clickedShapesComposite.is_shape_in_composite(id)) {
