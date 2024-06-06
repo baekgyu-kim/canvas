@@ -1,20 +1,18 @@
-package canvas.state.defaultState;
+package canvas.state.clickState;
 
 import canvas.controller.Controller;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.model.shape.composite.ShapeComposite;
 import canvas.state.StateInterface;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultState implements StateInterface {
+public class ClickState implements StateInterface {
     protected Controller controller;
     protected List<ShapeAbstractClass> allShapes;
-    protected ShapeComposite shapeComposite;
 
-    public DefaultState(Controller controller){
+    public ClickState(Controller controller){
         this.controller = controller;
     }
 
@@ -51,11 +49,11 @@ public class DefaultState implements StateInterface {
 
     @Override
     public void activateState() {
-        System.out.println("Default State activated: Click to select shapes.");
+        System.out.println("Click State activated: Click to select shapes.");
     }
 
     @Override
     public void deactivateState() {
-        System.out.println("Default State deactivated.");
+        System.out.println("Click State deactivated.");
     }
 }

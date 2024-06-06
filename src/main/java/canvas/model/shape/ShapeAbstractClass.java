@@ -38,6 +38,35 @@ public class ShapeAbstractClass implements ShapeInterface {
         this.text = text;
     }
 
+    public ShapeAbstractClass(ShapeAbstractClass shape) {
+        this.id = shape.id;
+        this.xPos = shape.xPos;
+        this.yPos = shape.yPos;
+        this.width = shape.width;
+        this.height = shape.height;
+        this.color = shape.color;
+        this.opacity = shape.opacity;
+        this.shadow = shape.shadow;
+        this.frame = shape.frame;
+        this.text = shape.text;
+    }
+
+    public ShapeAbstractClass cloneShape() {
+        return new ShapeAbstractClass(this);
+    }
+
+    public void restoreShape(ShapeAbstractClass shape){
+        this.xPos = shape.xPos;
+        this.yPos = shape.yPos;
+        this.width = shape.width;
+        this.height = shape.height;
+        this.color = shape.color;
+        this.opacity = shape.opacity;
+        this.shadow = shape.shadow;
+        this.frame = shape.frame;
+        this.text = shape.text;
+    }
+
     @Override
     public void draw(Graphics g) {
     }

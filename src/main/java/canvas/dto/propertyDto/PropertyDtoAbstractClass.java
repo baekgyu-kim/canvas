@@ -3,11 +3,13 @@ package canvas.dto.propertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
-
 
 public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     protected List<ShapeAbstractClass> clickedShapes;
+    protected List<ShapeAbstractClass> backupShapes;
+
     protected Color color;
     protected Integer value1;
     protected Integer value2;
@@ -40,4 +42,22 @@ public abstract class PropertyDtoAbstractClass implements PropertyDtoInterface {
     @Override
     public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {}
 
+    @Override
+    public void backupCurrentState() {
+        this.backupShapes = new ArrayList<>();
+        for (ShapeAbstractClass shape : clickedShapes) {
+            this.backupShapes.add(shape.cloneShape());
+        }
+    }
+
+    @Override
+    public void restoreBackupState() {
+        for (ShapeAbstractClass backupShape : backupShapes) {
+            for (ShapeAbstractClass shape : clickedShapes) {
+                if (shape.getId() == backupShape.getId()) {
+                    shape.restoreShape(backupShape);
+                }
+            }
+        }
+    }
 }

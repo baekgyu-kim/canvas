@@ -17,7 +17,7 @@ public class RectangleShapeButton extends PaletteShapeButton {
     protected void setState() {
         addActionListener(e -> {
             if (controller.getActiveButton() == this) {
-                controller.setDefaultState();
+                controller.setClickState();
             } else {
                 controller.setState(new RectangleShapeCreateState());
                 controller.setActiveButton(this);

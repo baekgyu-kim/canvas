@@ -5,7 +5,7 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.awt.*;
 
 public class TextShape extends ShapeAbstractClass {
-    private String text;
+    private final String text;
 
     public TextShape(int id, int xPos, int yPos, int width, int height, Color color, int opacity, boolean shadow, boolean frame, String text) {
         super(id, xPos, yPos, width, height, color, opacity, shadow, frame);
@@ -32,7 +32,7 @@ public class TextShape extends ShapeAbstractClass {
         if (shadow) {
             int shadowOffset = 5;
             g2.setColor(new Color(0, 0, 0, 100));
-            float shadowAlpha = 0.9f; // 그림자 투명도 설정
+            float shadowAlpha = 0.9f;
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, shadowAlpha));
             g2.drawString(text, x + shadowOffset, y + shadowOffset);
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));

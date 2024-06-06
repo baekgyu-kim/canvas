@@ -4,7 +4,6 @@ import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.dto.propertyDto.propertyDtos.FramePropertyDto;
 import canvas.factory.dto.PropertyDtoCreatorAbstractClass;
 
-
 public class FrameDtoCreator extends PropertyDtoCreatorAbstractClass {
     public FrameDtoCreator() {
         super();

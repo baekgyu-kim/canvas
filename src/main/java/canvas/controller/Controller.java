@@ -7,13 +7,14 @@ import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
 import canvas.observer.Observer;
-import canvas.state.defaultState.DefaultState;
+import canvas.state.clickState.ClickState;
 import canvas.state.StateInterface;
 import canvas.view.palette.paletteButton.PaletteShapeButton;
 
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Controller {
     private static Controller controllerInstance;
@@ -21,6 +22,9 @@ public class Controller {
     private final Model model;
     private StateInterface currentState;
     private PaletteShapeButton activeButton;
+
+    private final Stack<CommandInterface> undoStack = new Stack<>();
+    private final Stack<CommandInterface> redoStack = new Stack<>();
 
     public static Controller getInstance() {
         if (controllerInstance == null) {
@@ -31,13 +35,33 @@ public class Controller {
 
     private Controller(){
         this.model = Model.getInstance();
-        this.currentState = new DefaultState(this);
+        this.currentState = new ClickState(this);
         this.currentState.activateState();
     }
 
     public void registerObserver(Observer observer){model.registerObserver(observer);}
 
-    public void executeCommand(CommandInterface commandInterface){commandInterface.execute();}
+    public void executeCommand(CommandInterface commandInterface){
+        commandInterface.execute();
+        undoStack.push(commandInterface);
+        redoStack.clear();
+    }
+
+    public void undo() {
+        if (!undoStack.isEmpty()) {
+            CommandInterface command = undoStack.pop();
+            command.unexecute();
+            redoStack.push(command);
+        }
+    }
+
+    public void redo() {
+        if (!redoStack.isEmpty()) {
+            CommandInterface command = redoStack.pop();
+            command.execute();
+            undoStack.push(command);
+        }
+    }
 
     public void createShape(ShapeAbstractClass shapeAbstractClass){executeCommand(new CreateShapeCommand(shapeAbstractClass));}
 
@@ -64,12 +88,12 @@ public class Controller {
         this.activeButton = button;
         this.activeButton.activate();
     }
-    public void setDefaultState() {
+    public void setClickState() {
         if (this.activeButton != null) {
             this.activeButton.deactivate();
         }
         this.activeButton = null;
-        setState(new DefaultState(this));
+        setState(new ClickState(this));
     }
 
     public PaletteShapeButton getActiveButton() {return this.activeButton;}

@@ -1,7 +1,5 @@
 package canvas.factory.shape;
 
-import canvas.model.shape.ShapeAbstractClass;
-
 import java.awt.event.MouseEvent;
 
 public interface ShapeCreatorInterface {

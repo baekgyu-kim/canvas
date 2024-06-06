@@ -14,6 +14,13 @@ public class UpdateShapeCommand implements CommandInterface {
 
     @Override
     public void execute() {
+        propertyDtoAbstractClass.backupCurrentState();
         model.updateShape(propertyDtoAbstractClass);
+    }
+
+    @Override
+    public void unexecute() {
+        propertyDtoAbstractClass.restoreBackupState();
+        model.notifyObserversAllShapes();
     }
 }

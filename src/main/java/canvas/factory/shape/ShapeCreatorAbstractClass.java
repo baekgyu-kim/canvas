@@ -1,7 +1,6 @@
 package canvas.factory.shape;
 
 import canvas.controller.Controller;
-import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.event.MouseEvent;
 

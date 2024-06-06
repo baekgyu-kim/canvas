@@ -1,12 +1,10 @@
 package canvas.model;
 
-
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.observer.Subject;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,16 +29,12 @@ public class Model implements Subject {
         }
         return modelInstance;
     }
+
     @Override
     public void registerObserver(Observer observer) {
         if (!observers.contains(observer)) {
             observers.add(observer);
         }
-    }
-
-    @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
     }
 
     @Override
@@ -61,8 +55,25 @@ public class Model implements Subject {
         allShapes.add(shape);
         notifyObserversAllShapes();
     }
+
     public void clearAllShapes() {
         allShapes.clear();
+        notifyObserversAllShapes();
+    }
+
+    public void removeOneShape(ShapeAbstractClass shape) {
+        if (!allShapes.contains(shape)) {
+            throw new NoSuchElementException();
+        }
+        allShapes.remove(shape);
+        notifyObserversAllShapes();
+    }
+
+    public void updateShape(PropertyDtoAbstractClass propertyDto) {
+        List<ShapeAbstractClass> clickedShapes = propertyDto.getClickedShapes();
+        for (ShapeAbstractClass shape : clickedShapes) {
+            propertyDto.applyPropertyUpdate(shape);
+        }
         notifyObserversAllShapes();
     }
 
@@ -81,14 +92,6 @@ public class Model implements Subject {
         notifyObserversClickedShapes();
     }
 
-
-    public void updateShape(PropertyDtoAbstractClass propertyDto) {
-        List<ShapeAbstractClass> clickedShapes = propertyDto.getClickedShapes();
-        for (ShapeAbstractClass shape : clickedShapes) {
-            propertyDto.applyPropertyUpdate(shape);
-        }
-        notifyObserversAllShapes();
-    }
 
     private ShapeAbstractClass findShapeById(int id) throws NoSuchElementException {
         for (ShapeAbstractClass shape : allShapes) {
