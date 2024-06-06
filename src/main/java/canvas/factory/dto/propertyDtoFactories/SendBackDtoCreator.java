@@ -1,6 +1,7 @@
 package canvas.factory.dto.propertyDtoFactories;
 
-import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.SendBackPropertyDto;
 import canvas.factory.dto.PropertyDtoCreatorAbstractClass;
 
 public class SendBackDtoCreator extends PropertyDtoCreatorAbstractClass {
@@ -9,7 +10,7 @@ public class SendBackDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto() {
-        ZOrderPropertyDto zOrderPropertyDto = new ZOrderPropertyDto(clickedShapes);
-        controller.sendBack(zOrderPropertyDto);
+        SendBackPropertyDto sendBackPropertyDto = new SendBackPropertyDto(clickedShapes);
+        controller.updateShape(sendBackPropertyDto);
     }
 }

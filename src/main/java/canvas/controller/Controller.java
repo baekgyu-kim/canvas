@@ -1,9 +1,11 @@
 package canvas.controller;
+import canvas.command.CommandInterface;
+import canvas.command.commands.ClearAllShapesCommand;
+import canvas.command.commands.CreateShapeCommand;
+import canvas.command.commands.UpdateShapeCommand;
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.Model;
-import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
 import canvas.state.defaultState.DefaultState;
 import canvas.state.StateInterface;
@@ -35,21 +37,17 @@ public class Controller {
 
     public void registerObserver(Observer observer){model.registerObserver(observer);}
 
-    public void removeObserver(Observer observer){model.removeObserver(observer);}
+    public void executeCommand(CommandInterface commandInterface){commandInterface.execute();}
 
-    public void createShape(ShapeAbstractClass shape){model.createShape(shape);}
+    public void createShape(ShapeAbstractClass shapeAbstractClass){executeCommand(new CreateShapeCommand(shapeAbstractClass));}
 
-    public void clearAllShapes() {model.clearAllShapes();}
+    public void clearAllShapes() {executeCommand(new ClearAllShapesCommand());}
+
+    public void updateShape(PropertyDtoAbstractClass propertyDtoAbstractClass){executeCommand(new UpdateShapeCommand(propertyDtoAbstractClass));}
 
     public void toggleShapeClick(int id){model.clickShape(id);}
 
     public void clearClicks(){model.clearClicks();}
-
-    public void updateShape(PropertyDtoAbstractClass propertyDto){model.updateShape(propertyDto);}
-
-    public void bringFront(ZOrderPropertyDto propertyDto) {model.bringFront(propertyDto);}
-
-    public void sendBack(ZOrderPropertyDto propertyDto) {model.sendBack(propertyDto);}
 
     public void setState(StateInterface state) {
         currentState.deactivateState();
@@ -57,9 +55,7 @@ public class Controller {
         currentState.activateState();
     }
 
-    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
-        currentState.handleMouseClick(e, allShapes);
-    }
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {currentState.handleMouseClick(e, allShapes);}
 
     public void setActiveButton(PaletteShapeButton button) {
         if (this.activeButton != null) {
@@ -82,7 +78,5 @@ public class Controller {
         return model.getAllShapes();
     }
 
-    public List<ShapeAbstractClass> getClickedShapes(){
-        return model.getClickedShapes();
-    }
+    public List<ShapeAbstractClass> getClickedShapes(){return model.getClickedShapes();}
 }

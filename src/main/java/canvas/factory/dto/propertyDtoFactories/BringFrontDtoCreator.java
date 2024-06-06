@@ -1,6 +1,6 @@
 package canvas.factory.dto.propertyDtoFactories;
 
-import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
+import canvas.dto.propertyDto.propertyDtos.BringFrontPropertyDto;
 import canvas.factory.dto.PropertyDtoCreatorAbstractClass;
 
 public class BringFrontDtoCreator extends PropertyDtoCreatorAbstractClass {
@@ -9,7 +9,7 @@ public class BringFrontDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto() {
-        ZOrderPropertyDto zOrderPropertyDto = new ZOrderPropertyDto(clickedShapes);
-        controller.bringFront(zOrderPropertyDto);
+        BringFrontPropertyDto bringFrontPropertyDto = new BringFrontPropertyDto(clickedShapes);
+        controller.updateShape(bringFrontPropertyDto);
     }
 }

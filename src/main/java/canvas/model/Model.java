@@ -2,7 +2,6 @@ package canvas.model;
 
 
 import canvas.dto.propertyDto.PropertyDtoAbstractClass;
-import canvas.dto.propertyDto.propertyDtos.ZOrderPropertyDto;
 import canvas.model.shape.ShapeAbstractClass;
 import canvas.model.shape.composite.ShapeComposite;
 import canvas.observer.Observer;
@@ -99,22 +98,6 @@ public class Model implements Subject {
         }
         throw new NoSuchElementException("No shape found with ID: " + id);
     }
-    public void bringFront(ZOrderPropertyDto dto) {
-        ShapeAbstractClass shape = dto.getShape();
-        if (allShapes.remove(shape)) {
-            allShapes.add(shape);
-            notifyObserversAllShapes();
-        }
-    }
-
-    public void sendBack(ZOrderPropertyDto dto) {
-        ShapeAbstractClass shape = dto.getShape();
-        if (allShapes.remove(shape)) {
-            allShapes.add(0, shape);
-            notifyObserversAllShapes();
-        }
-    }
-
     public List<ShapeAbstractClass> getAllShapes() {
         return allShapes;
     }
