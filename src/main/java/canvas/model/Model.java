@@ -77,10 +77,17 @@ public class Model implements Subject {
         notifyObserversAllShapes();
     }
 
-    public void restoreUpdate(PropertyDtoAbstractClass propertyDto){
-        propertyDto.restoreBackupState();
+    public void restoreShapes(List<ShapeAbstractClass> backupShapes) {
+        for (ShapeAbstractClass backupShape : backupShapes) {
+            for (ShapeAbstractClass shape : allShapes) {
+                if (shape.getId() == backupShape.getId()) {
+                    shape.restoreShape(backupShape);
+                }
+            }
+        }
         notifyObserversAllShapes();
     }
+
 
     public void clickShape(int id){
         ShapeAbstractClass shape = findShapeById(id);
