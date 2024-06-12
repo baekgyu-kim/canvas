@@ -11,20 +11,23 @@ import java.util.List;
 public class UpdateShapeCommand implements CommandInterface {
     private final PropertyDtoAbstractClass propertyDtoAbstractClass;
     private final Model model;
-    private List<ShapeAbstractClass> backupShapes;
+    private final List<ShapeAbstractClass> targetShapes;
+    private final List<ShapeAbstractClass> backupShapes;
 
     public UpdateShapeCommand(PropertyDtoAbstractClass propertyDtoAbstractClass){
         this.propertyDtoAbstractClass = propertyDtoAbstractClass;
         this.model = Model.getInstance();
+        this.targetShapes = new ArrayList<>(model.getClickedShapes());
+        this.backupShapes = new ArrayList<>();
     }
 
     @Override
     public void execute() {
-        backupShapes = new ArrayList<>();
-        for (ShapeAbstractClass shape : model.getClickedShapes()) {
+        backupShapes.clear();
+        for (ShapeAbstractClass shape : targetShapes) {
             backupShapes.add(shape.cloneShape());
         }
-        model.updateShape(propertyDtoAbstractClass, model.getClickedShapes());
+        model.updateShape(propertyDtoAbstractClass, targetShapes);
     }
 
     @Override
