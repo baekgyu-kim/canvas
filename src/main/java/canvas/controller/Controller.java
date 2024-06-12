@@ -74,13 +74,23 @@ public class Controller {
 
     public void clearClicks(){model.clearClicks();}
 
+    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {
+        currentState.handleMouseClick(e, allShapes);
+    }
+
     public void setState(StateInterface state) {
         currentState.deactivateState();
         this.currentState = state;
         currentState.activateState();
     }
 
-    public void handleMouseClick(MouseEvent e, ArrayList<ShapeAbstractClass> allShapes) {currentState.handleMouseClick(e, allShapes);}
+    public void setClickState() {
+        if (this.activeButton != null) {
+            this.activeButton.deactivate();
+        }
+        this.activeButton = null;
+        setState(new ClickState());
+    }
 
     public void setActiveButton(PaletteShapeButton button) {
         if (this.activeButton != null) {
@@ -88,13 +98,6 @@ public class Controller {
         }
         this.activeButton = button;
         this.activeButton.activate();
-    }
-    public void setClickState() {
-        if (this.activeButton != null) {
-            this.activeButton.deactivate();
-        }
-        this.activeButton = null;
-        setState(new ClickState(this));
     }
 
     public PaletteShapeButton getActiveButton() {return this.activeButton;}
