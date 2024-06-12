@@ -8,8 +8,8 @@ import java.util.List;
 
 public class SendBackPropertyDto extends PropertyDtoAbstractClass {
     Model model;
-    public SendBackPropertyDto(List<ShapeAbstractClass> clickedShapes) {
-        super(clickedShapes);
+    public SendBackPropertyDto() {
+        super();
         this.model = Model.getInstance();
     }
     @Override

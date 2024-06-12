@@ -9,7 +9,7 @@ public class BringFrontDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto() {
-        BringFrontPropertyDto bringFrontPropertyDto = new BringFrontPropertyDto(clickedShapes);
+        BringFrontPropertyDto bringFrontPropertyDto = new BringFrontPropertyDto();
         controller.updateShape(bringFrontPropertyDto);
     }
 }

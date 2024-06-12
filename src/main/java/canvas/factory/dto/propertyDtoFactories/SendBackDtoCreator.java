@@ -9,7 +9,7 @@ public class SendBackDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto() {
-        SendBackPropertyDto sendBackPropertyDto = new SendBackPropertyDto(clickedShapes);
+        SendBackPropertyDto sendBackPropertyDto = new SendBackPropertyDto();
         controller.updateShape(sendBackPropertyDto);
     }
 }

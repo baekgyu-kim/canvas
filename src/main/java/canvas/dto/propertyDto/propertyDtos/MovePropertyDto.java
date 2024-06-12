@@ -6,8 +6,8 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.util.List;
 
 public class MovePropertyDto extends PropertyDtoAbstractClass {
-    public MovePropertyDto(List<ShapeAbstractClass> clickedShapes, Integer newX, Integer newY) {
-        super(clickedShapes, newX, newY);
+    public MovePropertyDto(Integer newX, Integer newY) {
+        super(newX, newY);
     }
 
     @Override

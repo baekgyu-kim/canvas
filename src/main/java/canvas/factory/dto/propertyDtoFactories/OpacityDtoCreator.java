@@ -10,7 +10,7 @@ public class OpacityDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto(int newOpacity) {
-        PropertyDtoAbstractClass opacityPropertyDto = new OpacityPropertyDto(clickedShapes, newOpacity);
+        PropertyDtoAbstractClass opacityPropertyDto = new OpacityPropertyDto(newOpacity);
         controller.updateShape(opacityPropertyDto);
     }
 }

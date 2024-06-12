@@ -10,7 +10,7 @@ public class ResizeDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto(int newWidth, int newHeight) {
-        PropertyDtoAbstractClass resizePropertyDto = new ResizePropertyDto(clickedShapes, newWidth, newHeight);
+        PropertyDtoAbstractClass resizePropertyDto = new ResizePropertyDto(newWidth, newHeight);
         controller.updateShape(resizePropertyDto);
     }
 }

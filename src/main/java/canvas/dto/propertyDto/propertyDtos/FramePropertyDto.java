@@ -6,8 +6,8 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.util.List;
 
 public class FramePropertyDto extends PropertyDtoAbstractClass {
-    public FramePropertyDto(List<ShapeAbstractClass> clickedShapes, Boolean hasFrame) {
-        super(clickedShapes, hasFrame);
+    public FramePropertyDto(Boolean hasFrame) {
+        super(hasFrame);
     }
     @Override
     public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {

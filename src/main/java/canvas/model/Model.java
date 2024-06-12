@@ -69,9 +69,8 @@ public class Model implements Subject {
         notifyObserversAllShapes();
     }
 
-    public void updateShape(PropertyDtoAbstractClass propertyDto) {
-        List<ShapeAbstractClass> clickedShapes = propertyDto.getClickedShapes();
-        for (ShapeAbstractClass shape : clickedShapes) {
+    public void updateShape(PropertyDtoAbstractClass propertyDto, List<ShapeAbstractClass> targetShapes) {
+        for (ShapeAbstractClass shape : targetShapes) {
             propertyDto.applyPropertyUpdate(shape);
         }
         notifyObserversAllShapes();

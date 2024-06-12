@@ -6,8 +6,8 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.util.List;
 
 public class ResizePropertyDto extends PropertyDtoAbstractClass {
-    public ResizePropertyDto(List<ShapeAbstractClass> clickedShapes, Integer newWidth, Integer newHeight) {
-        super(clickedShapes, newWidth, newHeight);
+    public ResizePropertyDto(Integer newWidth, Integer newHeight) {
+        super(newWidth, newHeight);
     }
 
     @Override

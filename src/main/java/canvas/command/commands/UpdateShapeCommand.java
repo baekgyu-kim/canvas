@@ -21,10 +21,10 @@ public class UpdateShapeCommand implements CommandInterface {
     @Override
     public void execute() {
         backupShapes = new ArrayList<>();
-        for (ShapeAbstractClass shape : propertyDtoAbstractClass.getClickedShapes()) {
+        for (ShapeAbstractClass shape : model.getClickedShapes()) {
             backupShapes.add(shape.cloneShape());
         }
-        model.updateShape(propertyDtoAbstractClass);
+        model.updateShape(propertyDtoAbstractClass, model.getClickedShapes());
     }
 
     @Override

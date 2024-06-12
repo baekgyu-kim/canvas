@@ -8,8 +8,8 @@ import java.util.List;
 
 public class BringFrontPropertyDto extends PropertyDtoAbstractClass {
     Model model;
-    public BringFrontPropertyDto(List<ShapeAbstractClass> clickedShapes) {
-        super(clickedShapes);
+    public BringFrontPropertyDto() {
+        super();
         this.model = Model.getInstance();
     }
     @Override

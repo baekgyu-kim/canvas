@@ -7,8 +7,8 @@ import java.awt.*;
 import java.util.List;
 
 public class ColorPropertyDto extends PropertyDtoAbstractClass {
-    public ColorPropertyDto(List<ShapeAbstractClass> clickedShapes, Color color) {
-        super(clickedShapes, color);
+    public ColorPropertyDto(Color color) {
+        super(color);
     }
 
     @Override

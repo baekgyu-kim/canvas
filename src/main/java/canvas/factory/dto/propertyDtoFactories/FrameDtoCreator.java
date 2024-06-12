@@ -10,7 +10,7 @@ public class FrameDtoCreator extends PropertyDtoCreatorAbstractClass {
     }
     @Override
     public void createPropertyDto(Boolean newFrame) {
-        PropertyDtoAbstractClass framePropertyDto = new FramePropertyDto(clickedShapes, newFrame);
+        PropertyDtoAbstractClass framePropertyDto = new FramePropertyDto(newFrame);
         controller.updateShape(framePropertyDto);
     }
 }

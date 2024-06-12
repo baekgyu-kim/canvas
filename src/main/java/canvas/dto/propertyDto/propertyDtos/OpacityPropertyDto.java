@@ -6,8 +6,8 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.util.List;
 
 public class OpacityPropertyDto extends PropertyDtoAbstractClass {
-    public OpacityPropertyDto(List<ShapeAbstractClass> clickedShapes, Integer newOpacity) {
-        super(clickedShapes, newOpacity);
+    public OpacityPropertyDto(Integer newOpacity) {
+        super(newOpacity);
     }
 
     @Override

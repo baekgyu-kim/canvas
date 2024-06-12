@@ -6,8 +6,8 @@ import canvas.model.shape.ShapeAbstractClass;
 import java.util.List;
 
 public class ShadowPropertyDto extends  PropertyDtoAbstractClass {
-    public ShadowPropertyDto(List<ShapeAbstractClass> clickedShapes, Boolean hasShadow) {
-        super(clickedShapes, hasShadow);
+    public ShadowPropertyDto(Boolean hasShadow) {
+        super(hasShadow);
     }
     @Override
     public void applyPropertyUpdate(ShapeAbstractClass shapeAbstractClass) {
