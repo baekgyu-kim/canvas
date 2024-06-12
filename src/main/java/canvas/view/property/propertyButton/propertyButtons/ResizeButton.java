@@ -75,7 +75,7 @@ public class ResizeButton extends PropertyButton {
     private void onUpdate() {
         this.clickedShapes = controller.getClickedShapes();
         if(clickedShapes == null){
-            throw new NullPointerException("shapeComposite is null");
+            throw new NullPointerException("clickedShapes is null");
         }
         if(clickedShapes.size() == 1){
             this.currentWidth = clickedShapes.get(0).getWidth();
