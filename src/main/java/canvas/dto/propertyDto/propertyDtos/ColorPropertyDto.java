@@ -4,7 +4,6 @@ import canvas.dto.propertyDto.PropertyDtoAbstractClass;
 import canvas.model.shape.ShapeAbstractClass;
 
 import java.awt.*;
-import java.util.List;
 
 public class ColorPropertyDto extends PropertyDtoAbstractClass {
     public ColorPropertyDto(Color color) {
