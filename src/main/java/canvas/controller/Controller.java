@@ -45,7 +45,6 @@ public class Controller {
     public void executeCommand(CommandInterface commandInterface){
         commandInterface.execute();
         undoStack.push(commandInterface);
-        redoStack.clear();
     }
 
     public void undo() {
