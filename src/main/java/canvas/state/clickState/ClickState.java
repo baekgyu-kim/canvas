@@ -12,8 +12,8 @@ public class ClickState implements StateInterface {
     protected Controller controller;
     protected List<ShapeAbstractClass> allShapes;
 
-    public ClickState(){
-        this.controller = Controller.getInstance();
+    public ClickState(Controller controller){
+        this.controller = controller;
     }
 
     @Override

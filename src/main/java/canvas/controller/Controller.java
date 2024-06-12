@@ -36,7 +36,7 @@ public class Controller {
 
     private Controller(){
         this.model = Model.getInstance();
-        this.currentState = new ClickState();
+        this.currentState = new ClickState(this);
         this.currentState.activateState();
     }
 
@@ -89,7 +89,7 @@ public class Controller {
             this.activeButton.deactivate();
         }
         this.activeButton = null;
-        setState(new ClickState());
+        setState(new ClickState(this));
     }
 
     public void setActiveButton(PaletteShapeButton button) {
