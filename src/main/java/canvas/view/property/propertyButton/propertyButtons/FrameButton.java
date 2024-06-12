@@ -51,29 +51,6 @@ public class FrameButton extends PropertyButton {
         propertyDtoCreatorInterface.createPropertyDto(newFrame);
     }
 
-    @Override
-    public void onUpdateAllShapes(){
-        onUpdate();
-    }
-
-    @Override
-    public void onUpdateClickedShapes() {
-        onUpdate();
-    }
-
-    private void onUpdate() {
-        this.clickedShapes = controller.getClickedShapes();
-        if (clickedShapes == null) {
-            throw new NullPointerException("clickedShapes is null");
-        }
-        if (clickedShapes.size() == 1) {
-            this.hasFrame = clickedShapes.get(0).getFrame();
-        } else {
-            this.hasFrame = null;
-        }
-        setRadioButtonState();
-    }
-
     private void setRadioButtonState() {
         if (hasFrame == null) {
             activateFrameButton.setSelected(false);

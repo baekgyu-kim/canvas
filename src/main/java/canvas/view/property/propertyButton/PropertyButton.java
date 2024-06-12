@@ -3,14 +3,13 @@ package canvas.view.property.propertyButton;
 import canvas.controller.Controller;
 import canvas.factory.dto.PropertyDtoCreatorInterface;
 import canvas.model.shape.ShapeAbstractClass;
-import canvas.observer.Observer;
 
 import javax.swing.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.List;
 
-public abstract class PropertyButton extends JButton implements Observer {
+public abstract class PropertyButton extends JButton{
     protected List<ShapeAbstractClass> clickedShapes;
     protected Controller controller;
     protected PropertyDtoCreatorInterface propertyDtoCreatorInterface;
@@ -18,18 +17,12 @@ public abstract class PropertyButton extends JButton implements Observer {
     public PropertyButton() {
         this.controller = Controller.getInstance();
         this.clickedShapes = controller.getClickedShapes();
-        controller.registerObserver(this);
     }
 
     public void initializeButton(String text) {
         setText(text);
         setVisible(true);
     }
-
-    @Override
-    public void onUpdateAllShapes() {}
-    @Override
-    public void onUpdateClickedShapes() {}
 
     protected static void setPlaceholder(JTextField textField, String placeholder) {
         textField.addFocusListener(new FocusListener() {

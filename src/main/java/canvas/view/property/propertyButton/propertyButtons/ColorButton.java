@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ColorButton extends PropertyButton {
-    private Color currentColor = Color.BLACK;
+    private final Color currentColor = Color.BLACK;
     public ColorButton() {
         super();
         this.propertyDtoCreatorInterface = new ColorDtoCreator();
@@ -27,26 +27,6 @@ public class ColorButton extends PropertyButton {
             return;
         }
         propertyDtoCreatorInterface.createPropertyDto(newColor);
-    }
-
-    @Override
-    public void onUpdateAllShapes(){
-        onUpdate();
-    }
-
-    @Override
-    public void onUpdateClickedShapes() {
-        onUpdate();
-    }
-
-    private void onUpdate(){
-        this.clickedShapes = controller.getClickedShapes();
-        if(clickedShapes == null){
-            throw new NullPointerException("clickedShapes is null");
-        }
-        if(clickedShapes.size() == 1){
-            this.currentColor = clickedShapes.get(0).getColor();
-        }
     }
 
 }

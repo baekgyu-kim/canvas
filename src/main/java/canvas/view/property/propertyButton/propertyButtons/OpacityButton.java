@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class OpacityButton extends PropertyButton {
-    private Integer currentOpacity = 100;
+    private final Integer currentOpacity = 100;
 
     public OpacityButton() {
         super();
@@ -51,27 +51,6 @@ public class OpacityButton extends PropertyButton {
         }
         propertyDtoCreatorInterface.createPropertyDto(newOpacity);
     }
-
-    @Override
-    public void onUpdateAllShapes(){
-        onUpdate();
-    }
-
-    @Override
-    public void onUpdateClickedShapes() {
-        onUpdate();
-    }
-
-    private void onUpdate(){
-        this.clickedShapes = controller.getClickedShapes();
-        if(clickedShapes == null){
-            throw new NullPointerException("clickedShapes is null");
-        }
-        if(clickedShapes.size() == 1){
-            this.currentOpacity = clickedShapes.get(0).getOpacity();
-        }
-    }
-
 
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
         ResizeButton.setPlaceholder(textField, placeholder);

@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ResizeButton extends PropertyButton {
-    private Integer currentWidth = 0;
-    private Integer currentHeight = 0;
+    private final Integer currentWidth = 0;
+    private final Integer currentHeight = 0;
 
     public ResizeButton() {
         super();
@@ -26,7 +26,6 @@ public class ResizeButton extends PropertyButton {
             JTextField heightField = new JTextField(heightPlaceholder, 5);
             panel.add(heightField);
 
-            // Add focus listeners to clear placeholders on focus
             addPlaceholderFocusListener(widthField, widthPlaceholder);
             addPlaceholderFocusListener(heightField, heightPlaceholder);
 
@@ -60,27 +59,6 @@ public class ResizeButton extends PropertyButton {
             return;
         }
         propertyDtoCreatorInterface.createPropertyDto(newWidth, newHeight);
-    }
-
-    @Override
-    public void onUpdateAllShapes(){
-        onUpdate();
-    }
-
-    @Override
-    public void onUpdateClickedShapes() {
-        onUpdate();
-    }
-
-    private void onUpdate() {
-        this.clickedShapes = controller.getClickedShapes();
-        if(clickedShapes == null){
-            throw new NullPointerException("clickedShapes is null");
-        }
-        if(clickedShapes.size() == 1){
-            this.currentWidth = clickedShapes.get(0).getWidth();
-            this.currentHeight = clickedShapes.get(0).getHeight();
-        }
     }
 
 

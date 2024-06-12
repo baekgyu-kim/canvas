@@ -51,29 +51,6 @@ public class ShadowButton extends PropertyButton {
         propertyDtoCreatorInterface.createPropertyDto(newShadow);
     }
 
-    @Override
-    public void onUpdateAllShapes(){
-        onUpdate();
-    }
-
-    @Override
-    public void onUpdateClickedShapes() {
-        onUpdate();
-    }
-
-    private void onUpdate() {
-        this.clickedShapes = controller.getClickedShapes();
-        if (clickedShapes == null) {
-            throw new NullPointerException("clickedShapes is null");
-        }
-        if (clickedShapes.size() == 1) {
-            this.hasShadow = clickedShapes.get(0).getShadow();
-        } else {
-            this.hasShadow = null;
-        }
-        setRadioButtonState();
-    }
-
 
     private void setRadioButtonState() {
         if (hasShadow == null) {
