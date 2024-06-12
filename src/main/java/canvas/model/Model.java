@@ -78,11 +78,8 @@ public class Model implements Subject {
 
     public void restoreShapes(List<ShapeAbstractClass> backupShapes) {
         for (ShapeAbstractClass backupShape : backupShapes) {
-            for (ShapeAbstractClass shape : allShapes) {
-                if (shape.getId() == backupShape.getId()) {
-                    shape.restoreShape(backupShape);
-                }
-            }
+            ShapeAbstractClass shape = findShapeById(backupShape.getId());
+            shape.restoreShape(backupShape);
         }
         notifyObserversAllShapes();
     }
