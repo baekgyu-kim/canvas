@@ -36,7 +36,7 @@ public class Controller {
 
     private Controller(){
         this.model = Model.getInstance();
-        this.currentState = new ClickState(this);
+        this.currentState = new ClickState();
         this.currentState.activateState();
     }
 
