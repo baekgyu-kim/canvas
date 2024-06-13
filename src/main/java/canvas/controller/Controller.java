@@ -42,10 +42,7 @@ public class Controller {
 
     public void registerObserver(Observer observer){model.registerObserver(observer);}
 
-    public void executeCommand(CommandInterface commandInterface){
-        commandInterface.execute();
-        undoStack.push(commandInterface);
-    }
+
 
     public void undo() {
         if (!undoStack.isEmpty()) {
@@ -63,11 +60,20 @@ public class Controller {
         }
     }
 
-    public void createShape(ShapeAbstractClass shapeAbstractClass){executeCommand(new CreateShapeCommand(shapeAbstractClass));}
+    private void executeCommand(CommandInterface commandInterface){
+        commandInterface.execute();
+        undoStack.push(commandInterface);
+    }
 
-    public void clearAllShapes() {executeCommand(new ClearAllShapesCommand());}
-
-    public void updateShape(PropertyDtoAbstractClass propertyDtoAbstractClass){executeCommand(new UpdateShapeCommand(propertyDtoAbstractClass));}
+    public void createShape(ShapeAbstractClass shapeAbstractClass){
+        executeCommand(new CreateShapeCommand(shapeAbstractClass));
+    }
+    public void clearAllShapes() {
+        executeCommand(new ClearAllShapesCommand());
+    }
+    public void updateShape(PropertyDtoAbstractClass propertyDtoAbstractClass){
+        executeCommand(new UpdateShapeCommand(propertyDtoAbstractClass));
+    }
 
     public void toggleShapeClick(int id){model.clickShape(id);}
 
