@@ -12,12 +12,13 @@ public class ShapeComposite  {
     public void remove(ShapeAbstractClass shape) { children.remove(shape);}
     public void clear() {children.clear();}
 
-    public boolean is_shape_in_composite(int id) {
+    public boolean is_shape_clicked(int id) {
         for (ShapeAbstractClass child : children) {
             if (child.getId() == id) {
                 return true;
             }
         }
+
         return false;
     }
 

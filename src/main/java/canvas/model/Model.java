@@ -87,7 +87,7 @@ public class Model implements Subject {
 
     public void clickShape(int id){
         ShapeAbstractClass shape = findShapeById(id);
-        if (clickedShapesComposite.is_shape_in_composite(id)) {
+        if (clickedShapesComposite.is_shape_clicked(id)) {
             clickedShapesComposite.remove(shape);
         } else{
             clickedShapesComposite.add(shape);
