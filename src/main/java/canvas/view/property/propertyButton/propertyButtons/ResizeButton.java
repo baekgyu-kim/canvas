@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ResizeButton extends PropertyButton {
-    private final Integer currentWidth = 0;
-    private final Integer currentHeight = 0;
+    private Integer currentWidth = 0;
+    private Integer currentHeight = 0;
 
     public ResizeButton() {
         super();
@@ -64,5 +64,25 @@ public class ResizeButton extends PropertyButton {
 
     private void addPlaceholderFocusListener(JTextField textField, String placeholder) {
         setPlaceholder(textField, placeholder);
+    }
+    @Override
+    public void onUpdateAllShapes(){
+        onUpdate();
+    }
+
+    @Override
+    public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate() {
+        this.clickedShapes = controller.getClickedShapes();
+        if(clickedShapes == null){
+            throw new NullPointerException("clickedShapes is null");
+        }
+        if(clickedShapes.size() == 1){
+            this.currentWidth = clickedShapes.get(0).getWidth();
+            this.currentHeight = clickedShapes.get(0).getHeight();
+        }
     }
 }

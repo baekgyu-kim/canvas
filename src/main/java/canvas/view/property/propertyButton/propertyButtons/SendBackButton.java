@@ -24,5 +24,9 @@ public class SendBackButton extends PropertyButton {
         }
         propertyDtoCreatorInterface.createPropertyDto();
     }
+    @Override
+    public void onUpdateClickedShapes() {
+        this.clickedShapes = controller.getClickedShapes();
+    }
 
 }

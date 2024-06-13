@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MoveButton extends PropertyButton {
-    private final Integer currentXPos = 0;
-    private final Integer currentYPos = 0;
+    private Integer currentXPos = 0;
+    private Integer currentYPos = 0;
 
     public MoveButton() {
         super();
@@ -65,4 +65,24 @@ public class MoveButton extends PropertyButton {
         ResizeButton.setPlaceholder(textField, placeholder);
     }
 
+    @Override
+    public void onUpdateAllShapes(){
+        onUpdate();
+    }
+
+    @Override
+    public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate() {
+        this.clickedShapes = controller.getClickedShapes();
+        if(clickedShapes == null){
+            throw new NullPointerException("clickedShapes is null");
+        }
+        if(clickedShapes.size() == 1){
+            this.currentXPos = clickedShapes.get(0).getXPos();
+            this.currentYPos = clickedShapes.get(0).getYPos();
+        }
+    }
 }

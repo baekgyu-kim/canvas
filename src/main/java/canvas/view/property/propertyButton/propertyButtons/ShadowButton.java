@@ -62,4 +62,26 @@ public class ShadowButton extends PropertyButton {
             deactivateShadowButton.setSelected(true);
         }
     }
+    @Override
+    public void onUpdateAllShapes(){
+        onUpdate();
+    }
+
+    @Override
+    public void onUpdateClickedShapes() {
+        onUpdate();
+    }
+
+    private void onUpdate() {
+        this.clickedShapes = controller.getClickedShapes();
+        if (clickedShapes == null) {
+            throw new NullPointerException("clickedShapes is null");
+        }
+        if (clickedShapes.size() == 1) {
+            this.hasShadow = clickedShapes.get(0).getShadow();
+        } else {
+            this.hasShadow = null;
+        }
+        setRadioButtonState();
+    }
 }
