@@ -1,6 +1,7 @@
 # Practice SW Project (COSE457)
 
-## Project Objective
+## Intro
+### Objective
 
 The objective of this project is to practically implement various design patterns.
 
