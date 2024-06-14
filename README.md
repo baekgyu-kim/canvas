@@ -1,15 +1,27 @@
-# 실전SW프로젝트(COSE457) 과제
+# Practice SW Project (COSE457)
 
-## 개발팀원
+## Project Objective
 
-- **김백규**  
-  [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?&logo=GitHub&logoColor=white&style=for-the-badge&link=https://github.com/baekgyu-kim)](https://github.com/baekgyu-kim)
-- **최두현**  
-  [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?&logo=GitHub&logoColor=white&style=for-the-badge&link=https://github.com/Durn02)](https://github.com/Durn02)
+The objective of this project is to practically implement various design patterns.
 
-## 커밋 규칙
+### Implemented Design Patterns
 
-커밋 메세지는 다음과 같은 형식으로 작성합니다.
+- Observer pattern
+- State pattern
+- Factory pattern
+- Command pattern
+- Decorator pattern
+- Singleton pattern
+
+## Libraries and Version Information
+
+- **Java**: 17
+- **Gradle**: 8.4
+- **Graphics Library**: Java Swing
+
+## Commit Message Guidelines
+
+Commit messages should follow the format below:
 
 ```
 Activity: Commit Message
@@ -28,3 +40,10 @@ Activity: Commit Message
     -   `int: initial commit`
     -   `add: prettier and eslint`
     -   `rfc: refactoring code by prettier`
+
+## Team Members
+
+- **김백규**  
+  [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?&logo=GitHub&logoColor=white&style=for-the-badge&link=https://github.com/baekgyu-kim)](https://github.com/baekgyu-kim)
+- **최두현**  
+  [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?&logo=GitHub&logoColor=white&style=for-the-badge&link=https://github.com/Durn02)](https://github.com/Durn02)
