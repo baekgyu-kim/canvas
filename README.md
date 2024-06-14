@@ -43,8 +43,6 @@ Activity: Commit Message
     -   `rfc: refactoring code by prettier`
 
 ## Team Members
-
-- **김백규**  
-  [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?&logo=GitHub&logoColor=white&style=for-the-badge&link=https://github.com/baekgyu-kim)](https://github.com/baekgyu-kim)
-- **최두현**  
-  [![GitHub Badge](https://img.shields.io/badge/GitHub-181717?&logo=GitHub&logoColor=white&style=for-the-badge&link=https://github.com/Durn02)](https://github.com/Durn02)
+### Mar.2024 - Jun.2024
+- [**김백규**](https://github.com/baekgyu-kim)
+- [**최두현**](https://github.com/Durn02)
